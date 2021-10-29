@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BFAED842-C46B-4C70-8130-3B6EB5519CCA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RestaurantManagementApp</RootNamespace>
+    <AssemblyName>RestaurantManagementApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elasticsearch.Net, Version=7.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elasticsearch.Net.7.15.0\lib\net461\Elasticsearch.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessTier\AlimentSizeBusinessTier.cs" />
+    <Compile Include="BusinessTier\AlimentTypeBusinessTier.cs" />
+    <Compile Include="BusinessTier\InvoiceBusinessTier.cs" />
+    <Compile Include="BusinessTier\InvoiceDetailsBusinessTier.cs" />
+    <Compile Include="BusinessTier\RoleBusinessTier.cs" />
+    <Compile Include="BusinessTier\AlimentBusinessTier.cs" />
+    <Compile Include="BusinessTier\TableBusinessTier.cs" />
+    <Compile Include="BusinessTier\UserBusinessTier.cs" />
+    <Compile Include="Custom\_AlimentBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom\_AlimentBar.Designer.cs">
+      <DependentUpon>_AlimentBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\_AlimentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom\_AlimentCard.Designer.cs">
+      <DependentUpon>_AlimentCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\_Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom\_Combobox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom\_Combobox.Designer.cs">
+      <DependentUpon>_Combobox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\_DateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom\_RadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom\_TableCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom\_TableCard.Designer.cs">
+      <DependentUpon>_TableCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\_TextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom\_TextBox.Designer.cs">
+      <DependentUpon>_TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\_ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataTier\AlimentDataTier.cs" />
+    <Compile Include="DataTier\AlimentSizeDataTier.cs" />
+    <Compile Include="DataTier\AlimentTypeDataTier.cs" />
+    <Compile Include="DataTier\InvoiceDataTier.cs" />
+    <Compile Include="DataTier\InvoiceDetailsDataTier.cs" />
+    <Compile Include="DataTier\RoleDataTier.cs" />
+    <Compile Include="DataTier\TableDataTier.cs" />
+    <Compile Include="DataTier\UserDataTier.cs" />
+    <Compile Include="GUI\AddAliment_PopupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AddAliment_PopupScreen.Designer.cs">
+      <DependentUpon>AddAliment_PopupScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\AddUser_PopupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AddUser_PopupScreen.Designer.cs">
+      <DependentUpon>AddUser_PopupScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\AdminScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AdminScreen.Designer.cs">
+      <DependentUpon>AdminScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChangeInfo_PopupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChangeInfo_PopupScreen.Designer.cs">
+      <DependentUpon>ChangeInfo_PopupScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChefInfomation_PopupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChefInfomation_PopupScreen.Designer.cs">
+      <DependentUpon>ChefInfomation_PopupScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChefScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChefScreen.Designer.cs">
+      <DependentUpon>ChefScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Dashboard_ChildScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dashboard_ChildScreen.Designer.cs">
+      <DependentUpon>Dashboard_ChildScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Order_PopupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Order_PopupScreen.Designer.cs">
+      <DependentUpon>Order_PopupScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Payment_PopupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Payment_PopupScreen.Designer.cs">
+      <DependentUpon>Payment_PopupScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Report_PopupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Report_PopupScreen.Designer.cs">
+      <DependentUpon>Report_PopupScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\User_ChildScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\User_ChildScreen.Designer.cs">
+      <DependentUpon>User_ChildScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EmployeeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\EmployeeScreen.Designer.cs">
+      <DependentUpon>EmployeeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Home_ChildScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Home_ChildScreen.Designer.cs">
+      <DependentUpon>Home_ChildScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LoginScreen.Designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Aliment_ChildScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Aliment_ChildScreen.Designer.cs">
+      <DependentUpon>Aliment_ChildScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\InvoiceStatistical_ChildScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\InvoiceStatistical_ChildScreen.Designer.cs">
+      <DependentUpon>InvoiceStatistical_ChildScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Aliment.cs" />
+    <Compile Include="Model\AlimentSize.cs" />
+    <Compile Include="Model\AlimentType.cs" />
+    <Compile Include="Model\Context.cs" />
+    <Compile Include="Model\Invoice.cs" />
+    <Compile Include="Model\InvoiceDetail.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\Table.cs" />
+    <Compile Include="Model\Top5Drink.cs" />
+    <Compile Include="Model\Top5Food.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UtilityMethod\IRemoveFlicker.cs" />
+    <Compile Include="UtilityMethod\Utility.cs" />
+    <EmbeddedResource Include="Custom\_AlimentBar.resx">
+      <DependentUpon>_AlimentBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom\_AlimentCard.resx">
+      <DependentUpon>_AlimentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom\_TableCard.resx">
+      <DependentUpon>_TableCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom\_TextBox.resx">
+      <DependentUpon>_TextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AddAliment_PopupScreen.resx">
+      <DependentUpon>AddAliment_PopupScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AddUser_PopupScreen.resx">
+      <DependentUpon>AddUser_PopupScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AdminScreen.resx">
+      <DependentUpon>AdminScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChangeInfo_PopupScreen.resx">
+      <DependentUpon>ChangeInfo_PopupScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChefInfomation_PopupScreen.resx">
+      <DependentUpon>ChefInfomation_PopupScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChefScreen.resx">
+      <DependentUpon>ChefScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Dashboard_ChildScreen.resx">
+      <DependentUpon>Dashboard_ChildScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\EmployeeScreen.resx">
+      <DependentUpon>EmployeeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Order_PopupScreen.resx">
+      <DependentUpon>Order_PopupScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Report_PopupScreen.resx">
+      <DependentUpon>Report_PopupScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\User_ChildScreen.resx">
+      <DependentUpon>User_ChildScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Home_ChildScreen.resx">
+      <DependentUpon>Home_ChildScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Aliment_ChildScreen.resx">
+      <DependentUpon>Aliment_ChildScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\InvoiceStatistical_ChildScreen.resx">
+      <DependentUpon>InvoiceStatistical_ChildScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report\InvoicesReport.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaximizeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Statistical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendarDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendarWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_free.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_pending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing.Imaging;
+
+namespace RestaurantManagementApp.UtilityMethod
+{
+    public class Utility
+    {
+        public readonly static string VERSION = "VERSION 1.0";
+        public readonly static string IMAGE_ALIMENT_PATH = @"D:\IMAGESERVER\Aliment\";
+        public readonly static string IMAGE_USER_PATH = @"D:\IMAGESERVER\Aliment\";
+        public readonly static string IMAGE_EXTENSION = ".jpeg";
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        public static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     
+            int nTopRect,      
+            int nRightRect,    
+            int nBottomRect,   
+            int nWidthEllipse, 
+            int nHeightEllipse 
+        );
+
+        [DllImport("User32.dll")]
+        public static extern void ReleaseCapture();
+        [DllImport("User32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        public static string MD5Hash(string text)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+            byte[] result = md5.Hash;
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < result.Length; i++)
+            {
+                strBuilder.Append(result[i].ToString("x2"));
+            }
+            return strBuilder.ToString();
+        }
+
+        public static void EnableDoubleBuff(Control cont)
+        {
+            PropertyInfo DemoProp = typeof(Control).GetProperty("DoubleBuffered", BindingFlags.NonPublic | BindingFlags.Instance);
+            DemoProp.SetValue(cont, true, null);
+        }
+
+        public struct RGBColors
+        {
+            public static Color Color1 = Color.FromArgb(172, 126, 241);
+            public static Color Color2 = Color.FromArgb(249, 118, 176);
+            public static Color Color3 = Color.FromArgb(253, 138, 114);
+            public static Color Color4 = Color.FromArgb(95, 77, 251);
+        }
+
+        public static Image Base64ToImage(string base64String)
+        {
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+            {
+                Image image = Image.FromStream(ms, true);
+                return image;
+            }
+        }
+
+        public static string ImageToBase64(Image image, ImageFormat format)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, format);
+                byte[] imageBytes = ms.ToArray();
+                string base64String = Convert.ToBase64String(imageBytes);
+                return base64String;
+            }
+        }
+    }
+}
