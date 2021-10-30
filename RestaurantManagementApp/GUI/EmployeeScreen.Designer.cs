@@ -29,6 +29,7 @@ namespace RestaurantManagementApp.GUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,23 +51,24 @@ namespace RestaurantManagementApp.GUI
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtCardID = new RestaurantManagementApp.Custom._TextBox();
+            this.txtGender = new RestaurantManagementApp.Custom._TextBox();
+            this.txtDate = new RestaurantManagementApp.Custom._TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtFullName = new RestaurantManagementApp.Custom._TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.btnChangeInfo = new RestaurantManagementApp.Custom._Button();
+            this.btnLogout = new RestaurantManagementApp.Custom._Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.txtCardID = new RestaurantManagementApp.Custom._TextBox();
-            this.txtGender = new RestaurantManagementApp.Custom._TextBox();
-            this.txtDate = new RestaurantManagementApp.Custom._TextBox();
-            this.txtFullName = new RestaurantManagementApp.Custom._TextBox();
-            this.btnChangeInfo = new RestaurantManagementApp.Custom._Button();
-            this.btnLogout = new RestaurantManagementApp.Custom._Button();
             this._Button2 = new RestaurantManagementApp.Custom._Button();
             this._Button1 = new RestaurantManagementApp.Custom._Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.timerEmployee = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -380,108 +382,6 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel4.Size = new System.Drawing.Size(272, 204);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Họ Tên";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 40);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "NTNS";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 40);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Giới Tính";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 40);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Số CMND";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.btnChangeInfo);
-            this.panel11.Controls.Add(this.btnLogout);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(3, 213);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(272, 64);
-            this.panel11.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(61, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(232, 22);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "THÔNG TIN NHÂN VIÊN";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.panel10);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 615);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(837, 102);
-            this.panel8.TabIndex = 3;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this._Button2);
-            this.panel10.Controls.Add(this._Button1);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(837, 72);
-            this.panel10.TabIndex = 1;
-            // 
-            // panel9
-            // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 72);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(837, 30);
-            this.panel9.TabIndex = 0;
-            // 
             // txtCardID
             // 
             this.txtCardID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -560,6 +460,58 @@ namespace RestaurantManagementApp.GUI
             this.txtDate.Texts = "";
             this.txtDate.UnderlinedStyle = false;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 40);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Họ Tên";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 40);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "NTNS";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 40);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Giới Tính";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 40);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Số CMND";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // txtFullName
             // 
             this.txtFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -585,6 +537,16 @@ namespace RestaurantManagementApp.GUI
             this.txtFullName.TabIndex = 4;
             this.txtFullName.Texts = "";
             this.txtFullName.UnderlinedStyle = false;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btnChangeInfo);
+            this.panel11.Controls.Add(this.btnLogout);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(3, 213);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(272, 64);
+            this.panel11.TabIndex = 3;
             // 
             // btnChangeInfo
             // 
@@ -628,6 +590,38 @@ namespace RestaurantManagementApp.GUI
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(61, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(232, 22);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "THÔNG TIN NHÂN VIÊN";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 615);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(837, 102);
+            this.panel8.TabIndex = 3;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this._Button2);
+            this.panel10.Controls.Add(this._Button1);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(837, 72);
+            this.panel10.TabIndex = 1;
+            // 
             // _Button2
             // 
             this._Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -668,6 +662,20 @@ namespace RestaurantManagementApp.GUI
             this._Button1.TextColor = System.Drawing.Color.White;
             this._Button1.UseVisualStyleBackColor = false;
             // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(0, 72);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(837, 30);
+            this.panel9.TabIndex = 0;
+            // 
+            // timerEmployee
+            // 
+            this.timerEmployee.Enabled = true;
+            this.timerEmployee.Interval = 5000;
+            this.timerEmployee.Tick += new System.EventHandler(this.timerEmployee_Tick);
+            // 
             // EmployeeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -678,7 +686,6 @@ namespace RestaurantManagementApp.GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeScreen";
             this.Text = "EmployeeScreen";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeScreen_FormClosed);
             this.Load += new System.EventHandler(this.EmployeeScreen_Load);
             this.panel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -743,5 +750,6 @@ namespace RestaurantManagementApp.GUI
         private System.Windows.Forms.PictureBox btnMinimized;
         private System.Windows.Forms.PictureBox btnMaximized;
         private System.Windows.Forms.PictureBox btnExit;
+        private System.Windows.Forms.Timer timerEmployee;
     }
 }

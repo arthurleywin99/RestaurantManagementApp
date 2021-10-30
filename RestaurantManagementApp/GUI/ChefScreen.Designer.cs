@@ -29,6 +29,7 @@ namespace RestaurantManagementApp.GUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,6 +66,7 @@ namespace RestaurantManagementApp.GUI
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.icoLogout = new FontAwesome.Sharp.IconButton();
+            this.timerChef = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -612,6 +614,12 @@ namespace RestaurantManagementApp.GUI
             this.icoLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoLogout.UseVisualStyleBackColor = true;
             // 
+            // timerChef
+            // 
+            this.timerChef.Enabled = true;
+            this.timerChef.Interval = 5000;
+            this.timerChef.Tick += new System.EventHandler(this.timerChef_Tick);
+            // 
             // ChefScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,7 +630,6 @@ namespace RestaurantManagementApp.GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChefScreen";
             this.Text = "ChefScreen";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChefScreen_FormClosed);
             this.Load += new System.EventHandler(this.ChefScreen_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -686,5 +693,6 @@ namespace RestaurantManagementApp.GUI
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Timer timerChef;
     }
 }

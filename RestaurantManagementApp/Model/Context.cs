@@ -17,6 +17,7 @@ namespace RestaurantManagementApp.Model
         public virtual DbSet<AlimentType> AlimentTypes { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
+        public virtual DbSet<Notification> Notifications { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<User> Users { get; set; }

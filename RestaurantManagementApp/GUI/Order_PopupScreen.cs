@@ -224,6 +224,15 @@ namespace RestaurantManagementApp.GUI
                 if (InvoiceBusinessTier.UpdateInvoice(_InvoiceID, invoice, out Error))
                 {
                     MessageBox.Show("Cập nhật thành công", "Success", MessageBoxButtons.OK);
+                    Notification notification = new Notification
+                    {
+                        Screen = Utility.CHEF_SCREEEN,
+                        Content = TableBusinessTier.GetTableNameByTableID(_TableID) + " đã được cập nhật lại. Vui lòng kiểm tra!"
+                    };
+                    if (!NotificationBusinessTier.PushNotification(notification))
+                    {
+                        MessageBox.Show("Lỗi khi đẩy thông báo vào database", "Error", MessageBoxButtons.OK);
+                    }
                     SendChefOrUpdate(_InvoiceID, Error);
                 }
                 else
@@ -310,6 +319,15 @@ namespace RestaurantManagementApp.GUI
                     MessageBox.Show(Error, "Table Status Update Failure", MessageBoxButtons.OK);
                 }
                 int _InvoiceID = InvoiceBusinessTier.GetInvoiceIDByTableUserCreate(_TableID, Convert.ToInt32(invoice.UserID), invoice.CreateDate, Convert.ToInt64(invoice.Total));
+                Notification notification = new Notification
+                {
+                    Screen = Utility.CHEF_SCREEEN,
+                    Content = TableBusinessTier.GetTableNameByTableID(_TableID) + " đã được thêm vào hàng chờ. Vui lòng kiểm tra!"
+                };
+                if (!NotificationBusinessTier.PushNotification(notification))
+                {
+                    MessageBox.Show("Lỗi khi đẩy thông báo lên database", "Error", MessageBoxButtons.OK);
+                }
                 SendChefOrUpdate(_InvoiceID, Error);
             }
             else

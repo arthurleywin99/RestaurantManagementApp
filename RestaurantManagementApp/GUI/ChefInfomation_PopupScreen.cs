@@ -92,6 +92,15 @@ namespace RestaurantManagementApp.GUI
                 if (TableBusinessTier.SetOrderStatus(Convert.ToInt32(_Invoice.TableID), out Error)) 
                 {
                     MessageBox.Show("Đã hoàn tất " + lblTitle.Text, "Success", MessageBoxButtons.OK);
+                    Notification notification = new Notification
+                    {
+                        Screen = Utility.EMPLOYEE_SCREEEN,
+                        Content = TableBusinessTier.GetTableNameByTableID(Convert.ToInt32(_Invoice.TableID)) + " đã hoàn thành. Xuống bưng lên đi!"
+                    };
+                    if (!NotificationBusinessTier.PushNotification(notification))
+                    {
+                        MessageBox.Show("Lỗi khi đẩy thông báo vào database", "Error", MessageBoxButtons.OK);
+                    }
                     Close();
                 }
                 else
@@ -121,6 +130,15 @@ namespace RestaurantManagementApp.GUI
                     && TableBusinessTier.SetFreeStatus(_Invoice.InvoiceID, out Error))
                 {
                     MessageBox.Show("Xác nhận hết món hoàn tất", "Success", MessageBoxButtons.OK);
+                    Notification notification = new Notification
+                    {
+                        Screen = Utility.EMPLOYEE_SCREEEN,
+                        Content = TableBusinessTier.GetTableNameByTableID(Convert.ToInt32(_Invoice.TableID)) + " đã hết món. Thông báo cho khách để chọn lại món khác!"
+                    };
+                    if (!NotificationBusinessTier.PushNotification(notification))
+                    {
+                        MessageBox.Show("Lỗi khi đẩy thông báo vào database", "Error", MessageBoxButtons.OK);
+                    }
                     Close();
                 }
                 else

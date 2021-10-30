@@ -69,9 +69,20 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.3.0\lib\net46\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -107,6 +118,7 @@
     <Compile Include="BusinessTier\AlimentTypeBusinessTier.cs" />
     <Compile Include="BusinessTier\InvoiceBusinessTier.cs" />
     <Compile Include="BusinessTier\InvoiceDetailsBusinessTier.cs" />
+    <Compile Include="BusinessTier\NotificationBusinessTier.cs" />
     <Compile Include="BusinessTier\RoleBusinessTier.cs" />
     <Compile Include="BusinessTier\AlimentBusinessTier.cs" />
     <Compile Include="BusinessTier\TableBusinessTier.cs" />
@@ -158,6 +170,7 @@
     <Compile Include="DataTier\AlimentTypeDataTier.cs" />
     <Compile Include="DataTier\InvoiceDataTier.cs" />
     <Compile Include="DataTier\InvoiceDetailsDataTier.cs" />
+    <Compile Include="DataTier\NotificationDataTier.cs" />
     <Compile Include="DataTier\RoleDataTier.cs" />
     <Compile Include="DataTier\TableDataTier.cs" />
     <Compile Include="DataTier\UserDataTier.cs" />
@@ -269,6 +282,7 @@
     <Compile Include="Model\Context.cs" />
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\InvoiceDetail.cs" />
+    <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\Table.cs" />
     <Compile Include="Model\Top5Drink.cs" />
@@ -278,7 +292,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UtilityMethod\IRemoveFlicker.cs" />
-    <Compile Include="UtilityMethod\SqlDependencyEx.cs" />
     <Compile Include="UtilityMethod\Utility.cs" />
     <EmbeddedResource Include="Custom\_AlimentBar.resx">
       <DependentUpon>_AlimentBar.cs</DependentUpon>

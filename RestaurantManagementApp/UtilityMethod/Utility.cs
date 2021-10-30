@@ -21,6 +21,8 @@ namespace RestaurantManagementApp.UtilityMethod
         public readonly static string IMAGE_ALIMENT_PATH = @"D:\IMAGESERVER\Aliment\";
         public readonly static string IMAGE_USER_PATH = @"D:\IMAGESERVER\User\";
         public readonly static string IMAGE_EXTENSION = ".jpeg";
+        public readonly static string CHEF_SCREEEN = "chef";
+        public readonly static string EMPLOYEE_SCREEEN = "employee";
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
