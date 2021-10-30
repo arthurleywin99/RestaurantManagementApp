@@ -40,14 +40,9 @@ namespace RestaurantManagementApp.GUI
         {
             lbUsername.Tag = username;
             lbName.Tag = UserBusinessTier.GetFullName(username);
-            if (UserBusinessTier.LoadImage(username) != null)
-            {
-                picUser.Image = Utility.Base64ToImage(UserBusinessTier.LoadImage(username));
-            }
-            else
-            {
-                picUser.Image = Resources.User;
-            }
+            picUser.Image = UserBusinessTier.LoadImage(username) != null 
+                            ? Utility.LoadBitmapUnlocked(UserBusinessTier.GetUserByUsername(username).Images)
+                            : Resources.User;
         }
 
         public void RemoveFlicker()

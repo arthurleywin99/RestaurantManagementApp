@@ -21,10 +21,7 @@ namespace RestaurantManagementApp.GUI
         private int _TableID;
         private string _Username;
         private string _Status;
-        public Order_PopupScreen()
-        {
-            InitializeComponent();
-        }
+        private DataTable data;
 
         public Order_PopupScreen(int TableID, string Username, string Status)
         {
@@ -36,6 +33,17 @@ namespace RestaurantManagementApp.GUI
             StartPosition = FormStartPosition.CenterScreen;
             Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             txtTotal.Texts = "0";
+            InitDataTable();
+        }
+
+        private void InitDataTable()
+        {
+            data = new DataTable();
+            data.Columns.Add("InvoiceID", typeof(int));
+            data.Columns.Add("AlimentID", typeof(int));
+            data.Columns.Add("Amount", typeof(int));
+            data.Columns.Add("SizeID", typeof(int));
+            data.Columns.Add("Note", typeof(string));
         }
 
         private void Order_PopupScreen_Load(object sender, EventArgs e)
@@ -64,12 +72,14 @@ namespace RestaurantManagementApp.GUI
             List<InvoiceDetail> invoiceDetails = InvoiceDetailsBusinessTier.GetInvoiceDetailsPendingOrOrdering(_TableID);
             foreach (var item in invoiceDetails)
             {
-                _AlimentBar alimentBar = new _AlimentBar();
-                alimentBar.AlimentName = AlimentBusinessTier.GetAlimentNameByID(item.AlimentID);
-                alimentBar.Note = InvoiceDetailsBusinessTier.GetNoteByInvoiceID(item.InvoiceID, item.AlimentID);
-                alimentBar.AlimentSize = AlimentSizeBusinessTier.GetAlimentSizeByID(item.SizeID).ToString();
-                alimentBar.Amount = item.Amount.ToString();
-                alimentBar.Price = AlimentBusinessTier.GetAlimentPriceByID(item.AlimentID).ToString();
+                _AlimentBar alimentBar = new _AlimentBar
+                {
+                    AlimentName = AlimentBusinessTier.GetAlimentNameByID(item.AlimentID),
+                    Note = InvoiceDetailsBusinessTier.GetNoteByInvoiceID(item.InvoiceID, item.AlimentID),
+                    AlimentSize = AlimentSizeBusinessTier.GetAlimentSizeByID(item.SizeID).ToString(),
+                    Amount = item.Amount.ToString(),
+                    Price = AlimentBusinessTier.GetAlimentPriceByID(item.AlimentID).ToString()
+                };
                 alimentBar.Total = (Convert.ToInt32(alimentBar.Price) * Convert.ToInt32(alimentBar.Amount) * AlimentSizeBusinessTier.GetPercentIncrease(alimentBar.AlimentSize) / 100f).ToString();
                 pnlAlimentDetails.Controls.Add(alimentBar);
             }
@@ -92,20 +102,27 @@ namespace RestaurantManagementApp.GUI
             pnlAliment.Controls.Clear();
             foreach (var item in aliments)
             {
-                _AlimentCard alimentCard = new _AlimentCard();
-                alimentCard.AlimentName = item.AlimentName;
-                alimentCard.AlimentPrice = item.Price.ToString();
-                alimentCard.AlimentPicture = item.Image == null ? null : Utility.Base64ToImage(item.Image);
-                alimentCard.Click += (e, s) =>
+                if (item.StillForSale == true)
                 {
-                    _AlimentBar alimentBar = new _AlimentBar();
-                    alimentBar.AlimentName = item.AlimentName;
-                    alimentBar.Price = item.Price.ToString();
-                    alimentBar.Amount = "1";
-                    alimentBar.UpdateTotal += () => SetTotal();
-                    pnlAlimentDetails.Controls.Add(alimentBar);
-                };
-                pnlAliment.Controls.Add(alimentCard);
+                    _AlimentCard alimentCard = new _AlimentCard
+                    {
+                        AlimentName = item.AlimentName,
+                        AlimentPrice = item.Price.ToString(),
+                        AlimentPicture = item.Image == null ? null : Utility.LoadBitmapUnlocked(item.Image)
+                    };
+                    alimentCard.Click += (e, s) =>
+                    {
+                        _AlimentBar alimentBar = new _AlimentBar
+                        {
+                            AlimentName = item.AlimentName,
+                            Price = item.Price.ToString(),
+                            Amount = "1"
+                        };
+                        alimentBar.UpdateTotal += () => SetTotal();
+                        pnlAlimentDetails.Controls.Add(alimentBar);
+                    };
+                    pnlAliment.Controls.Add(alimentCard);
+                }
             }
         }
 
@@ -207,31 +224,65 @@ namespace RestaurantManagementApp.GUI
                 if (InvoiceBusinessTier.UpdateInvoice(_InvoiceID, invoice, out Error))
                 {
                     MessageBox.Show("Cập nhật thành công", "Success", MessageBoxButtons.OK);
-                    foreach (_AlimentBar item in pnlAlimentDetails.Controls)
-                    {
-                        if (int.Parse(item.Total) == 0)
-                        {
-                            continue;
-                        }
-                        InvoiceDetail invoiceDetail = new InvoiceDetail()
-                        {
-                            InvoiceID = _InvoiceID,
-                            AlimentID = AlimentBusinessTier.GetAlimentByName(item.AlimentName).AlimentID,
-                            Amount = Convert.ToInt32(item.Amount),
-                            SizeID = AlimentSizeBusinessTier.GetSizeIDByName(item.AlimentSize),
-                            Note = item.Note
-                        };
-                        if (!InvoiceDetailsBusinessTier.AddInvoiceDetails(invoiceDetail, out Error))
-                        {
-                            MessageBox.Show(Error, "Invoice Details Create Failure", MessageBoxButtons.OK);
-                        }
-                    }
+                    SendChefOrUpdate(_InvoiceID, Error);
                 }
                 else
                 {
                     MessageBox.Show("Cập nhật thất bại", "Failure", MessageBoxButtons.OK);
                 }
             }
+        }
+
+        private void SendChefOrUpdate(int _InvoiceID, string Error)
+        {
+            foreach (_AlimentBar item in pnlAlimentDetails.Controls)
+            {
+                if (int.Parse(item.Total) == 0)
+                {
+                    continue;
+                }
+                DataRow row = data.NewRow();
+                row["InvoiceID"] = _InvoiceID;
+                row["AlimentID"] = AlimentBusinessTier.GetAlimentByName(item.AlimentName).AlimentID;
+                row["Amount"] = Convert.ToInt32(item.Amount);
+                row["SizeID"] = AlimentSizeBusinessTier.GetSizeIDByName(item.AlimentSize);
+                row["Note"] = item.Note;
+                int index = -1;
+                for (int i = 0; i < data.Rows.Count; ++i)
+                {
+                    if ((data.Rows[i]["AlimentID"].Equals(row["AlimentID"]) && data.Rows[i]["InvoiceID"].Equals(row["InvoiceID"])))
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+                if (index != -1)
+                {
+                    data.Rows[index]["Amount"] = (int.Parse(data.Rows[index]["Amount"].ToString()) + int.Parse(row["Amount"].ToString()));
+                }
+                else
+                {
+                    data.Rows.Add(row);
+                }
+            }
+            foreach (DataRow row in data.Rows)
+            {
+                InvoiceDetail invoiceDetail = new InvoiceDetail()
+                {
+                    InvoiceID = _InvoiceID,
+                    AlimentID = int.Parse(row["AlimentID"].ToString()),
+                    Amount = int.Parse(row["Amount"].ToString()),
+                    SizeID = int.Parse(row["SizeID"].ToString()),
+                    Note = row["Note"].ToString()
+                };
+
+                if (!InvoiceDetailsBusinessTier.AddInvoiceDetails(invoiceDetail, out Error))
+                {
+                    MessageBox.Show(Error, "Invoice Details Create Failure", MessageBoxButtons.OK);
+                }
+            }
+            data.Rows.Clear();
+            Close();
         }
 
         private void btnSendChef_Click(object sender, EventArgs e)
@@ -259,26 +310,7 @@ namespace RestaurantManagementApp.GUI
                     MessageBox.Show(Error, "Table Status Update Failure", MessageBoxButtons.OK);
                 }
                 int _InvoiceID = InvoiceBusinessTier.GetInvoiceIDByTableUserCreate(_TableID, Convert.ToInt32(invoice.UserID), invoice.CreateDate, Convert.ToInt64(invoice.Total));
-                foreach (_AlimentBar item in pnlAlimentDetails.Controls)
-                {
-                    if (int.Parse(item.Total) == 0)
-                    {
-                        continue;
-                    }
-                    InvoiceDetail invoiceDetail = new InvoiceDetail()
-                    {
-                        InvoiceID = _InvoiceID,
-                        AlimentID = AlimentBusinessTier.GetAlimentByName(item.AlimentName).AlimentID,
-                        Amount = Convert.ToInt32(item.Amount),
-                        SizeID = AlimentSizeBusinessTier.GetSizeIDByName(item.AlimentSize),
-                        Note = item.Note
-                    };
-                    if (!InvoiceDetailsBusinessTier.AddInvoiceDetails(invoiceDetail, out Error))
-                    {
-                        MessageBox.Show(Error, "Invoice Details Create Failure", MessageBoxButtons.OK);
-                    }
-                }
-                Close();
+                SendChefOrUpdate(_InvoiceID, Error);
             }
             else
             {

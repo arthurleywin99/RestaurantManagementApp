@@ -18,15 +18,26 @@ namespace RestaurantManagementApp.GUI
 {
     public partial class ChefScreen : Form
     {
+        private string _Username;
+        public delegate void SendData(string username);
+        public SendData sender;
+        
         public ChefScreen()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            sender = new SendData(GetData);
             Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+        }
+
+        private void GetData(string username)
+        {
+            _Username = username;
         }
 
         private void ChefScreen_Load(object sender, EventArgs e)
         {
+            GetUserInfo();
             GetTableStatus();
         }
 
@@ -77,11 +88,17 @@ namespace RestaurantManagementApp.GUI
             };
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void GetUserInfo()
         {
-            Application.Exit();
+            User user = UserBusinessTier.GetUserByUsername(_Username);
+            txtFullName.Texts = user.FullName;
+            txtDate.Texts = user.DateOfBirth.ToShortDateString();
+            txtGender.Texts = user.Gender ? "Nam" : "Nữ";
+            txtCardID.Texts = user.IDCard;
+            picAvatar.Image = user.Images == null ? null : Utility.LoadBitmapUnlocked(user.Images);
         }
 
+        #region 3 nút Control Bar
         private void btnMaximized_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
@@ -94,6 +111,11 @@ namespace RestaurantManagementApp.GUI
                 WindowState = FormWindowState.Normal;
                 Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void btnMinimized_Click(object sender, EventArgs e)
@@ -113,6 +135,23 @@ namespace RestaurantManagementApp.GUI
                 Utility.ReleaseCapture();
                 Utility.SendMessage(Handle, 0x112, 0xf012, 0);
             }
+        }
+        #endregion
+
+        private void btnChangeInfo_Click(object sender, EventArgs e)
+        {
+            ChangeInfo_PopupScreen changeInfo_PopupScreen = new ChangeInfo_PopupScreen(UserBusinessTier.GetUserByUsername(_Username));
+            changeInfo_PopupScreen.UpdateUserInfo += () =>
+            {
+                GetUserInfo();
+            };
+            changeInfo_PopupScreen.ShowDialog();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new LoginScreen().ShowDialog();
         }
     }
 }

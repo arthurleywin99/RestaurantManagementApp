@@ -46,7 +46,7 @@ namespace RestaurantManagementApp.GUI
             txtDate.Texts = user.DateOfBirth.ToShortDateString();
             txtGender.Texts = user.Gender ? "Nam" : "Nữ";
             txtCardID.Texts = user.IDCard;
-            picAvatar.Image = user.Images == null ? null : Utility.Base64ToImage(user.Images);
+            picAvatar.Image = user.Images == null ? null : Utility.LoadBitmapUnlocked(user.Images);
         }
 
         private void GetData(string username)

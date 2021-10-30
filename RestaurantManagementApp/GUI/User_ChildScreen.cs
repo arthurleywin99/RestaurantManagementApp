@@ -17,6 +17,9 @@ namespace RestaurantManagementApp.GUI
 {
     public partial class User_ChildScreen : Form, IRemoveFlicker
     {
+        private string PATH;
+        private bool isNewImage = false;
+
         public User_ChildScreen()
         {
             InitializeComponent(); 
@@ -86,14 +89,7 @@ namespace RestaurantManagementApp.GUI
             }
             txtAddress_Child.Texts = user.Address;
             txtCardID_Child.Texts = user.IDCard;
-            if (user.Images != null)
-            {
-                picAvatar_Child.Image = Utility.Base64ToImage(user.Images);
-            }
-            else
-            {
-                picAvatar_Child.Image = null;
-            }
+            picAvatar_Child.Image = user.Images != null ? Utility.LoadBitmapUnlocked(user.Images) : null;
             cboType_Child.Texts = RoleBusinessTier.GetRoleNameByRoleID(Convert.ToInt32(user.RoleID));
         }
 
@@ -122,7 +118,9 @@ namespace RestaurantManagementApp.GUI
             {
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
+                    PATH = openFile.FileName;
                     picAvatar_Child.Image = Image.FromFile(openFile.FileName);
+                    isNewImage = true;
                 }
             }
         }
@@ -178,25 +176,33 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        private User GetUserFromForm => new User()
+        {
+            FullName = txtName_Child.Texts,
+            DateOfBirth = dtpDate_Child.Value.Date,
+            Gender = rdMale_Child.Enabled ? true : false,
+            Address = txtAddress_Child.Texts,
+            IDCard = txtCardID_Child.Texts,
+            Username = cboUser_Child.SelectedItem.ToString(),
+            Password = txtPassword_Child.Texts.Length == 0 ? null : txtPassword_Child.Texts,
+            RoleID = RoleBusinessTier.GetRoleIDByRoleName(cboType_Child.Texts),
+            Images = picAvatar_Child.Image != null ? Utility.IMAGE_USER_PATH + cboUser_Child.SelectedItem.ToString() + Utility.IMAGE_EXTENSION : null
+        };
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            User newUser = new User()
-            {
-                FullName = txtName_Child.Texts,
-                DateOfBirth = dtpDate_Child.Value.Date,
-                Gender = rdMale_Child.Enabled ? true : false,
-                Address = txtAddress_Child.Texts,
-                IDCard = txtCardID_Child.Texts,
-                Username = cboUser_Child.SelectedItem.ToString(),
-                Password = txtPassword_Child.Texts,
-                RoleID = RoleBusinessTier.GetRoleIDByRoleName(cboType_Child.Texts),
-                Images = Utility.ImageToBase64(picAvatar_Child.Image, ImageFormat.Jpeg)
-            };
             string username = cboUser_Child.SelectedItem.ToString();
             string Error = string.Empty;
-            if (UserBusinessTier.UpdateUser(cboUser_Child.SelectedItem.ToString(), newUser, out Error))
+            
+            if (isNewImage)
+            {
+                File.Copy(PATH, Path.Combine(Utility.IMAGE_USER_PATH, username + Utility.IMAGE_EXTENSION), true);
+            }
+            
+            if (UserBusinessTier.UpdateUser(cboUser_Child.SelectedItem.ToString(), GetUserFromForm, out Error))
             {
                 MessageBox.Show("Cập nhật người dùng thành công", "Success", MessageBoxButtons.OK);
+                isNewImage = false;
             }
             else
             {
@@ -210,6 +216,8 @@ namespace RestaurantManagementApp.GUI
             if (result == DialogResult.Yes)
             {
                 string Error = string.Empty;
+                string ImagePath = UserBusinessTier.GetUserByUsername(cboUser_Child.SelectedItem.ToString()).Images;
+                
                 if (UserBusinessTier.DeleteUser(cboUser_Child.SelectedItem.ToString(), out Error))
                 {
                     MessageBox.Show("Xóa người dùng thành công", "Success", MessageBoxButtons.OK);

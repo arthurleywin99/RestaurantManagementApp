@@ -32,7 +32,6 @@ namespace RestaurantManagementApp.GUI
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.icoAdd_Child = new FontAwesome.Sharp.IconButton();
-            this.cboAliment_Child = new RestaurantManagementApp.Custom._Combobox();
             this.picAvatar_Child = new System.Windows.Forms.PictureBox();
             this.btnChooseImage_Child = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -40,14 +39,15 @@ namespace RestaurantManagementApp.GUI
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtName_Child = new RestaurantManagementApp.Custom._TextBox();
             this.cboType_Child = new RestaurantManagementApp.Custom._Combobox();
             this.txtPrice_Child = new RestaurantManagementApp.Custom._TextBox();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave_Child = new RestaurantManagementApp.Custom._Button();
             this.btnDelete_Child = new RestaurantManagementApp.Custom._Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cboAliment_Child = new RestaurantManagementApp.Custom._Combobox();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar_Child)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
@@ -114,29 +114,6 @@ namespace RestaurantManagementApp.GUI
             this.icoAdd_Child.Tag = "";
             this.icoAdd_Child.UseVisualStyleBackColor = false;
             this.icoAdd_Child.Click += new System.EventHandler(this.icoAdd_Child_Click);
-            // 
-            // cboAliment_Child
-            // 
-            this.cboAliment_Child.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboAliment_Child.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cboAliment_Child.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.cboAliment_Child.BorderSize = 1;
-            this.cboAliment_Child.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAliment_Child.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboAliment_Child.ForeColor = System.Drawing.Color.DimGray;
-            this.cboAliment_Child.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cboAliment_Child.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cboAliment_Child.ListTextColor = System.Drawing.Color.DimGray;
-            this.cboAliment_Child.Location = new System.Drawing.Point(317, 27);
-            this.cboAliment_Child.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cboAliment_Child.Name = "cboAliment_Child";
-            this.cboAliment_Child.Padding = new System.Windows.Forms.Padding(1);
-            this.cboAliment_Child.Size = new System.Drawing.Size(371, 42);
-            this.cboAliment_Child.TabIndex = 10;
-            this.cboAliment_Child.Texts = "";
-            this.cboAliment_Child.OnSelectedIndexChanged += new System.EventHandler(this.cboAliment_Child_OnSelectedIndexChanged);
             // 
             // picAvatar_Child
             // 
@@ -256,6 +233,62 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel3.Size = new System.Drawing.Size(874, 569);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel7.ColumnCount = 5;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel7.Controls.Add(this.btnSave_Child, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.btnDelete_Child, 3, 1);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(264, 273);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 3;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(474, 143);
+            this.tableLayoutPanel7.TabIndex = 24;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 105);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1257, 575);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, -1);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 683);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
             // txtName_Child
             // 
             this.txtName_Child.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -322,28 +355,6 @@ namespace RestaurantManagementApp.GUI
             this.txtPrice_Child.Texts = "";
             this.txtPrice_Child.UnderlinedStyle = false;
             // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.ColumnCount = 5;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel7.Controls.Add(this.btnSave_Child, 1, 1);
-            this.tableLayoutPanel7.Controls.Add(this.btnDelete_Child, 3, 1);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(264, 273);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 3;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(474, 143);
-            this.tableLayoutPanel7.TabIndex = 24;
-            // 
             // btnSave_Child
             // 
             this.btnSave_Child.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -388,39 +399,28 @@ namespace RestaurantManagementApp.GUI
             this.btnDelete_Child.UseVisualStyleBackColor = false;
             this.btnDelete_Child.Click += new System.EventHandler(this.btnDelete_Child_Click);
             // 
-            // tableLayoutPanel2
+            // cboAliment_Child
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cboAliment_Child.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 105);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1257, 575);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, -1);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 683);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.cboAliment_Child.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboAliment_Child.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cboAliment_Child.BorderSize = 1;
+            this.cboAliment_Child.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAliment_Child.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboAliment_Child.ForeColor = System.Drawing.Color.DimGray;
+            this.cboAliment_Child.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cboAliment_Child.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cboAliment_Child.ListTextColor = System.Drawing.Color.DimGray;
+            this.cboAliment_Child.Location = new System.Drawing.Point(317, 27);
+            this.cboAliment_Child.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cboAliment_Child.Name = "cboAliment_Child";
+            this.cboAliment_Child.Padding = new System.Windows.Forms.Padding(1);
+            this.cboAliment_Child.Size = new System.Drawing.Size(371, 42);
+            this.cboAliment_Child.TabIndex = 10;
+            this.cboAliment_Child.Texts = "";
+            this.cboAliment_Child.OnSelectedIndexChanged += new System.EventHandler(this.cboAliment_Child_OnSelectedIndexChanged);
             // 
             // Aliment_ChildScreen
             // 

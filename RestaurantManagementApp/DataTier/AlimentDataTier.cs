@@ -102,7 +102,7 @@ namespace RestaurantManagementApp.DataTier
             }
         }
 
-        public static bool DeleteAliment(string alimentName, out string error)
+        public static bool StopAliment(string alimentName, out string error)
         {
             using (var context = new Context())
             {
@@ -110,7 +110,7 @@ namespace RestaurantManagementApp.DataTier
                 try
                 {
                     var aliment = context.Aliments.FirstOrDefault(p => p.AlimentName.Equals(alimentName));
-                    context.Aliments.Remove(aliment);
+                    aliment.StillForSale = false;
                     context.SaveChanges();
                     return true;
                 }

@@ -11,11 +11,15 @@ using RestaurantManagementApp.Model;
 using RestaurantManagementApp.BusinessTier;
 using RestaurantManagementApp.UtilityMethod;
 using System.Drawing.Imaging;
+using System.IO;
 
 namespace RestaurantManagementApp.GUI
 {
+    public delegate void UpdateAliment();
     public partial class AddAliment_PopupScreen : Form
     {
+        private string PATH;
+        public event UpdateAliment UpdateAliment;
         public AddAliment_PopupScreen()
         {
             InitializeComponent();
@@ -52,17 +56,33 @@ namespace RestaurantManagementApp.GUI
             AlimentName = txtName_Popup.Texts,
             TypeID = AlimentTypeBusinessTier.GetAlimentTypeIDByName(cboType_Popup.Texts),
             Price = Convert.ToDecimal(txtPrice_Popup.Texts),
-            Image = picAvatar_Popup.Image != null ? Utility.ImageToBase64(picAvatar_Popup.Image, ImageFormat.Jpeg) : null
+            Image = picAvatar_Popup.Image != null ? Utility.IMAGE_ALIMENT_PATH + txtName_Popup.Texts + Utility.IMAGE_EXTENSION : null,
+            StillForSale = true
         };
 
         private void btnAdd_Popup_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtName_Popup.Texts) || string.IsNullOrWhiteSpace(txtName_Popup.Texts))
+            {
+                MessageBox.Show("Tên món không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (string.IsNullOrEmpty(txtPrice_Popup.Texts) || string.IsNullOrWhiteSpace(txtPrice_Popup.Texts))
+            {
+                MessageBox.Show("Giá tiền không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             if (AlimentBusinessTier.IsAlimentExist(GetAlimentFromForm))
             {
                 MessageBox.Show("Hệ thống đã tồn tại thực đơn với dữ liệu này", "Existing Error", MessageBoxButtons.OK);
             }
             else
             {
+                if (PATH != null)
+                {
+                    File.Copy(PATH, Path.Combine(Utility.IMAGE_ALIMENT_PATH, txtName_Popup.Texts + Utility.IMAGE_EXTENSION), true);
+                }
                 string Error = string.Empty;
                 if (AlimentBusinessTier.AddAliment(GetAlimentFromForm, out Error))
                 {
@@ -86,6 +106,23 @@ namespace RestaurantManagementApp.GUI
             txtName_Popup.Texts = "";
             cboType_Popup.SelectedIndex = 0;
             txtPrice_Popup.Texts = "";
+        }
+
+        private void AddAliment_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            UpdateAliment();
+        }
+
+        private void btnChooseImage_Popup_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "JPG files|*.jpg|JPEG files|*.jpeg", Multiselect = false })
+            {
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    PATH = openFile.FileName;
+                    picAvatar_Popup.Image = Image.FromFile(openFile.FileName);
+                }
+            }
         }
     }
 }

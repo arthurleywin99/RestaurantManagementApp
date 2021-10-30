@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using RestaurantManagementApp.Model;
 using System.Drawing.Imaging;
 using RestaurantManagementApp.BusinessTier;
+using System.IO;
 
 namespace RestaurantManagementApp.GUI
 {
@@ -18,8 +19,10 @@ namespace RestaurantManagementApp.GUI
     public partial class ChangeInfo_PopupScreen : Form
     {
         public event UpdateUserInfo UpdateUserInfo;
-
+        private string PATH;
+        private bool isNewImage = false;
         private User _User;
+
         public ChangeInfo_PopupScreen(User user)
         {
             InitializeComponent();
@@ -35,7 +38,7 @@ namespace RestaurantManagementApp.GUI
 
         private void BindingUserInfo()
         {
-            picAvatar.Image = _User.Images == null ? null : Utility.Base64ToImage(_User.Images);
+            picAvatar.Image = _User.Images == null ? null : Utility.LoadBitmapUnlocked(_User.Images);
             txtUsername.Texts = _User.Username;
             txtFullName.Texts = _User.FullName;
             dtpDate.Value = _User.DateOfBirth;
@@ -62,7 +65,9 @@ namespace RestaurantManagementApp.GUI
             {
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
+                    PATH = openFile.FileName;
                     picAvatar.Image = Image.FromFile(openFile.FileName);
+                    isNewImage = true;
                 }
             }
         }
@@ -105,10 +110,16 @@ namespace RestaurantManagementApp.GUI
                 MessageBox.Show("Số chứng minh thư không được để trống", "Error", MessageBoxButtons.OK);
                 return;
             }
+
+            if (isNewImage)
+            {
+                File.Copy(PATH, Path.Combine(Utility.IMAGE_USER_PATH, txtUsername.Texts + Utility.IMAGE_EXTENSION), true);
+            }
             string Error = string.Empty;
             if (UserBusinessTier.UpdateUser(txtUsername.Texts, GetUserFromForm, out Error))
             {
                 MessageBox.Show("Cập nhật thành công", "Success", MessageBoxButtons.OK);
+                isNewImage = false;
                 Close();
             }
             else
@@ -126,12 +137,26 @@ namespace RestaurantManagementApp.GUI
             IDCard = txtIDCard.Texts,
             RoleID = _User.RoleID,
             Password = txtNewPassword.Texts.Length == 0 ? null : txtNewPassword.Texts,
-            Images = picAvatar.Image == null ? null : Utility.ImageToBase64(picAvatar.Image, ImageFormat.Jpeg)
+            Images = picAvatar.Image == null ? null : Utility.IMAGE_USER_PATH + txtUsername.Texts + Utility.IMAGE_EXTENSION
         };
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void icoEye_Popup_Click(object sender, EventArgs e)
+        {
+            if (icoEye_Popup.IconChar == FontAwesome.Sharp.IconChar.Eye)
+            {
+                icoEye_Popup.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+                txtNewPassword.PasswordChar = true;
+            }
+            else
+            {
+                icoEye_Popup.IconChar = FontAwesome.Sharp.IconChar.Eye;
+                txtNewPassword.PasswordChar = false;
+            }
         }
     }
 }

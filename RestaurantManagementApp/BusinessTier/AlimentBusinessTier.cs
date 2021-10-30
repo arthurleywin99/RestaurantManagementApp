@@ -45,9 +45,9 @@ namespace RestaurantManagementApp.BusinessTier
             return AlimentDataTier.IsAlimentExist(aliment);
         }
 
-        public static bool DeleteAliment(string alimentName, out string error)
+        public static bool StopAliment(string alimentName, out string error)
         {
-            return AlimentDataTier.DeleteAliment(alimentName, out error);
+            return AlimentDataTier.StopAliment(alimentName, out error);
         }
 
         public static string GetAlimentNameByID(int AlimentID)

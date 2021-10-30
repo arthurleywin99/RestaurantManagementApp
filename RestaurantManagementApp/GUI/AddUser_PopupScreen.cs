@@ -11,11 +11,14 @@ using RestaurantManagementApp.UtilityMethod;
 using RestaurantManagementApp.Model;
 using RestaurantManagementApp.BusinessTier;
 using System.Drawing.Imaging;
+using System.IO;
 
 namespace RestaurantManagementApp.GUI
 {
     public partial class AddUser_PopupScreen : Form
     {
+        private string PATH;
+
         public AddUser_PopupScreen()
         {
             InitializeComponent();
@@ -52,7 +55,7 @@ namespace RestaurantManagementApp.GUI
             IDCard = txtCardID_Popup.Texts,
             Username = txtUsername_Popup.Texts,
             Password = Utility.MD5Hash(txtPassword_Popup.Texts),
-            Images = Utility.ImageToBase64(picAvatar_Popup.Image, ImageFormat.Jpeg),
+            Images = picAvatar_Popup.Image != null ? Utility.IMAGE_USER_PATH + txtUsername_Popup.Texts + Utility.IMAGE_EXTENSION : null,
             RoleID = RoleBusinessTier.GetRoleIDByRoleName(cboType_Popup.Texts),
             IsActivated = true
         };
@@ -65,6 +68,10 @@ namespace RestaurantManagementApp.GUI
             }
             else
             {
+                if (PATH != null)
+                {
+                    File.Copy(PATH, Path.Combine(Utility.IMAGE_USER_PATH, txtUsername_Popup.Texts + Utility.IMAGE_EXTENSION), true);
+                }
                 string Error = string.Empty;
                 if (UserBusinessTier.AddUser(GetUserFromForm, out Error))
                 {
@@ -98,6 +105,7 @@ namespace RestaurantManagementApp.GUI
             {
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
+                    PATH = openFile.FileName;
                     picAvatar_Popup.Image = Image.FromFile(openFile.FileName);
                 }
             }

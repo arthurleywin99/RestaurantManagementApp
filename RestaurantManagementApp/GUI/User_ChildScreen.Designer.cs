@@ -541,6 +541,7 @@ namespace RestaurantManagementApp.GUI
             // 
             this.picAvatar_Child.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picAvatar_Child.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picAvatar_Child.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picAvatar_Child.Location = new System.Drawing.Point(38, 13);
             this.picAvatar_Child.Name = "picAvatar_Child";
             this.picAvatar_Child.Size = new System.Drawing.Size(300, 300);
@@ -652,14 +653,14 @@ namespace RestaurantManagementApp.GUI
             this.cboUser_Child.Texts = "";
             this.cboUser_Child.OnSelectedIndexChanged += new System.EventHandler(this.cboUser_OnSelectedIndexChanged);
             // 
-            // Employee_ChildScreen
+            // User_ChildScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Employee_ChildScreen";
+            this.Name = "User_ChildScreen";
             this.Text = "EmployeeChildForm";
             this.Load += new System.EventHandler(this.Employee_ChildScreen_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

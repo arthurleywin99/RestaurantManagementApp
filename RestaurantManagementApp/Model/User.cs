@@ -4,13 +4,12 @@ namespace RestaurantManagementApp.Model
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Diagnostics.CodeAnalysis;
     using System.Data.Entity.Spatial;
 
     [Table("User")]
     public partial class User
     {
-        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
             Invoices = new HashSet<Invoice>();
@@ -47,7 +46,7 @@ namespace RestaurantManagementApp.Model
 
         public bool IsActivated { get; set; }
 
-        [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }
 
         public virtual Role Role { get; set; }

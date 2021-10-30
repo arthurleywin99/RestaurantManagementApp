@@ -17,7 +17,7 @@ namespace RestaurantManagementApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Aliment_ChildScreen());
+            Application.Run(new LoginScreen());
         }
     }
 }

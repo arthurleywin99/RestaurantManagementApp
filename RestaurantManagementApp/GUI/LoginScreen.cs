@@ -119,7 +119,9 @@ namespace RestaurantManagementApp.GUI
                         if (UserBusinessTier.IsActivated(txtUsername.Texts))
                         {
                             Hide();
-                            new ChefScreen().ShowDialog();
+                            ChefScreen chef = new ChefScreen();
+                            chef.sender(txtUsername.Texts);
+                            chef.ShowDialog();
                             Close();
                         }
                         else

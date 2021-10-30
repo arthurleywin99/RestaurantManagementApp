@@ -606,7 +606,7 @@ namespace RestaurantManagementApp.GUI
             // 
             this.picAvatar_Popup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picAvatar_Popup.BackColor = System.Drawing.Color.Transparent;
-            this.picAvatar_Popup.Image = global::RestaurantManagementApp.Properties.Resources.Menu;
+            this.picAvatar_Popup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picAvatar_Popup.Location = new System.Drawing.Point(3, 16);
             this.picAvatar_Popup.Name = "picAvatar_Popup";
             this.picAvatar_Popup.Size = new System.Drawing.Size(212, 222);

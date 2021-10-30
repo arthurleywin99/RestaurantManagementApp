@@ -30,13 +30,15 @@ namespace RestaurantManagementApp.GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.icoLogout = new FontAwesome.Sharp.IconButton();
+            this.pnlWindow = new System.Windows.Forms.Panel();
+            this.ControlBar = new System.Windows.Forms.TableLayoutPanel();
             this.btnMinimized = new System.Windows.Forms.PictureBox();
             this.btnMaximized = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.PictureBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.ControlBar = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlWindow = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTable = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,18 +62,21 @@ namespace RestaurantManagementApp.GUI
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnChangeInfo = new RestaurantManagementApp.Custom._Button();
             this.btnLogout = new RestaurantManagementApp.Custom._Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this._Button2 = new RestaurantManagementApp.Custom._Button();
             this._Button1 = new RestaurantManagementApp.Custom._Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.timerEmployee = new System.Windows.Forms.Timer(this.components);
+            this.panel1.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlWindow.SuspendLayout();
+            this.ControlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximized)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
-            this.ControlBar.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.pnlWindow.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,60 +89,71 @@ namespace RestaurantManagementApp.GUI
             this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnMinimized
+            // panel1
             // 
-            this.btnMinimized.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.panel12);
+            this.panel1.Controls.Add(this.pnlWindow);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1280, 720);
+            this.panel1.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Navy;
+            this.panel12.Controls.Add(this.pictureBox1);
+            this.panel12.Controls.Add(this.icoLogout);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(72, 720);
+            this.panel12.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimized.Image = global::RestaurantManagementApp.Properties.Resources.MinimizeButton;
-            this.btnMinimized.Location = new System.Drawing.Point(1173, 3);
-            this.btnMinimized.Name = "btnMinimized";
-            this.btnMinimized.Size = new System.Drawing.Size(30, 30);
-            this.btnMinimized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimized.TabIndex = 1;
-            this.btnMinimized.TabStop = false;
-            this.btnMinimized.Click += new System.EventHandler(this.btnMinimized_Click);
+            this.pictureBox1.Image = global::RestaurantManagementApp.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
-            // btnMaximized
+            // icoLogout
             // 
-            this.btnMaximized.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.icoLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximized.Image = global::RestaurantManagementApp.Properties.Resources.MaximizeButton;
-            this.btnMaximized.Location = new System.Drawing.Point(1210, 3);
-            this.btnMaximized.Name = "btnMaximized";
-            this.btnMaximized.Size = new System.Drawing.Size(30, 30);
-            this.btnMaximized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMaximized.TabIndex = 1;
-            this.btnMaximized.TabStop = false;
-            this.btnMaximized.Click += new System.EventHandler(this.btnMaximized_Click);
+            this.icoLogout.FlatAppearance.BorderSize = 0;
+            this.icoLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icoLogout.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoLogout.ForeColor = System.Drawing.Color.White;
+            this.icoLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.icoLogout.IconColor = System.Drawing.Color.White;
+            this.icoLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoLogout.IconSize = 40;
+            this.icoLogout.Location = new System.Drawing.Point(3, 646);
+            this.icoLogout.Name = "icoLogout";
+            this.icoLogout.Size = new System.Drawing.Size(66, 40);
+            this.icoLogout.TabIndex = 5;
+            this.icoLogout.Tag = "";
+            this.icoLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icoLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icoLogout.UseVisualStyleBackColor = true;
             // 
-            // btnExit
+            // pnlWindow
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Image = global::RestaurantManagementApp.Properties.Resources.CloseButton;
-            this.btnExit.Location = new System.Drawing.Point(1247, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(30, 30);
-            this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnExit.TabIndex = 0;
-            this.btnExit.TabStop = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(3, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(130, 36);
-            this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "EMPLOYEE";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pnlWindow.BackColor = System.Drawing.Color.Transparent;
+            this.pnlWindow.Controls.Add(this.ControlBar);
+            this.pnlWindow.Controls.Add(this.tableLayoutPanel1);
+            this.pnlWindow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlWindow.Location = new System.Drawing.Point(75, 0);
+            this.pnlWindow.Name = "pnlWindow";
+            this.pnlWindow.Size = new System.Drawing.Size(1205, 720);
+            this.pnlWindow.TabIndex = 9;
             // 
             // ControlBar
             // 
@@ -153,47 +169,67 @@ namespace RestaurantManagementApp.GUI
             this.ControlBar.Controls.Add(this.btnMinimized, 2, 0);
             this.ControlBar.Controls.Add(this.btnMaximized, 4, 0);
             this.ControlBar.Controls.Add(this.btnExit, 6, 0);
-            this.ControlBar.Controls.Add(this.lblTitle, 0, 0);
             this.ControlBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ControlBar.Location = new System.Drawing.Point(0, 0);
             this.ControlBar.Margin = new System.Windows.Forms.Padding(0);
             this.ControlBar.Name = "ControlBar";
             this.ControlBar.RowCount = 1;
             this.ControlBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ControlBar.Size = new System.Drawing.Size(1280, 36);
-            this.ControlBar.TabIndex = 8;
+            this.ControlBar.Size = new System.Drawing.Size(1205, 36);
+            this.ControlBar.TabIndex = 9;
             this.ControlBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ControlBar_MouseDown);
             // 
-            // panel1
+            // btnMinimized
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pnlWindow);
-            this.panel1.Controls.Add(this.ControlBar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1280, 720);
-            this.panel1.TabIndex = 1;
+            this.btnMinimized.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimized.Image = global::RestaurantManagementApp.Properties.Resources.MinimizeButton;
+            this.btnMinimized.Location = new System.Drawing.Point(1098, 3);
+            this.btnMinimized.Name = "btnMinimized";
+            this.btnMinimized.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimized.TabIndex = 1;
+            this.btnMinimized.TabStop = false;
+            this.btnMinimized.Click += new System.EventHandler(this.btnMinimized_Click);
             // 
-            // pnlWindow
+            // btnMaximized
             // 
-            this.pnlWindow.BackColor = System.Drawing.Color.Transparent;
-            this.pnlWindow.Controls.Add(this.tableLayoutPanel1);
-            this.pnlWindow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlWindow.Location = new System.Drawing.Point(0, 36);
-            this.pnlWindow.Name = "pnlWindow";
-            this.pnlWindow.Size = new System.Drawing.Size(1280, 684);
-            this.pnlWindow.TabIndex = 9;
+            this.btnMaximized.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximized.Image = global::RestaurantManagementApp.Properties.Resources.MaximizeButton;
+            this.btnMaximized.Location = new System.Drawing.Point(1135, 3);
+            this.btnMaximized.Name = "btnMaximized";
+            this.btnMaximized.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMaximized.TabIndex = 1;
+            this.btnMaximized.TabStop = false;
+            this.btnMaximized.Click += new System.EventHandler(this.btnMaximized_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Image = global::RestaurantManagementApp.Properties.Resources.CloseButton;
+            this.btnExit.Location = new System.Drawing.Point(1172, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(30, 30);
+            this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnExit.TabIndex = 0;
+            this.btnExit.TabStop = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.Controls.Add(this.pnlTable, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel8, 1, 2);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.pnlTable, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -201,16 +237,16 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1280, 684);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1205, 720);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pnlTable
             // 
             this.pnlTable.AutoScroll = true;
             this.pnlTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTable.Location = new System.Drawing.Point(67, 37);
+            this.pnlTable.Location = new System.Drawing.Point(3, 39);
             this.pnlTable.Name = "pnlTable";
-            this.pnlTable.Size = new System.Drawing.Size(826, 541);
+            this.pnlTable.Size = new System.Drawing.Size(837, 570);
             this.pnlTable.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -224,13 +260,14 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(899, 37);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(846, 39);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(378, 541);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(356, 570);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // panel2
@@ -241,37 +278,39 @@ namespace RestaurantManagementApp.GUI
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(40, 57);
+            this.panel2.Location = new System.Drawing.Point(38, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(296, 210);
+            this.panel2.Size = new System.Drawing.Size(278, 250);
             this.panel2.TabIndex = 0;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.picAvatar);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(35, 19);
+            this.panel7.Location = new System.Drawing.Point(35, 13);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(226, 174);
+            this.panel7.Size = new System.Drawing.Size(208, 226);
             this.panel7.TabIndex = 4;
             // 
             // picAvatar
             // 
+            this.picAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picAvatar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picAvatar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picAvatar.InitialImage = global::RestaurantManagementApp.Properties.Resources.User;
             this.picAvatar.Location = new System.Drawing.Point(0, 0);
             this.picAvatar.Name = "picAvatar";
-            this.picAvatar.Size = new System.Drawing.Size(226, 174);
+            this.picAvatar.Size = new System.Drawing.Size(208, 226);
+            this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAvatar.TabIndex = 0;
             this.picAvatar.TabStop = false;
             // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(35, 193);
+            this.panel6.Location = new System.Drawing.Point(35, 239);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(226, 17);
+            this.panel6.Size = new System.Drawing.Size(208, 11);
             this.panel6.TabIndex = 3;
             // 
             // panel5
@@ -279,15 +318,15 @@ namespace RestaurantManagementApp.GUI
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(35, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(226, 19);
+            this.panel5.Size = new System.Drawing.Size(208, 13);
             this.panel5.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(261, 0);
+            this.panel4.Location = new System.Drawing.Point(243, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(35, 210);
+            this.panel4.Size = new System.Drawing.Size(35, 250);
             this.panel4.TabIndex = 1;
             // 
             // panel3
@@ -295,7 +334,7 @@ namespace RestaurantManagementApp.GUI
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(35, 210);
+            this.panel3.Size = new System.Drawing.Size(35, 250);
             this.panel3.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -307,12 +346,12 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel11, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(40, 273);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(38, 287);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(296, 265);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(278, 280);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -340,7 +379,7 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(290, 192);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(272, 204);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // txtCardID
@@ -356,7 +395,7 @@ namespace RestaurantManagementApp.GUI
             this.txtCardID.Enabled = false;
             this.txtCardID.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCardID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCardID.Location = new System.Drawing.Point(111, 124);
+            this.txtCardID.Location = new System.Drawing.Point(104, 124);
             this.txtCardID.Margin = new System.Windows.Forms.Padding(4);
             this.txtCardID.Multiline = false;
             this.txtCardID.Name = "txtCardID";
@@ -364,7 +403,7 @@ namespace RestaurantManagementApp.GUI
             this.txtCardID.PasswordChar = false;
             this.txtCardID.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtCardID.PlaceholderText = "";
-            this.txtCardID.Size = new System.Drawing.Size(175, 36);
+            this.txtCardID.Size = new System.Drawing.Size(164, 36);
             this.txtCardID.TabIndex = 7;
             this.txtCardID.Texts = "";
             this.txtCardID.UnderlinedStyle = false;
@@ -382,7 +421,7 @@ namespace RestaurantManagementApp.GUI
             this.txtGender.Enabled = false;
             this.txtGender.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtGender.Location = new System.Drawing.Point(111, 84);
+            this.txtGender.Location = new System.Drawing.Point(104, 84);
             this.txtGender.Margin = new System.Windows.Forms.Padding(4);
             this.txtGender.Multiline = false;
             this.txtGender.Name = "txtGender";
@@ -390,7 +429,7 @@ namespace RestaurantManagementApp.GUI
             this.txtGender.PasswordChar = false;
             this.txtGender.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtGender.PlaceholderText = "";
-            this.txtGender.Size = new System.Drawing.Size(175, 36);
+            this.txtGender.Size = new System.Drawing.Size(164, 36);
             this.txtGender.TabIndex = 6;
             this.txtGender.Texts = "";
             this.txtGender.UnderlinedStyle = false;
@@ -408,7 +447,7 @@ namespace RestaurantManagementApp.GUI
             this.txtDate.Enabled = false;
             this.txtDate.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDate.Location = new System.Drawing.Point(111, 44);
+            this.txtDate.Location = new System.Drawing.Point(104, 44);
             this.txtDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtDate.Multiline = false;
             this.txtDate.Name = "txtDate";
@@ -416,7 +455,7 @@ namespace RestaurantManagementApp.GUI
             this.txtDate.PasswordChar = false;
             this.txtDate.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDate.PlaceholderText = "";
-            this.txtDate.Size = new System.Drawing.Size(175, 36);
+            this.txtDate.Size = new System.Drawing.Size(164, 36);
             this.txtDate.TabIndex = 5;
             this.txtDate.Texts = "";
             this.txtDate.UnderlinedStyle = false;
@@ -475,6 +514,9 @@ namespace RestaurantManagementApp.GUI
             // 
             // txtFullName
             // 
+            this.txtFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFullName.BackColor = System.Drawing.SystemColors.Window;
             this.txtFullName.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this.txtFullName.BorderFocusColor = System.Drawing.Color.HotPink;
@@ -483,7 +525,7 @@ namespace RestaurantManagementApp.GUI
             this.txtFullName.Enabled = false;
             this.txtFullName.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtFullName.Location = new System.Drawing.Point(111, 4);
+            this.txtFullName.Location = new System.Drawing.Point(104, 4);
             this.txtFullName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFullName.Multiline = false;
             this.txtFullName.Name = "txtFullName";
@@ -491,7 +533,7 @@ namespace RestaurantManagementApp.GUI
             this.txtFullName.PasswordChar = false;
             this.txtFullName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtFullName.PlaceholderText = "";
-            this.txtFullName.Size = new System.Drawing.Size(175, 36);
+            this.txtFullName.Size = new System.Drawing.Size(164, 36);
             this.txtFullName.TabIndex = 4;
             this.txtFullName.Texts = "";
             this.txtFullName.UnderlinedStyle = false;
@@ -501,9 +543,9 @@ namespace RestaurantManagementApp.GUI
             this.panel11.Controls.Add(this.btnChangeInfo);
             this.panel11.Controls.Add(this.btnLogout);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(3, 201);
+            this.panel11.Location = new System.Drawing.Point(3, 213);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(290, 61);
+            this.panel11.Size = new System.Drawing.Size(272, 64);
             this.panel11.TabIndex = 3;
             // 
             // btnChangeInfo
@@ -518,7 +560,7 @@ namespace RestaurantManagementApp.GUI
             this.btnChangeInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeInfo.ForeColor = System.Drawing.Color.White;
-            this.btnChangeInfo.Location = new System.Drawing.Point(27, 3);
+            this.btnChangeInfo.Location = new System.Drawing.Point(9, 3);
             this.btnChangeInfo.Name = "btnChangeInfo";
             this.btnChangeInfo.Size = new System.Drawing.Size(114, 41);
             this.btnChangeInfo.TabIndex = 3;
@@ -539,7 +581,7 @@ namespace RestaurantManagementApp.GUI
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(147, 3);
+            this.btnLogout.Location = new System.Drawing.Point(129, 3);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(116, 41);
             this.btnLogout.TabIndex = 2;
@@ -548,14 +590,26 @@ namespace RestaurantManagementApp.GUI
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(61, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(232, 22);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "THÔNG TIN NHÂN VIÊN";
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(67, 584);
+            this.panel8.Location = new System.Drawing.Point(3, 615);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(826, 97);
+            this.panel8.Size = new System.Drawing.Size(837, 102);
             this.panel8.TabIndex = 3;
             // 
             // panel10
@@ -565,7 +619,7 @@ namespace RestaurantManagementApp.GUI
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(826, 67);
+            this.panel10.Size = new System.Drawing.Size(837, 72);
             this.panel10.TabIndex = 1;
             // 
             // _Button2
@@ -580,9 +634,9 @@ namespace RestaurantManagementApp.GUI
             this._Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._Button2.Font = new System.Drawing.Font("Times New Roman", 16F);
             this._Button2.ForeColor = System.Drawing.Color.White;
-            this._Button2.Location = new System.Drawing.Point(344, 3);
+            this._Button2.Location = new System.Drawing.Point(470, 4);
             this._Button2.Name = "_Button2";
-            this._Button2.Size = new System.Drawing.Size(203, 60);
+            this._Button2.Size = new System.Drawing.Size(203, 65);
             this._Button2.TabIndex = 1;
             this._Button2.Text = "Xóa Bàn Cũ";
             this._Button2.TextColor = System.Drawing.Color.White;
@@ -600,9 +654,9 @@ namespace RestaurantManagementApp.GUI
             this._Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._Button1.Font = new System.Drawing.Font("Times New Roman", 16F);
             this._Button1.ForeColor = System.Drawing.Color.White;
-            this._Button1.Location = new System.Drawing.Point(101, 3);
+            this._Button1.Location = new System.Drawing.Point(189, 3);
             this._Button1.Name = "_Button1";
-            this._Button1.Size = new System.Drawing.Size(203, 60);
+            this._Button1.Size = new System.Drawing.Size(203, 65);
             this._Button1.TabIndex = 0;
             this._Button1.Text = "Mở Bàn Mới";
             this._Button1.TextColor = System.Drawing.Color.White;
@@ -611,9 +665,9 @@ namespace RestaurantManagementApp.GUI
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 67);
+            this.panel9.Location = new System.Drawing.Point(0, 72);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(826, 30);
+            this.panel9.Size = new System.Drawing.Size(837, 30);
             this.panel9.TabIndex = 0;
             // 
             // timerEmployee
@@ -632,15 +686,17 @@ namespace RestaurantManagementApp.GUI
             this.Name = "EmployeeScreen";
             this.Text = "EmployeeScreen";
             this.Load += new System.EventHandler(this.EmployeeScreen_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlWindow.ResumeLayout(false);
+            this.ControlBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximized)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
-            this.ControlBar.ResumeLayout(false);
-            this.ControlBar.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.pnlWindow.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
@@ -655,11 +711,6 @@ namespace RestaurantManagementApp.GUI
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox btnMinimized;
-        private System.Windows.Forms.PictureBox btnMaximized;
-        private System.Windows.Forms.PictureBox btnExit;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TableLayoutPanel ControlBar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlWindow;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -691,5 +742,13 @@ namespace RestaurantManagementApp.GUI
         private Custom._TextBox txtFullName;
         private System.Windows.Forms.Panel panel11;
         private Custom._Button btnChangeInfo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton icoLogout;
+        private System.Windows.Forms.TableLayoutPanel ControlBar;
+        private System.Windows.Forms.PictureBox btnMinimized;
+        private System.Windows.Forms.PictureBox btnMaximized;
+        private System.Windows.Forms.PictureBox btnExit;
     }
 }

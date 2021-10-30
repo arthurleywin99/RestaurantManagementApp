@@ -12,11 +12,15 @@ using RestaurantManagementApp.BusinessTier;
 using RestaurantManagementApp.UtilityMethod;
 using System.Drawing.Imaging;
 using System.IO;
+using RestaurantManagementApp.Properties;
 
 namespace RestaurantManagementApp.GUI
 {
     public partial class Aliment_ChildScreen : Form
     {
+        private string PATH;
+        private bool isNewImage = false;
+
         public Aliment_ChildScreen()
         {
             InitializeComponent();
@@ -47,14 +51,7 @@ namespace RestaurantManagementApp.GUI
             txtName_Child.Texts = aliment.AlimentName;
             cboType_Child.Texts = AlimentTypeBusinessTier.GetAlimentTypeNameByID(Convert.ToInt32(aliment.TypeID));
             txtPrice_Child.Texts = aliment.Price.ToString();
-            if (aliment.Image != null)
-            {
-                picAvatar_Child.Image = Image.FromFile(aliment.Image);
-            }
-            else
-            {
-                picAvatar_Child.Image = null;
-            }
+            picAvatar_Child.Image = aliment.Image != null ? Utility.LoadBitmapUnlocked(aliment.Image) : null;
         }
 
         private void FillAlimentToComboBox()
@@ -63,7 +60,10 @@ namespace RestaurantManagementApp.GUI
             List<Aliment> aliments = AlimentBusinessTier.GetAliments();
             foreach (var item in aliments)
             {
-                cboAliment_Child.Items.Add(item.AlimentName);
+                if (item.StillForSale == true)
+                {
+                    cboAliment_Child.Items.Add(item.AlimentName);
+                }
             }
             if (aliments.Count > 0) 
             { 
@@ -87,7 +87,7 @@ namespace RestaurantManagementApp.GUI
             AlimentName = txtName_Child.Texts,
             TypeID = AlimentTypeBusinessTier.GetAlimentTypeIDByName(cboType_Child.Texts),
             Price = Convert.ToDecimal(txtPrice_Child.Texts),
-            Image = Utility.IMAGE_ALIMENT_PATH + AlimentBusinessTier.GetAlimentByName(txtName_Child.Texts).AlimentID.ToString() + Utility.IMAGE_EXTENSION
+            Image = picAvatar_Child.Image != null ? Utility.IMAGE_ALIMENT_PATH + txtName_Child.Texts + Utility.IMAGE_EXTENSION : null
         };
 
         private void btnChooseImage_Child_Click(object sender, EventArgs e)
@@ -96,18 +96,25 @@ namespace RestaurantManagementApp.GUI
             {
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
+                    PATH = openFile.FileName;
                     picAvatar_Child.Image = Image.FromFile(openFile.FileName);
+                    isNewImage = true;
                 }
-                File.Copy(openFile.FileName, Path.Combine(Utility.IMAGE_ALIMENT_PATH, Path.GetFileName(AlimentBusinessTier.GetAlimentByName(txtName_Child.Texts).AlimentID.ToString() + Utility.IMAGE_EXTENSION)), true);
             }
         }
 
         private void btnSave_Child_Click(object sender, EventArgs e)
         {
+            if (isNewImage)
+            {
+                File.Copy(PATH, Path.Combine(Utility.IMAGE_ALIMENT_PATH, txtName_Child.Texts + Utility.IMAGE_EXTENSION), true);
+            }
+
             string Error = string.Empty;
             if (AlimentBusinessTier.UpdateAliment(cboAliment_Child.Texts, GetDataFromForm, out Error))
             {
                 MessageBox.Show("Cập nhật thực đơn thành công", "Success", MessageBoxButtons.OK);
+                isNewImage = false;
                 FillAlimentToComboBox();
             }
             else
@@ -118,19 +125,18 @@ namespace RestaurantManagementApp.GUI
 
         private void btnDelete_Child_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn xóa món này khỏi hệ thống không?", "Deleting Confirm", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Bạn có muốn ngừng bán món này không?", "Deleting Confirm", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 string error = string.Empty;
-                if (AlimentBusinessTier.DeleteAliment(txtName_Child.Texts, out error))
+                if (AlimentBusinessTier.StopAliment(txtName_Child.Texts, out error))
                 {
-                    MessageBox.Show("Xóa thành công", "Success", MessageBoxButtons.OK);
-                    File.Delete(AlimentBusinessTier.GetAlimentByName(txtName_Child.Texts).Image);
+                    MessageBox.Show("Vô hiệu hóa thành công", "Success", MessageBoxButtons.OK);
                     FillAlimentToComboBox();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa thất bại", "Failure", MessageBoxButtons.OK);
+                    MessageBox.Show(error, "Failure", MessageBoxButtons.OK);
                 }
             }
             else
@@ -141,8 +147,9 @@ namespace RestaurantManagementApp.GUI
 
         private void icoAdd_Child_Click(object sender, EventArgs e)
         {
-            new AddAliment_PopupScreen().ShowDialog();
-            FillAlimentToComboBox();
+            AddAliment_PopupScreen add = new AddAliment_PopupScreen();
+            add.UpdateAliment += () => FillAlimentToComboBox();
+            add.ShowDialog();
         }
     }
 }

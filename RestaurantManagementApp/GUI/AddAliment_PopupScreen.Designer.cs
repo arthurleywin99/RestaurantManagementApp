@@ -106,6 +106,7 @@ namespace RestaurantManagementApp.GUI
             this.btnChooseImage_Popup.Tag = "";
             this.btnChooseImage_Popup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnChooseImage_Popup.UseVisualStyleBackColor = false;
+            this.btnChooseImage_Popup.Click += new System.EventHandler(this.btnChooseImage_Popup_Click);
             // 
             // label1
             // 
@@ -369,6 +370,7 @@ namespace RestaurantManagementApp.GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddAliment_PopupScreen";
             this.Text = "AddMenu_PopupScreen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddAliment_PopupScreen_FormClosed);
             this.Load += new System.EventHandler(this.AddMenu_PopupScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar_Popup)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
