@@ -170,5 +170,13 @@ namespace RestaurantManagementApp.DataTier
                 return context.Users.FirstOrDefault(p => p.UserID == UserID).FullName;
             }
         }
+
+        public static string GetUsernameByUserID(int UserID)
+        {
+            using (var context = new Context())
+            {
+                return context.Users.FirstOrDefault(p => p.UserID == UserID).Username;
+            }
+        }
     }
 }

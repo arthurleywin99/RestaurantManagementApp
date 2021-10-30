@@ -70,5 +70,10 @@ namespace RestaurantManagementApp.BusinessTier
         {
             return UserDataTier.GetFullNameByUserID(UserID);
         }
+
+        public static string GetUsernameByUserID(int UserID)
+        {
+            return UserDataTier.GetUsernameByUserID(UserID);
+        }
     }
 }

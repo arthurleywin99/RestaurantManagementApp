@@ -282,6 +282,7 @@
     <Compile Include="Model\Context.cs" />
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\InvoiceDetail.cs" />
+    <Compile Include="Model\InvoiceReport.cs" />
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\Table.cs" />
@@ -363,8 +364,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\Bill.rdlc" />
     <EmbeddedResource Include="Report\InvoiceReport.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\RestaurantManagementApp.Model.InvoiceReport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -438,5 +441,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

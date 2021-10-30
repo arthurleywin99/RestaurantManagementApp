@@ -127,7 +127,7 @@ namespace RestaurantManagementApp.GUI
                 string Error = string.Empty;
                 if (InvoiceDetailsBusinessTier.DeleteInvoiceDetails(_Invoice.InvoiceID, out Error)
                     && InvoiceBusinessTier.DeleteInvoice(_Invoice.InvoiceID, out Error)
-                    && TableBusinessTier.SetFreeStatus(_Invoice.InvoiceID, out Error))
+                    && TableBusinessTier.SetFreeStatus(Convert.ToInt32(_Invoice.TableID), out Error))
                 {
                     MessageBox.Show("Xác nhận hết món hoàn tất", "Success", MessageBoxButtons.OK);
                     Notification notification = new Notification
