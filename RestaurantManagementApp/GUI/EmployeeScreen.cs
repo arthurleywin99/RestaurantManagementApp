@@ -17,6 +17,7 @@ namespace RestaurantManagementApp.GUI
 {
     public partial class EmployeeScreen : Form
     {
+        private SqlDependencyEx listener = new SqlDependencyEx(Utility.CONNECTION_STRING, "RestaurantManagement", "Invoice");
         private string _Username;
         public delegate void SendData(string username);
         public SendData sender;
@@ -28,15 +29,21 @@ namespace RestaurantManagementApp.GUI
             Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
-        private void timerEmployee_Tick(object sender, EventArgs e)
-        {
-            GetTableStatus();
-        }
-
         private void EmployeeScreen_Load(object sender, EventArgs e)
         {
             GetUserInfo();
             GetTableStatus();
+            listener.TableChanged += (o, e1) =>
+            {
+                MessageBox.Show("Có bàn đã hoàn thành. Xuống bếp lấy đi");
+                GetTableStatus();
+            };
+            listener.Start();
+        }
+
+        private void EmployeeScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            listener.Stop();
         }
 
         private void GetUserInfo()

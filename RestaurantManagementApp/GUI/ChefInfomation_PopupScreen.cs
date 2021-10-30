@@ -14,6 +14,7 @@ using RestaurantManagementApp.BusinessTier;
 namespace RestaurantManagementApp.GUI
 {
     public delegate void UpdateTableStatus();
+
     public partial class ChefInfomation_PopupScreen : Form
     {
         public event UpdateTableStatus updateTableStatus;

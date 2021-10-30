@@ -16,6 +16,7 @@ namespace RestaurantManagementApp.UtilityMethod
 {
     public class Utility
     {
+        public readonly static string CONNECTION_STRING = "data source=ARTHURLEYWIN;initial catalog=RestaurantManagement;integrated security=True;";
         public readonly static string VERSION = "VERSION 1.0";
         public readonly static string IMAGE_ALIMENT_PATH = @"D:\IMAGESERVER\Aliment\";
         public readonly static string IMAGE_USER_PATH = @"D:\IMAGESERVER\User\";

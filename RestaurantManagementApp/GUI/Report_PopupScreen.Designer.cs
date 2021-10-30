@@ -45,7 +45,9 @@ namespace RestaurantManagementApp.GUI
             this.reportViewer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.reportViewer.LocalReport.ReportEmbeddedResource = "RestaurantManagementApp.Report.InvoicesReport.rdlc";
             this.reportViewer.Location = new System.Drawing.Point(0, 33);
+            this.reportViewer.Margin = new System.Windows.Forms.Padding(10);
             this.reportViewer.Name = "reportViewer";
+            this.reportViewer.Padding = new System.Windows.Forms.Padding(10);
             this.reportViewer.ServerReport.BearerToken = null;
             this.reportViewer.Size = new System.Drawing.Size(800, 417);
             this.reportViewer.TabIndex = 0;
@@ -120,6 +122,7 @@ namespace RestaurantManagementApp.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ControlBar);
             this.Controls.Add(this.reportViewer);

@@ -187,30 +187,33 @@ namespace RestaurantManagementApp.GUI
             pnlWindow.Tag = form;
             form.BringToFront();
             form.Show();
-            lblTitle.Text = form.Text;
         }
 
         private void icoEmployee_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Utility.RGBColors.Color1);
+            lblTitle.Text = "QUẢN LÝ NHÂN VIÊN";
             OpenChildForm(new User_ChildScreen());
         }
 
         private void icoMenu_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Utility.RGBColors.Color2);
+            lblTitle.Text = "QUẢN LÝ THỰC ĐƠN";
             OpenChildForm(new Aliment_ChildScreen());
         }
 
         private void icoDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Utility.RGBColors.Color3);
+            lblTitle.Text = "DOANH SỐ";
             OpenChildForm(new Dashboard_ChildScreen());
         }
 
         private void icoStatistical_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Utility.RGBColors.Color4);
+            lblTitle.Text = "THỐNG KÊ HÓA ĐƠN";
             OpenChildForm(new InvoiceStatistical_ChildScreen());
         }
 

@@ -29,7 +29,6 @@ namespace RestaurantManagementApp.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,7 +65,6 @@ namespace RestaurantManagementApp.GUI
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.icoLogout = new FontAwesome.Sharp.IconButton();
-            this.chefTime = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -614,12 +612,6 @@ namespace RestaurantManagementApp.GUI
             this.icoLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoLogout.UseVisualStyleBackColor = true;
             // 
-            // chefTime
-            // 
-            this.chefTime.Enabled = true;
-            this.chefTime.Interval = 5000;
-            this.chefTime.Tick += new System.EventHandler(this.chefTime_Tick);
-            // 
             // ChefScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -630,6 +622,7 @@ namespace RestaurantManagementApp.GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChefScreen";
             this.Text = "ChefScreen";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChefScreen_FormClosed);
             this.Load += new System.EventHandler(this.ChefScreen_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -667,7 +660,6 @@ namespace RestaurantManagementApp.GUI
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton icoLogout;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer chefTime;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel pnlTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

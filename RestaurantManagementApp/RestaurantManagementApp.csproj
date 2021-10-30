@@ -278,6 +278,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UtilityMethod\IRemoveFlicker.cs" />
+    <Compile Include="UtilityMethod\SqlDependencyEx.cs" />
     <Compile Include="UtilityMethod\Utility.cs" />
     <EmbeddedResource Include="Custom\_AlimentBar.resx">
       <DependentUpon>_AlimentBar.cs</DependentUpon>

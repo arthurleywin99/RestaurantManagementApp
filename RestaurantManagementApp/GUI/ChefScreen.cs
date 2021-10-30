@@ -18,6 +18,9 @@ namespace RestaurantManagementApp.GUI
 {
     public partial class ChefScreen : Form
     {
+        private SqlDependencyEx listenerInvoice = new SqlDependencyEx(Utility.CONNECTION_STRING, "RestaurantManagement", "Invoice");
+        private SqlDependencyEx listenerInvoiceDetails = new SqlDependencyEx(Utility.CONNECTION_STRING, "RestaurantManagement", "InvoiceDetail");
+
         private string _Username;
         public delegate void SendData(string username);
         public SendData sender;
@@ -39,11 +42,24 @@ namespace RestaurantManagementApp.GUI
         {
             GetUserInfo();
             GetTableStatus();
+            listenerInvoice.TableChanged += (o, e1) =>
+            {
+                MessageBox.Show("Đã có đơn mới. Vui lòng kiểm tra");
+                GetTableStatus();
+            };
+            listenerInvoice.Start();
+
+            listenerInvoiceDetails.TableChanged += (o, e1) =>
+            {
+                MessageBox.Show("Đã có bàn bị thay đổi. Vui lòng kiểm tra lại");
+                GetTableStatus();
+            };
         }
 
-        private void chefTime_Tick(object sender, EventArgs e)
+        private void ChefScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
-            GetTableStatus();
+            listenerInvoice.Stop();
+            listenerInvoiceDetails.Stop();
         }
 
         private void GetTableStatus()
