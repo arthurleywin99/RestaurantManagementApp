@@ -105,11 +105,30 @@ namespace RestaurantManagementApp.GUI
 
         private void btnSave_Child_Click(object sender, EventArgs e)
         {
+            #region Ràng Buộc Tên Món
+            if (string.IsNullOrEmpty(txtName_Child.Texts) || string.IsNullOrWhiteSpace(txtName_Child.Texts))
+            {
+                MessageBox.Show("Tên món không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
+            #region Ràng Buộc Giá Tiền
+            if (string.IsNullOrEmpty(txtPrice_Child.Texts) || string.IsNullOrWhiteSpace(txtPrice_Child.Texts))
+            {
+                MessageBox.Show("Giá tiền không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            bool check = int.TryParse(txtPrice_Child.Texts, out _);
+            if (!check)
+            {
+                MessageBox.Show("Giá tiền phải là số nguyên", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
             if (isNewImage)
             {
                 File.Copy(PATH, Path.Combine(Utility.IMAGE_ALIMENT_PATH, txtName_Child.Texts + Utility.IMAGE_EXTENSION), true);
             }
-
             string Error = string.Empty;
             if (AlimentBusinessTier.UpdateAliment(cboAliment_Child.Texts, GetDataFromForm, out Error))
             {

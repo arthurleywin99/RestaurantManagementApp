@@ -52,12 +52,12 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.rdFemale = new RestaurantManagementApp.Custom._RadioButton();
             this.rdMale = new RestaurantManagementApp.Custom._RadioButton();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.icoEye_Popup = new FontAwesome.Sharp.IconButton();
+            this.txtNewPassword = new RestaurantManagementApp.Custom._TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnChooseImage_Child = new FontAwesome.Sharp.IconButton();
             this.picAvatar = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtNewPassword = new RestaurantManagementApp.Custom._TextBox();
-            this.icoEye_Popup = new FontAwesome.Sharp.IconButton();
             this.ControlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
@@ -65,9 +65,9 @@ namespace RestaurantManagementApp.GUI
             this.panel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ControlBar
@@ -239,7 +239,7 @@ namespace RestaurantManagementApp.GUI
             this.txtIDCard.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtIDCard.PasswordChar = false;
             this.txtIDCard.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtIDCard.PlaceholderText = "";
+            this.txtIDCard.PlaceholderText = "CMND 9 hoặc 12 ký tự";
             this.txtIDCard.Size = new System.Drawing.Size(285, 36);
             this.txtIDCard.TabIndex = 12;
             this.txtIDCard.Texts = "";
@@ -466,6 +466,7 @@ namespace RestaurantManagementApp.GUI
             // 
             this.rdMale.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rdMale.AutoSize = true;
+            this.rdMale.Checked = true;
             this.rdMale.CheckedColor = System.Drawing.Color.Red;
             this.rdMale.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdMale.Location = new System.Drawing.Point(3, 4);
@@ -478,6 +479,69 @@ namespace RestaurantManagementApp.GUI
             this.rdMale.Text = "Nam";
             this.rdMale.UnCheckedColor = System.Drawing.Color.Maroon;
             this.rdMale.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.13937F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.86063F));
+            this.tableLayoutPanel2.Controls.Add(this.icoEye_Popup, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtNewPassword, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(174, 243);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(287, 44);
+            this.tableLayoutPanel2.TabIndex = 13;
+            // 
+            // icoEye_Popup
+            // 
+            this.icoEye_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.icoEye_Popup.BackColor = System.Drawing.Color.Transparent;
+            this.icoEye_Popup.FlatAppearance.BorderSize = 0;
+            this.icoEye_Popup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icoEye_Popup.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoEye_Popup.ForeColor = System.Drawing.Color.Transparent;
+            this.icoEye_Popup.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.icoEye_Popup.IconColor = System.Drawing.Color.Black;
+            this.icoEye_Popup.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoEye_Popup.IconSize = 50;
+            this.icoEye_Popup.Location = new System.Drawing.Point(233, 3);
+            this.icoEye_Popup.Name = "icoEye_Popup";
+            this.icoEye_Popup.Size = new System.Drawing.Size(51, 38);
+            this.icoEye_Popup.TabIndex = 21;
+            this.icoEye_Popup.Tag = "";
+            this.icoEye_Popup.UseVisualStyleBackColor = false;
+            this.icoEye_Popup.Click += new System.EventHandler(this.icoEye_Popup_Click);
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtNewPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNewPassword.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNewPassword.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtNewPassword.BorderRadius = 0;
+            this.txtNewPassword.BorderSize = 2;
+            this.txtNewPassword.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNewPassword.Location = new System.Drawing.Point(4, 4);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNewPassword.Multiline = false;
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtNewPassword.PasswordChar = true;
+            this.txtNewPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtNewPassword.PlaceholderText = "";
+            this.txtNewPassword.Size = new System.Drawing.Size(222, 36);
+            this.txtNewPassword.TabIndex = 14;
+            this.txtNewPassword.Texts = "";
+            this.txtNewPassword.UnderlinedStyle = false;
             // 
             // panel2
             // 
@@ -523,69 +587,6 @@ namespace RestaurantManagementApp.GUI
             this.picAvatar.TabIndex = 0;
             this.picAvatar.TabStop = false;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.13937F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.86063F));
-            this.tableLayoutPanel2.Controls.Add(this.icoEye_Popup, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.txtNewPassword, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(174, 243);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(287, 44);
-            this.tableLayoutPanel2.TabIndex = 13;
-            // 
-            // txtNewPassword
-            // 
-            this.txtNewPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtNewPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNewPassword.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtNewPassword.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtNewPassword.BorderRadius = 0;
-            this.txtNewPassword.BorderSize = 2;
-            this.txtNewPassword.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNewPassword.Location = new System.Drawing.Point(4, 4);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNewPassword.Multiline = false;
-            this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtNewPassword.PasswordChar = true;
-            this.txtNewPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtNewPassword.PlaceholderText = "";
-            this.txtNewPassword.Size = new System.Drawing.Size(222, 36);
-            this.txtNewPassword.TabIndex = 14;
-            this.txtNewPassword.Texts = "";
-            this.txtNewPassword.UnderlinedStyle = false;
-            // 
-            // icoEye_Popup
-            // 
-            this.icoEye_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.icoEye_Popup.BackColor = System.Drawing.Color.Transparent;
-            this.icoEye_Popup.FlatAppearance.BorderSize = 0;
-            this.icoEye_Popup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icoEye_Popup.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoEye_Popup.ForeColor = System.Drawing.Color.Transparent;
-            this.icoEye_Popup.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.icoEye_Popup.IconColor = System.Drawing.Color.Black;
-            this.icoEye_Popup.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoEye_Popup.IconSize = 50;
-            this.icoEye_Popup.Location = new System.Drawing.Point(233, 3);
-            this.icoEye_Popup.Name = "icoEye_Popup";
-            this.icoEye_Popup.Size = new System.Drawing.Size(51, 38);
-            this.icoEye_Popup.TabIndex = 21;
-            this.icoEye_Popup.Tag = "";
-            this.icoEye_Popup.UseVisualStyleBackColor = false;
-            this.icoEye_Popup.Click += new System.EventHandler(this.icoEye_Popup_Click);
-            // 
             // ChangeInfo_PopupScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,9 +609,9 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

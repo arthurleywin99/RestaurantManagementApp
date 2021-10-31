@@ -65,8 +65,6 @@ namespace RestaurantManagementApp.GUI
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this._Button2 = new RestaurantManagementApp.Custom._Button();
-            this._Button1 = new RestaurantManagementApp.Custom._Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.timerEmployee = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
@@ -86,7 +84,6 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel4.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -554,15 +551,15 @@ namespace RestaurantManagementApp.GUI
             this.btnChangeInfo.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnChangeInfo.BackgroundColor = System.Drawing.Color.LightSeaGreen;
             this.btnChangeInfo.BorderColor = System.Drawing.Color.LimeGreen;
-            this.btnChangeInfo.BorderRadius = 10;
+            this.btnChangeInfo.BorderRadius = 5;
             this.btnChangeInfo.BorderSize = 0;
             this.btnChangeInfo.FlatAppearance.BorderSize = 0;
             this.btnChangeInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeInfo.ForeColor = System.Drawing.Color.White;
-            this.btnChangeInfo.Location = new System.Drawing.Point(9, 3);
+            this.btnChangeInfo.Location = new System.Drawing.Point(3, 3);
             this.btnChangeInfo.Name = "btnChangeInfo";
-            this.btnChangeInfo.Size = new System.Drawing.Size(114, 41);
+            this.btnChangeInfo.Size = new System.Drawing.Size(127, 41);
             this.btnChangeInfo.TabIndex = 3;
             this.btnChangeInfo.Text = "Đổi Thông Tin";
             this.btnChangeInfo.TextColor = System.Drawing.Color.White;
@@ -575,15 +572,15 @@ namespace RestaurantManagementApp.GUI
             this.btnLogout.BackColor = System.Drawing.Color.Brown;
             this.btnLogout.BackgroundColor = System.Drawing.Color.Brown;
             this.btnLogout.BorderColor = System.Drawing.Color.LimeGreen;
-            this.btnLogout.BorderRadius = 10;
+            this.btnLogout.BorderRadius = 5;
             this.btnLogout.BorderSize = 0;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(129, 3);
+            this.btnLogout.Location = new System.Drawing.Point(145, 3);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(116, 41);
+            this.btnLogout.Size = new System.Drawing.Size(123, 41);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Đăng Xuất";
             this.btnLogout.TextColor = System.Drawing.Color.White;
@@ -614,53 +611,11 @@ namespace RestaurantManagementApp.GUI
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this._Button2);
-            this.panel10.Controls.Add(this._Button1);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(837, 72);
             this.panel10.TabIndex = 1;
-            // 
-            // _Button2
-            // 
-            this._Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this._Button2.BackColor = System.Drawing.Color.DarkRed;
-            this._Button2.BackgroundColor = System.Drawing.Color.DarkRed;
-            this._Button2.BorderColor = System.Drawing.Color.LimeGreen;
-            this._Button2.BorderRadius = 15;
-            this._Button2.BorderSize = 0;
-            this._Button2.FlatAppearance.BorderSize = 0;
-            this._Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._Button2.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this._Button2.ForeColor = System.Drawing.Color.White;
-            this._Button2.Location = new System.Drawing.Point(470, 4);
-            this._Button2.Name = "_Button2";
-            this._Button2.Size = new System.Drawing.Size(203, 65);
-            this._Button2.TabIndex = 1;
-            this._Button2.Text = "Xóa Bàn Cũ";
-            this._Button2.TextColor = System.Drawing.Color.White;
-            this._Button2.UseVisualStyleBackColor = false;
-            // 
-            // _Button1
-            // 
-            this._Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this._Button1.BackColor = System.Drawing.Color.DarkRed;
-            this._Button1.BackgroundColor = System.Drawing.Color.DarkRed;
-            this._Button1.BorderColor = System.Drawing.Color.LimeGreen;
-            this._Button1.BorderRadius = 15;
-            this._Button1.BorderSize = 0;
-            this._Button1.FlatAppearance.BorderSize = 0;
-            this._Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._Button1.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this._Button1.ForeColor = System.Drawing.Color.White;
-            this._Button1.Location = new System.Drawing.Point(189, 3);
-            this._Button1.Name = "_Button1";
-            this._Button1.Size = new System.Drawing.Size(203, 65);
-            this._Button1.TabIndex = 0;
-            this._Button1.Text = "Mở Bàn Mới";
-            this._Button1.TextColor = System.Drawing.Color.White;
-            this._Button1.UseVisualStyleBackColor = false;
             // 
             // panel9
             // 
@@ -706,7 +661,6 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel4.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -727,8 +681,6 @@ namespace RestaurantManagementApp.GUI
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
         private Custom._Button btnLogout;
-        private Custom._Button _Button2;
-        private Custom._Button _Button1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

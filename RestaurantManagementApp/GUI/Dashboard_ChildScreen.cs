@@ -101,10 +101,21 @@ namespace RestaurantManagementApp.GUI
             int _month = DateTime.Now.Month;
             int lastDay = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
             invoiceChart.Titles.Add($"Thống kê số hóa đơn trong tháng {_month}/{_year}");
-            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 1 - 7", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 1), new DateTime(_year, _month, 7)));
-            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 8 - 14", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 8), new DateTime(_year, _month, 14)));
-            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Tuần 15 - 21", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 15), new DateTime(_year, _month, 21)));
-            invoiceChart.Series["Hóa Đơn"].Points.AddXY($"Ngày 22 - {lastDay}", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 22), new DateTime(_year, _month, lastDay)));   
+            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 1 - 4", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 1), new DateTime(_year, _month, 4)));
+            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 5 - 8", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 5), new DateTime(_year, _month, 8)));
+            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 9 - 12", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 9), new DateTime(_year, _month, 12)));
+            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 13 - 16", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 13), new DateTime(_year, _month, 16)));
+            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 17 - 20", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 17), new DateTime(_year, _month, 20)));
+            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 21 - 24", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 21), new DateTime(_year, _month, 24)));
+            invoiceChart.Series["Hóa Đơn"].Points.AddXY("Ngày 25 - 28", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 25), new DateTime(_year, _month, 28)));
+            if (lastDay > 29)
+            {
+                invoiceChart.Series["Hóa Đơn"].Points.AddXY($"Ngày 29 - {lastDay}", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 29), new DateTime(_year, _month, lastDay)));
+            }
+            if (lastDay == 29)
+            {
+                invoiceChart.Series["Hóa Đơn"].Points.AddXY($"Ngày 29", InvoiceBusinessTier.InvoiceStatistical(new DateTime(_year, _month, 29), new DateTime(_year, _month, 29)));
+            }
         }
 
         private void Top5Drinks()

@@ -62,16 +62,26 @@ namespace RestaurantManagementApp.GUI
 
         private void btnAdd_Popup_Click(object sender, EventArgs e)
         {
+            #region Ràng Buộc Tên Món
             if (string.IsNullOrEmpty(txtName_Popup.Texts) || string.IsNullOrWhiteSpace(txtName_Popup.Texts))
             {
                 MessageBox.Show("Tên món không được để trống", "Error", MessageBoxButtons.OK);
                 return;
             }
+            #endregion
+            #region Ràng Buộc Giá Tiền
             if (string.IsNullOrEmpty(txtPrice_Popup.Texts) || string.IsNullOrWhiteSpace(txtPrice_Popup.Texts))
             {
                 MessageBox.Show("Giá tiền không được để trống", "Error", MessageBoxButtons.OK);
                 return;
             }
+            bool check = int.TryParse(txtPrice_Popup.Texts, out _);
+            if (!check)
+            {
+                MessageBox.Show("Giá tiền phải là số nguyên", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
 
             if (AlimentBusinessTier.IsAlimentExist(GetAlimentFromForm))
             {

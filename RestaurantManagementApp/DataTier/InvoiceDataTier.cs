@@ -9,10 +9,12 @@ namespace RestaurantManagementApp.DataTier
 {
     public class InvoiceDataTier
     {
-        public static List<Invoice> GetInvoices(int UserID, int TableID, DateTime From, DateTime To)
+        public static List<Invoice> GetInvoices(int UserID, int TableID, DateTime from, DateTime to)
         {
             using (var context = new Context())
             {
+                DateTime From = from.AddDays(-1).Date;
+                DateTime To = to.AddDays(1).Date;
                 if (UserID == -1 && TableID == -1)
                 {
                     return context.Invoices.Where(p => p.CreateDate >= From

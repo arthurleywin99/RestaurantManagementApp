@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RestaurantManagementApp.BusinessTier;
@@ -191,6 +192,42 @@ namespace RestaurantManagementApp.GUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            #region Ràng Buộc Họ Tên
+            if (string.IsNullOrEmpty(txtName_Child.Texts) || string.IsNullOrWhiteSpace(txtName_Child.Texts))
+            {
+                MessageBox.Show("Họ tên không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (!Regex.IsMatch(Utility.UnicodeToAscii(txtName_Child.Texts), @"^[A-Za-z ]+$"))
+            {
+                MessageBox.Show("Họ tên không chứa ký tự đặc biệt trừ Space", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
+            #region Ràng Buộc Ngày Tháng Năm Sinh
+            if (DateTime.Compare(dtpDate_Child.Value, DateTime.Now) > 0)
+            {
+                MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
+            #region Ràng Buộc CMND
+            if (string.IsNullOrEmpty(txtCardID_Child.Texts) || string.IsNullOrWhiteSpace(txtCardID_Child.Texts))
+            {
+                MessageBox.Show("CMND không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtCardID_Child.Texts.Any(ch => !char.IsDigit(ch)))
+            {
+                MessageBox.Show("CMND chỉ chứa các ký tự là số nguyên", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (!(txtCardID_Child.Texts.Length == 9 || txtCardID_Child.Texts.Length == 12))
+            {
+                MessageBox.Show("CMND là một chuỗi có 9 hoặc 12 ký tự", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
             string username = cboUser_Child.SelectedItem.ToString();
             string Error = string.Empty;
             

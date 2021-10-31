@@ -207,7 +207,7 @@ namespace RestaurantManagementApp.GUI
             this.txtCardID_Child.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtCardID_Child.PasswordChar = false;
             this.txtCardID_Child.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCardID_Child.PlaceholderText = "";
+            this.txtCardID_Child.PlaceholderText = "CMND 9 hoặc 12 ký tự";
             this.txtCardID_Child.Size = new System.Drawing.Size(479, 36);
             this.txtCardID_Child.TabIndex = 10;
             this.txtCardID_Child.Texts = "";
@@ -321,6 +321,7 @@ namespace RestaurantManagementApp.GUI
             // 
             this.rdMale_Child.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rdMale_Child.AutoSize = true;
+            this.rdMale_Child.Checked = true;
             this.rdMale_Child.CheckedColor = System.Drawing.Color.Red;
             this.rdMale_Child.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdMale_Child.Location = new System.Drawing.Point(3, 19);

@@ -25,7 +25,6 @@ namespace RestaurantManagementApp.GUI
             Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             BackgroundImage = Resources.Background;
             RemoveFlicker();
-            
         }
 
         public void RemoveFlicker()
@@ -59,7 +58,7 @@ namespace RestaurantManagementApp.GUI
         #endregion
 
         /// <summary>
-        /// Kéo thả ControlBar (Giống sự kiện DragMove trên WPF)
+        /// Kéo thả ControlBar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -79,6 +78,16 @@ namespace RestaurantManagementApp.GUI
         /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtUsername.Texts) || string.IsNullOrWhiteSpace(txtUsername.Texts))
+            {
+                MessageBox.Show("Tên đăng nhập không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtPassword.Texts) || string.IsNullOrWhiteSpace(txtPassword.Texts))
+            {
+                MessageBox.Show("Mật khẩu không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
             string Role = RoleBusinessTier.GetUserRoleName(txtUsername.Texts, txtPassword.Texts);
             switch (Role)
             {

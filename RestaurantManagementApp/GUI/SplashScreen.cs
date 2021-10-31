@@ -40,8 +40,7 @@ namespace RestaurantManagementApp.GUI
 
         private void timerSplashScreen_Tick(object sender, EventArgs e)
         {
-            /*old 20*/
-            pnlLoad.Width += 100;
+            pnlLoad.Width += 20;
             if (pnlLoad.Width >= 790)
             {
                 timerSplashScreen.Stop();

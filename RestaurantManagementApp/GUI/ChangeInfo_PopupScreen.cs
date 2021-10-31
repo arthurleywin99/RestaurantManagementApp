@@ -12,6 +12,7 @@ using RestaurantManagementApp.Model;
 using System.Drawing.Imaging;
 using RestaurantManagementApp.BusinessTier;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace RestaurantManagementApp.GUI
 {
@@ -95,21 +96,42 @@ namespace RestaurantManagementApp.GUI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            #region Ràng Buộc Họ Tên
             if (string.IsNullOrEmpty(txtFullName.Texts) || string.IsNullOrWhiteSpace(txtFullName.Texts))
             {
                 MessageBox.Show("Họ tên không được để trống", "Error", MessageBoxButtons.OK);
                 return;
             }
-            if (DateTime.Compare(dtpDate.Value, DateTime.Now) > 1)
+            if (!Regex.IsMatch(Utility.UnicodeToAscii(txtFullName.Texts), @"^[A-Za-z ]+$"))
             {
-                MessageBox.Show("Thời gian không được lớn hơn ngày hiện hành", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Họ tên không chứa ký tự đặc biệt trừ Space", "Error", MessageBoxButtons.OK);
                 return;
             }
+            #endregion
+            #region Ràng Buộc Ngày Tháng Năm Sinh
+            if (DateTime.Compare(dtpDate.Value, DateTime.Now) > 0)
+            {
+                MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
+            #region Ràng Buộc CMND
             if (string.IsNullOrEmpty(txtIDCard.Texts) || string.IsNullOrWhiteSpace(txtIDCard.Texts))
             {
-                MessageBox.Show("Số chứng minh thư không được để trống", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("CMND không được để trống", "Error", MessageBoxButtons.OK);
                 return;
             }
+            if (txtIDCard.Texts.Any(ch => !char.IsDigit(ch)))
+            {
+                MessageBox.Show("CMND chỉ chứa các ký tự là số nguyên", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (!(txtIDCard.Texts.Length == 9 || txtIDCard.Texts.Length == 12))
+            {
+                MessageBox.Show("CMND là một chuỗi có 9 hoặc 12 ký tự", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
 
             if (isNewImage)
             {

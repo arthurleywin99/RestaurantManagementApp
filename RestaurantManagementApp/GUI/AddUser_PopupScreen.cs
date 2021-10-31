@@ -12,6 +12,7 @@ using RestaurantManagementApp.Model;
 using RestaurantManagementApp.BusinessTier;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace RestaurantManagementApp.GUI
 {
@@ -62,6 +63,76 @@ namespace RestaurantManagementApp.GUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            #region Ràng Buộc Tên Tài Khoản
+            if (string.IsNullOrEmpty(txtUsername_Popup.Texts) || string.IsNullOrWhiteSpace(txtUsername_Popup.Texts))
+            {
+                MessageBox.Show("Tên đăng nhập không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (!(txtUsername_Popup.Texts.Length >= 5 && txtUsername_Popup.Texts.Length <= 24))
+            {
+                MessageBox.Show("Tên tài khoản là một chuỗi từ 5 - 24 ký tự", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtUsername_Popup.Texts.Any(ch => !char.IsLetterOrDigit(ch)))
+            {
+                MessageBox.Show("Tên tài khoản không chứa ký tự đặc biệt", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
+            #region Ràng Buộc Mật Khẩu
+            if (string.IsNullOrEmpty(txtPassword_Popup.Texts) || string.IsNullOrWhiteSpace(txtPassword_Popup.Texts))
+            {
+                MessageBox.Show("Mật khẩu không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (!(txtPassword_Popup.Texts.Length >= 6 && txtPassword_Popup.Texts.Length <= 24)) 
+            {
+                MessageBox.Show("Mật khẩu là một chuỗi từ 6 - 24 ký tự", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (!Regex.IsMatch(txtPassword_Popup.Texts, @"^[A-Za-z0-9_@]+$"))
+            {
+                MessageBox.Show("Mật khẩu không chứa các ký tự đặc biệt trừ \"_ @\"", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
+            #region Ràng Buộc Họ Tên
+            if (string.IsNullOrEmpty(txtFullName_Popup.Texts) || string.IsNullOrWhiteSpace(txtFullName_Popup.Texts))
+            {
+                MessageBox.Show("Họ tên không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (!Regex.IsMatch(Utility.UnicodeToAscii(txtFullName_Popup.Texts), @"^[A-Za-z ]+$"))
+            {
+                MessageBox.Show("Họ tên không chứa ký tự đặc biệt trừ Space", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
+            #region Ràng Buộc Ngày Tháng Năm Sinh
+            if (DateTime.Compare(dtpDate_Popup.Value, DateTime.Now) > 0)
+            {
+                MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
+            #region Ràng Buộc CMND
+            if (string.IsNullOrEmpty(txtCardID_Popup.Texts) || string.IsNullOrWhiteSpace(txtCardID_Popup.Texts))
+            {
+                MessageBox.Show("CMND không được để trống", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (txtCardID_Popup.Texts.Any(ch => !char.IsDigit(ch)))
+            {
+                MessageBox.Show("CMND chỉ chứa các ký tự là số nguyên", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            if (!(txtCardID_Popup.Texts.Length == 9 || txtCardID_Popup.Texts.Length == 12))
+            {
+                MessageBox.Show("CMND là một chuỗi có 9 hoặc 12 ký tự", "Error", MessageBoxButtons.OK);
+                return;
+            }
+            #endregion
             if (UserBusinessTier.IsUserExisted(txtUsername_Popup.Texts))
             {
                 MessageBox.Show("Hệ thống đã tồn tại username này", "Existing Error", MessageBoxButtons.OK);
@@ -83,6 +154,7 @@ namespace RestaurantManagementApp.GUI
                     MessageBox.Show(Error, "Failure", MessageBoxButtons.OK);
                 }
             }
+            
         }
 
         private void icoEye_Click(object sender, EventArgs e)

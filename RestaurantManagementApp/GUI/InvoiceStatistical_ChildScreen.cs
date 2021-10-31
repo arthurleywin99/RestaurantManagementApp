@@ -76,6 +76,15 @@ namespace RestaurantManagementApp.GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            #region Ràng Buộc Khoảng Thời Gian Tìm Kiếm
+            if (DateTime.Compare(dtpFrom.Value, dtpTo.Value) > 0)
+            {
+                MessageBox.Show("Ngày bắt đầu không thể lớn hơn ngày kết thúc. Vui lòng kiểm tra lại", "Error", MessageBoxButtons.OK);
+                dtpFrom.Value = DateTime.Now;
+                dtpTo.Value = DateTime.Now;
+                return;
+            }
+            #endregion
             int UserID = cboEmployee.Texts.Equals("") ? -1 : UserBusinessTier.GetUserByUsername(cboEmployee.Texts).UserID;
             int TableID = cboTable.Texts.Equals("") ? -1 : TableBusinessTier.GetTableByTableName(cboTable.Texts);
             List<Invoice> invoices = InvoiceBusinessTier.GetInvoices(UserID, TableID, dtpFrom.Value.Date, dtpTo.Value.Date);

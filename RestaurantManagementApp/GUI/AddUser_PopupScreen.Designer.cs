@@ -43,23 +43,23 @@ namespace RestaurantManagementApp.GUI
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.icoEye_Popup = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnChooseImage_Popup = new FontAwesome.Sharp.IconButton();
+            this.picAvatar_Popup = new System.Windows.Forms.PictureBox();
             this.txtUsername_Popup = new RestaurantManagementApp.Custom._TextBox();
             this.txtPassword_Popup = new RestaurantManagementApp.Custom._TextBox();
             this.txtFullName_Popup = new RestaurantManagementApp.Custom._TextBox();
             this.txtAddress_Popup = new RestaurantManagementApp.Custom._TextBox();
             this.txtCardID_Popup = new RestaurantManagementApp.Custom._TextBox();
             this.dtpDate_Popup = new RestaurantManagementApp.Custom._DateTimePicker();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.rdFemale_Popup = new RestaurantManagementApp.Custom._RadioButton();
             this.rdMale_Popup = new RestaurantManagementApp.Custom._RadioButton();
             this.cboType_Popup = new RestaurantManagementApp.Custom._Combobox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel_Popup = new RestaurantManagementApp.Custom._Button();
             this.btnAdd_Popup = new RestaurantManagementApp.Custom._Button();
-            this.icoEye_Popup = new FontAwesome.Sharp.IconButton();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnChooseImage_Popup = new FontAwesome.Sharp.IconButton();
-            this.picAvatar_Popup = new System.Windows.Forms.PictureBox();
             this.tbPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit_Popup)).BeginInit();
             this.panel1.SuspendLayout();
@@ -279,6 +279,113 @@ namespace RestaurantManagementApp.GUI
             this.label8.Text = "Loại tài khoản";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.rdFemale_Popup, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.rdMale_Popup, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(271, 183);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 39);
+            this.tableLayoutPanel2.TabIndex = 14;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.btnCancel_Popup, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnAdd_Popup, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(271, 363);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(330, 93);
+            this.tableLayoutPanel3.TabIndex = 16;
+            // 
+            // icoEye_Popup
+            // 
+            this.icoEye_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.icoEye_Popup.BackColor = System.Drawing.Color.Transparent;
+            this.icoEye_Popup.FlatAppearance.BorderSize = 0;
+            this.icoEye_Popup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icoEye_Popup.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icoEye_Popup.ForeColor = System.Drawing.Color.Transparent;
+            this.icoEye_Popup.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.icoEye_Popup.IconColor = System.Drawing.Color.Black;
+            this.icoEye_Popup.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icoEye_Popup.IconSize = 50;
+            this.icoEye_Popup.Location = new System.Drawing.Point(607, 48);
+            this.icoEye_Popup.Name = "icoEye_Popup";
+            this.icoEye_Popup.Size = new System.Drawing.Size(63, 39);
+            this.icoEye_Popup.TabIndex = 19;
+            this.icoEye_Popup.Tag = "";
+            this.icoEye_Popup.UseVisualStyleBackColor = false;
+            this.icoEye_Popup.Click += new System.EventHandler(this.icoEye_Click);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.btnChooseImage_Popup, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.picAvatar_Popup, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.54546F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.45454F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(218, 468);
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // btnChooseImage_Popup
+            // 
+            this.btnChooseImage_Popup.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnChooseImage_Popup.BackColor = System.Drawing.Color.Transparent;
+            this.btnChooseImage_Popup.FlatAppearance.BorderSize = 0;
+            this.btnChooseImage_Popup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseImage_Popup.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseImage_Popup.ForeColor = System.Drawing.Color.Black;
+            this.btnChooseImage_Popup.IconChar = FontAwesome.Sharp.IconChar.Image;
+            this.btnChooseImage_Popup.IconColor = System.Drawing.Color.Black;
+            this.btnChooseImage_Popup.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnChooseImage_Popup.IconSize = 40;
+            this.btnChooseImage_Popup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChooseImage_Popup.Location = new System.Drawing.Point(84, 265);
+            this.btnChooseImage_Popup.Margin = new System.Windows.Forms.Padding(10);
+            this.btnChooseImage_Popup.Name = "btnChooseImage_Popup";
+            this.btnChooseImage_Popup.Size = new System.Drawing.Size(50, 27);
+            this.btnChooseImage_Popup.TabIndex = 10;
+            this.btnChooseImage_Popup.Tag = "";
+            this.btnChooseImage_Popup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnChooseImage_Popup.UseVisualStyleBackColor = false;
+            this.btnChooseImage_Popup.Click += new System.EventHandler(this.btnChooseImage_Click);
+            // 
+            // picAvatar_Popup
+            // 
+            this.picAvatar_Popup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.picAvatar_Popup.BackColor = System.Drawing.Color.Transparent;
+            this.picAvatar_Popup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picAvatar_Popup.Location = new System.Drawing.Point(3, 16);
+            this.picAvatar_Popup.Name = "picAvatar_Popup";
+            this.picAvatar_Popup.Size = new System.Drawing.Size(212, 222);
+            this.picAvatar_Popup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAvatar_Popup.TabIndex = 0;
+            this.picAvatar_Popup.TabStop = false;
+            // 
             // txtUsername_Popup
             // 
             this.txtUsername_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -296,7 +403,7 @@ namespace RestaurantManagementApp.GUI
             this.txtUsername_Popup.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtUsername_Popup.PasswordChar = false;
             this.txtUsername_Popup.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtUsername_Popup.PlaceholderText = "";
+            this.txtUsername_Popup.PlaceholderText = "Tên tài khoản từ 5 - 24 ký tự";
             this.txtUsername_Popup.Size = new System.Drawing.Size(328, 36);
             this.txtUsername_Popup.TabIndex = 8;
             this.txtUsername_Popup.Texts = "";
@@ -319,7 +426,7 @@ namespace RestaurantManagementApp.GUI
             this.txtPassword_Popup.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtPassword_Popup.PasswordChar = true;
             this.txtPassword_Popup.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtPassword_Popup.PlaceholderText = "";
+            this.txtPassword_Popup.PlaceholderText = "Mật khẩu từ 6 - 24 ký tự";
             this.txtPassword_Popup.Size = new System.Drawing.Size(328, 36);
             this.txtPassword_Popup.TabIndex = 9;
             this.txtPassword_Popup.Texts = "";
@@ -388,7 +495,7 @@ namespace RestaurantManagementApp.GUI
             this.txtCardID_Popup.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtCardID_Popup.PasswordChar = false;
             this.txtCardID_Popup.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCardID_Popup.PlaceholderText = "";
+            this.txtCardID_Popup.PlaceholderText = "CMND 9 hoặc 12 ký tự";
             this.txtCardID_Popup.Size = new System.Drawing.Size(328, 36);
             this.txtCardID_Popup.TabIndex = 12;
             this.txtCardID_Popup.Texts = "";
@@ -409,23 +516,6 @@ namespace RestaurantManagementApp.GUI
             this.dtpDate_Popup.TabIndex = 13;
             this.dtpDate_Popup.TextColor = System.Drawing.Color.White;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.rdFemale_Popup, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.rdMale_Popup, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(271, 183);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(330, 39);
-            this.tableLayoutPanel2.TabIndex = 14;
-            // 
             // rdFemale_Popup
             // 
             this.rdFemale_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -439,7 +529,6 @@ namespace RestaurantManagementApp.GUI
             this.rdFemale_Popup.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.rdFemale_Popup.Size = new System.Drawing.Size(59, 33);
             this.rdFemale_Popup.TabIndex = 1;
-            this.rdFemale_Popup.TabStop = true;
             this.rdFemale_Popup.Text = "Nữ";
             this.rdFemale_Popup.UnCheckedColor = System.Drawing.Color.DarkBlue;
             this.rdFemale_Popup.UseVisualStyleBackColor = true;
@@ -449,6 +538,7 @@ namespace RestaurantManagementApp.GUI
             this.rdMale_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.rdMale_Popup.AutoSize = true;
+            this.rdMale_Popup.Checked = true;
             this.rdMale_Popup.CheckedColor = System.Drawing.Color.Blue;
             this.rdMale_Popup.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdMale_Popup.Location = new System.Drawing.Point(3, 3);
@@ -481,23 +571,6 @@ namespace RestaurantManagementApp.GUI
             this.cboType_Popup.Size = new System.Drawing.Size(330, 30);
             this.cboType_Popup.TabIndex = 15;
             this.cboType_Popup.Texts = "";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.btnCancel_Popup, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnAdd_Popup, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(271, 363);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(330, 93);
-            this.tableLayoutPanel3.TabIndex = 16;
             // 
             // btnCancel_Popup
             // 
@@ -540,79 +613,6 @@ namespace RestaurantManagementApp.GUI
             this.btnAdd_Popup.TextColor = System.Drawing.Color.White;
             this.btnAdd_Popup.UseVisualStyleBackColor = false;
             this.btnAdd_Popup.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // icoEye_Popup
-            // 
-            this.icoEye_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.icoEye_Popup.BackColor = System.Drawing.Color.Transparent;
-            this.icoEye_Popup.FlatAppearance.BorderSize = 0;
-            this.icoEye_Popup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icoEye_Popup.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icoEye_Popup.ForeColor = System.Drawing.Color.Transparent;
-            this.icoEye_Popup.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.icoEye_Popup.IconColor = System.Drawing.Color.Black;
-            this.icoEye_Popup.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icoEye_Popup.IconSize = 50;
-            this.icoEye_Popup.Location = new System.Drawing.Point(607, 48);
-            this.icoEye_Popup.Name = "icoEye_Popup";
-            this.icoEye_Popup.Size = new System.Drawing.Size(63, 39);
-            this.icoEye_Popup.TabIndex = 19;
-            this.icoEye_Popup.Tag = "";
-            this.icoEye_Popup.UseVisualStyleBackColor = false;
-            this.icoEye_Popup.Click += new System.EventHandler(this.icoEye_Click);
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.btnChooseImage_Popup, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.picAvatar_Popup, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.54546F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.45454F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(218, 468);
-            this.tableLayoutPanel4.TabIndex = 3;
-            // 
-            // btnChooseImage_Popup
-            // 
-            this.btnChooseImage_Popup.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnChooseImage_Popup.BackColor = System.Drawing.Color.Transparent;
-            this.btnChooseImage_Popup.FlatAppearance.BorderSize = 0;
-            this.btnChooseImage_Popup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseImage_Popup.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChooseImage_Popup.ForeColor = System.Drawing.Color.Black;
-            this.btnChooseImage_Popup.IconChar = FontAwesome.Sharp.IconChar.Image;
-            this.btnChooseImage_Popup.IconColor = System.Drawing.Color.Black;
-            this.btnChooseImage_Popup.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnChooseImage_Popup.IconSize = 40;
-            this.btnChooseImage_Popup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChooseImage_Popup.Location = new System.Drawing.Point(84, 265);
-            this.btnChooseImage_Popup.Margin = new System.Windows.Forms.Padding(10);
-            this.btnChooseImage_Popup.Name = "btnChooseImage_Popup";
-            this.btnChooseImage_Popup.Size = new System.Drawing.Size(50, 27);
-            this.btnChooseImage_Popup.TabIndex = 10;
-            this.btnChooseImage_Popup.Tag = "";
-            this.btnChooseImage_Popup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnChooseImage_Popup.UseVisualStyleBackColor = false;
-            this.btnChooseImage_Popup.Click += new System.EventHandler(this.btnChooseImage_Click);
-            // 
-            // picAvatar_Popup
-            // 
-            this.picAvatar_Popup.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.picAvatar_Popup.BackColor = System.Drawing.Color.Transparent;
-            this.picAvatar_Popup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picAvatar_Popup.Location = new System.Drawing.Point(3, 16);
-            this.picAvatar_Popup.Name = "picAvatar_Popup";
-            this.picAvatar_Popup.Size = new System.Drawing.Size(212, 222);
-            this.picAvatar_Popup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picAvatar_Popup.TabIndex = 0;
-            this.picAvatar_Popup.TabStop = false;
             // 
             // AddUser_PopupScreen
             // 
