@@ -61,7 +61,6 @@ namespace RestaurantManagementApp.GUI
             this.txtFullName = new RestaurantManagementApp.Custom._TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnChangeInfo = new RestaurantManagementApp.Custom._Button();
-            this.btnLogout = new RestaurantManagementApp.Custom._Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -140,6 +139,7 @@ namespace RestaurantManagementApp.GUI
             this.icoLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.icoLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoLogout.UseVisualStyleBackColor = true;
+            this.icoLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pnlWindow
             // 
@@ -538,7 +538,6 @@ namespace RestaurantManagementApp.GUI
             // panel11
             // 
             this.panel11.Controls.Add(this.btnChangeInfo);
-            this.panel11.Controls.Add(this.btnLogout);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(3, 213);
             this.panel11.Name = "panel11";
@@ -557,7 +556,7 @@ namespace RestaurantManagementApp.GUI
             this.btnChangeInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeInfo.ForeColor = System.Drawing.Color.White;
-            this.btnChangeInfo.Location = new System.Drawing.Point(3, 3);
+            this.btnChangeInfo.Location = new System.Drawing.Point(72, 3);
             this.btnChangeInfo.Name = "btnChangeInfo";
             this.btnChangeInfo.Size = new System.Drawing.Size(127, 41);
             this.btnChangeInfo.TabIndex = 3;
@@ -565,27 +564,6 @@ namespace RestaurantManagementApp.GUI
             this.btnChangeInfo.TextColor = System.Drawing.Color.White;
             this.btnChangeInfo.UseVisualStyleBackColor = false;
             this.btnChangeInfo.Click += new System.EventHandler(this.btnChangeInfo_Click);
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogout.BackColor = System.Drawing.Color.Brown;
-            this.btnLogout.BackgroundColor = System.Drawing.Color.Brown;
-            this.btnLogout.BorderColor = System.Drawing.Color.LimeGreen;
-            this.btnLogout.BorderRadius = 5;
-            this.btnLogout.BorderSize = 0;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(145, 3);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(123, 41);
-            this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "Đăng Xuất";
-            this.btnLogout.TextColor = System.Drawing.Color.White;
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // label5
             // 
@@ -680,7 +658,6 @@ namespace RestaurantManagementApp.GUI
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
-        private Custom._Button btnLogout;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

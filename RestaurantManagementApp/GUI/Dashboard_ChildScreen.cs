@@ -125,7 +125,7 @@ namespace RestaurantManagementApp.GUI
             int Sum = top5Drinks.Select(p => Convert.ToInt32(p.Count)).Sum();
             foreach (var item in top5Drinks)
             {
-                topDrinkChart.Series["Top Đồ Uống Bán Chạy"].Points.AddXY(item.AlimentName, (item.Count * 1.0f) / Sum * 100);
+                topDrinkChart.Series["Top Đồ Uống Bán Chạy"].Points.AddXY(item.AlimentName, Math.Round(Convert.ToDouble(item.Count * 1.0f / Sum * 100), 2));
             }
         }
 
@@ -136,7 +136,7 @@ namespace RestaurantManagementApp.GUI
             int Sum = top5Foods.Select(p => Convert.ToInt32(p.Count)).Sum();
             foreach (var item in top5Foods)
             {
-                topFoodChart.Series["Top Đồ Ăn Bán Chạy"].Points.AddXY(item.AlimentName, (item.Count * 1.0f) / Sum * 100);
+                topFoodChart.Series["Top Đồ Ăn Bán Chạy"].Points.AddXY(item.AlimentName, Math.Round(Convert.ToDouble(item.Count * 1.0f / Sum * 100), 2));
             }
         }
     }

@@ -194,6 +194,7 @@ namespace RestaurantManagementApp.GUI
             this.topDrinkChart.Name = "topDrinkChart";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.IsValueShownAsLabel = true;
             series2.Legend = "Legend1";
             series2.Name = "Top Đồ Uống Bán Chạy";
             this.topDrinkChart.Series.Add(series2);
@@ -212,6 +213,8 @@ namespace RestaurantManagementApp.GUI
             this.topFoodChart.Name = "topFoodChart";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.IsValueShownAsLabel = true;
+            series3.IsXValueIndexed = true;
             series3.Legend = "Legend1";
             series3.Name = "Top Đồ Ăn Bán Chạy";
             this.topFoodChart.Series.Add(series3);
@@ -231,7 +234,7 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
             this.tableLayoutPanel8.Controls.Add(this.panel7, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.panel8, 3, 1);
             this.tableLayoutPanel8.Controls.Add(this.panel9, 5, 1);
@@ -251,7 +254,7 @@ namespace RestaurantManagementApp.GUI
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(53, 69);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(317, 94);
+            this.panel7.Size = new System.Drawing.Size(316, 94);
             this.panel7.TabIndex = 10;
             // 
             // tableLayoutPanel9
@@ -268,7 +271,7 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(310, 85);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(309, 85);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
             // tableLayoutPanel10
@@ -285,7 +288,7 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(227, 79);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(226, 79);
             this.tableLayoutPanel10.TabIndex = 11;
             // 
             // lblInvoiceCount
@@ -298,7 +301,7 @@ namespace RestaurantManagementApp.GUI
             this.lblInvoiceCount.ForeColor = System.Drawing.Color.White;
             this.lblInvoiceCount.Location = new System.Drawing.Point(3, 31);
             this.lblInvoiceCount.Name = "lblInvoiceCount";
-            this.lblInvoiceCount.Size = new System.Drawing.Size(221, 48);
+            this.lblInvoiceCount.Size = new System.Drawing.Size(220, 48);
             this.lblInvoiceCount.TabIndex = 2;
             this.lblInvoiceCount.Text = "0";
             this.lblInvoiceCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -310,7 +313,7 @@ namespace RestaurantManagementApp.GUI
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(122, 0);
+            this.label6.Location = new System.Drawing.Point(121, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 31);
             this.label6.TabIndex = 0;
@@ -345,9 +348,9 @@ namespace RestaurantManagementApp.GUI
             this.panel8.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.panel8.Controls.Add(this.tableLayoutPanel4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(426, 69);
+            this.panel8.Location = new System.Drawing.Point(425, 69);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(318, 94);
+            this.panel8.Size = new System.Drawing.Size(316, 94);
             this.panel8.TabIndex = 11;
             // 
             // tableLayoutPanel4
@@ -364,7 +367,7 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(311, 85);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(309, 85);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // iconButton1
@@ -404,7 +407,7 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(228, 79);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(226, 79);
             this.tableLayoutPanel5.TabIndex = 11;
             // 
             // label2
@@ -414,7 +417,7 @@ namespace RestaurantManagementApp.GUI
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(61, 0);
+            this.label2.Location = new System.Drawing.Point(59, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 31);
             this.label2.TabIndex = 0;
@@ -431,7 +434,7 @@ namespace RestaurantManagementApp.GUI
             this.lblInvoiceServe.ForeColor = System.Drawing.Color.White;
             this.lblInvoiceServe.Location = new System.Drawing.Point(3, 31);
             this.lblInvoiceServe.Name = "lblInvoiceServe";
-            this.lblInvoiceServe.Size = new System.Drawing.Size(222, 48);
+            this.lblInvoiceServe.Size = new System.Drawing.Size(220, 48);
             this.lblInvoiceServe.TabIndex = 1;
             this.lblInvoiceServe.Text = "0";
             this.lblInvoiceServe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -441,9 +444,9 @@ namespace RestaurantManagementApp.GUI
             this.panel9.BackColor = System.Drawing.Color.Brown;
             this.panel9.Controls.Add(this.tableLayoutPanel7);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(800, 69);
+            this.panel9.Location = new System.Drawing.Point(797, 69);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(317, 94);
+            this.panel9.Size = new System.Drawing.Size(316, 94);
             this.panel9.TabIndex = 12;
             // 
             // tableLayoutPanel7
@@ -460,7 +463,7 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(317, 85);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(316, 85);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // iconButton3
@@ -500,7 +503,7 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(232, 79);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(231, 79);
             this.tableLayoutPanel11.TabIndex = 11;
             // 
             // label5
@@ -510,7 +513,7 @@ namespace RestaurantManagementApp.GUI
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(134, 0);
+            this.label5.Location = new System.Drawing.Point(133, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 31);
             this.label5.TabIndex = 0;
@@ -527,7 +530,7 @@ namespace RestaurantManagementApp.GUI
             this.lblTotal.ForeColor = System.Drawing.Color.White;
             this.lblTotal.Location = new System.Drawing.Point(3, 31);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(226, 48);
+            this.lblTotal.Size = new System.Drawing.Size(225, 48);
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "0";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -604,11 +607,11 @@ namespace RestaurantManagementApp.GUI
             this.cboOption.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cboOption.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cboOption.ListTextColor = System.Drawing.Color.DimGray;
-            this.cboOption.Location = new System.Drawing.Point(426, 3);
+            this.cboOption.Location = new System.Drawing.Point(425, 3);
             this.cboOption.MinimumSize = new System.Drawing.Size(200, 30);
             this.cboOption.Name = "cboOption";
             this.cboOption.Padding = new System.Windows.Forms.Padding(1);
-            this.cboOption.Size = new System.Drawing.Size(318, 30);
+            this.cboOption.Size = new System.Drawing.Size(316, 30);
             this.cboOption.TabIndex = 14;
             this.cboOption.Texts = "";
             this.cboOption.OnSelectedIndexChanged += new System.EventHandler(this.cboOption_OnSelectedIndexChanged);

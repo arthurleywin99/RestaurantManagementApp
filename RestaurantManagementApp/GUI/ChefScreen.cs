@@ -168,5 +168,11 @@ namespace RestaurantManagementApp.GUI
             Hide();
             new LoginScreen().ShowDialog();
         }
+
+        private void icoLogout_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new LoginScreen().ShowDialog();
+        }
     }
 }

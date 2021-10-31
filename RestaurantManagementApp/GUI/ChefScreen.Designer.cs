@@ -613,6 +613,7 @@ namespace RestaurantManagementApp.GUI
             this.icoLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.icoLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icoLogout.UseVisualStyleBackColor = true;
+            this.icoLogout.Click += new System.EventHandler(this.icoLogout_Click);
             // 
             // timerChef
             // 
