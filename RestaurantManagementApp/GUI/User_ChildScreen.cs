@@ -21,11 +21,19 @@ namespace RestaurantManagementApp.GUI
         private string PATH;
         private bool isNewImage = false;
 
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public User_ChildScreen()
         {
             InitializeComponent(); 
         }
 
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Employee_ChildScreen_Load(object sender, EventArgs e)
         {
             RemoveFlicker();
@@ -33,6 +41,9 @@ namespace RestaurantManagementApp.GUI
             FilRoleToComboBox();
         }
 
+        /// <summary>
+        /// CẢI THIỆN TÌNH TRẠNG NHẤP NHÁY
+        /// </summary>
         public void RemoveFlicker()
         {
             DoubleBuffered = true;
@@ -45,6 +56,9 @@ namespace RestaurantManagementApp.GUI
             Utility.EnableDoubleBuff(tableLayoutPanel7);
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU NGƯỜI DÙNG VÀO COMBOBOX
+        /// </summary>
         private void FillUserToComboBox()
         {
             cboUser_Child.Items.Clear();
@@ -63,6 +77,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU LOẠI TÀI KHOẢN VÀO COMBOBOX
+        /// </summary>
         private void FilRoleToComboBox()
         {
             List<Role> roles = RoleBusinessTier.GetRoles();
@@ -76,6 +93,10 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU NGƯỜI DÙNG VÀO CÁC CONTROL
+        /// </summary>
+        /// <param name="user"></param>
         private void BindingUser(User user)
         {
             txtName_Child.Texts = user.FullName;
@@ -94,11 +115,21 @@ namespace RestaurantManagementApp.GUI
             cboType_Child.Texts = RoleBusinessTier.GetRoleNameByRoleID(Convert.ToInt32(user.RoleID));
         }
 
+        /// <summary>
+        /// SỰ KIỆN THAY ĐỔI DỮ LIỆU NGƯỜI DÙNG TRONG COMBOBOX
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboUser_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             BindingUser(UserBusinessTier.GetUserByUsername(cboUser_Child.SelectedItem.ToString()));
         }
 
+        /// <summary>
+        /// BẬT/TẮT XEM MẬT KHẨU
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoEye_Click(object sender, EventArgs e)
         {
             if (icoEye_Child.IconChar == FontAwesome.Sharp.IconChar.Eye)
@@ -113,6 +144,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT CHỌN ẢNH TỪ THƯ VIỆN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChooseImage_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "JPG files|*.jpg|JPEG files|*.jpeg", Multiselect = false })
@@ -126,12 +162,22 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT MỞ FORM THÊM NGƯỜI DÙNG MỚI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoAdd_Click(object sender, EventArgs e)
         {
             new AddUser_PopupScreen().ShowDialog();
             FillUserToComboBox();
         }
 
+        /// <summary>
+        /// NÚT KÍCH HOẠT/HỦY KÍCH HOẠT NGƯỜI DÙNG
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnActiveDeactive_Click(object sender, EventArgs e)
         {
             string username = cboUser_Child.SelectedItem.ToString();
@@ -177,7 +223,10 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
-        private User GetUserFromForm => new User()
+        /// <summary>
+        /// LẤY DỮ LIỆU NGƯỜI DÙNG TỪ FORM
+        /// </summary>
+        private User GetUserFromForm => new User
         {
             FullName = txtName_Child.Texts,
             DateOfBirth = dtpDate_Child.Value.Date,
@@ -190,6 +239,11 @@ namespace RestaurantManagementApp.GUI
             Images = picAvatar_Child.Image != null ? Utility.IMAGE_USER_PATH + cboUser_Child.SelectedItem.ToString() + Utility.IMAGE_EXTENSION : null
         };
 
+        /// <summary>
+        /// CẬP NHẬT LẠI NGƯỜI DÙNG
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             #region Ràng Buộc Họ Tên
@@ -247,6 +301,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// XÓA NGƯỜI DÙNG
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn xóa người dùng " + cboUser_Child.SelectedItem.ToString() + " không?", "Delete", MessageBoxButtons.YesNo);
@@ -272,6 +331,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐẶT LẠI TRẠNG THÁI CHO CÁC CONTROL
+        /// </summary>
         private void ResetControl()
         {
             txtName_Child.Texts = "";

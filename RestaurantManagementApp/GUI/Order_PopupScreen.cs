@@ -23,6 +23,12 @@ namespace RestaurantManagementApp.GUI
         private string _Status;
         private DataTable data;
 
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
+        /// <param name="TableID"></param>
+        /// <param name="Username"></param>
+        /// <param name="Status"></param>
         public Order_PopupScreen(int TableID, string Username, string Status)
         {
             InitializeComponent();
@@ -36,16 +42,12 @@ namespace RestaurantManagementApp.GUI
             InitDataTable();
         }
 
-        private void InitDataTable()
-        {
-            data = new DataTable();
-            data.Columns.Add("InvoiceID", typeof(int));
-            data.Columns.Add("AlimentID", typeof(int));
-            data.Columns.Add("Amount", typeof(int));
-            data.Columns.Add("SizeID", typeof(int));
-            data.Columns.Add("Note", typeof(string));
-        }
-
+        #region SỰ KIỆN LOAD VÀ CLOSE FORM
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Order_PopupScreen_Load(object sender, EventArgs e)
         {
             if (_Status.Equals("free"))
@@ -66,7 +68,67 @@ namespace RestaurantManagementApp.GUI
             txtEmployeeName.Texts = UserBusinessTier.GetUserByUsername(_Username).FullName;
             FillComboBoxAlimentType();
         }
+        /// <summary>
+        /// SỰ KIỆN ĐÓNG FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Order_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            UpdateTableStatus_Employee();
+        }
+        #endregion
 
+        #region 3 NÚT CONTROL
+        /// <summary>
+        /// NÚT THOÁT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        /// <summary>
+        /// NÚT THU NHỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMinimized_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        /// <summary>
+        /// KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Utility.ReleaseCapture();
+                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// KHỞI TẠO DATATABLE
+        /// </summary>
+        private void InitDataTable()
+        {
+            data = new DataTable();
+            data.Columns.Add("InvoiceID", typeof(int));
+            data.Columns.Add("AlimentID", typeof(int));
+            data.Columns.Add("Amount", typeof(int));
+            data.Columns.Add("SizeID", typeof(int));
+            data.Columns.Add("Note", typeof(string));
+        }
+
+        /// <summary>
+        /// ĐỔ DỮ LIỆU HÓA ĐƠN TỪ DATABASE
+        /// </summary>
         private void LoadInvoice()
         {
             List<InvoiceDetail> invoiceDetails = InvoiceDetailsBusinessTier.GetInvoiceDetailsPendingOrOrdering(_TableID);
@@ -85,6 +147,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU DANH SÁCH LOẠI MÓN ĂN
+        /// </summary>
         private void FillComboBoxAlimentType()
         {
             cboAlimentType.Items.Clear();
@@ -97,6 +162,10 @@ namespace RestaurantManagementApp.GUI
             cboAlimentType.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU DANH SÁCH MÓN ĂN
+        /// </summary>
+        /// <param name="aliments"></param>
         private void LoadAliment(List<Aliment> aliments)
         {
             pnlAliment.Controls.Clear();
@@ -126,6 +195,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// SỰ KIỆN THAY ĐỔI DỮ LIỆU TRONG COMBOBOX
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboAlimentType_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             List<Aliment> aliments;
@@ -140,43 +214,39 @@ namespace RestaurantManagementApp.GUI
             LoadAliment(aliments);
         }
 
-
-        #region 3 nút Control Bar
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnMinimized_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Utility.ReleaseCapture();
-                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
-            }
-        }
-        #endregion
-
+        /// <summary>
+        /// CẬP NHẬT THAY ĐỔI TEXTBOX TIỀN THỪA
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPay__TextChanged(object sender, EventArgs e)
         {
             SetExcessCash();
         }
 
+        /// <summary>
+        /// CẬP NHẬT THAY ĐỔI TEXTBOX TỔNG TIỀN KHI XÓA MÓN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlAlimentDetails_ControlRemoved(object sender, ControlEventArgs e)
         {
             SetTotal();
         }
 
+        /// <summary>
+        /// CẬP NHẬT THAY ĐỔI TEXTBOX TỔNG TIỀN KHI THÊM MỚI MÓN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlAlimentDetails_ControlAdded(object sender, ControlEventArgs e)
         {
             SetTotal();
         }
 
+        /// <summary>
+        /// CẬP NHẬT TỔNG TIỀN
+        /// </summary>
         private void SetTotal()
         {
             long Temp = 0;
@@ -188,6 +258,9 @@ namespace RestaurantManagementApp.GUI
             SetExcessCash();
         }
 
+        /// <summary>
+        /// CẬP NHẬT TIỀN THỪA
+        /// </summary>
         private void SetExcessCash()
         {
             int Excess;
@@ -202,6 +275,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT CẬP NHẬT HÓA ĐƠN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdateInvoice_Click(object sender, EventArgs e)
         {
             int UserID = UserBusinessTier.GetUserByUsername(_Username).UserID;
@@ -242,6 +320,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// SỰ KIỆN XỬ LÝ THÊM BÀN MỚI HOẶC CẬP NHẬT LẠI BÀN
+        /// </summary>
+        /// <param name="_InvoiceID"></param>
+        /// <param name="Error"></param>
         private void SendChefOrUpdate(int _InvoiceID, string Error)
         {
             foreach (_AlimentBar item in pnlAlimentDetails.Controls)
@@ -294,6 +377,11 @@ namespace RestaurantManagementApp.GUI
             Close();
         }
 
+        /// <summary>
+        /// THÊM BÀN MỚI VÀ GỬI XUỐNG BẾP
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSendChef_Click(object sender, EventArgs e)
         {
             if (txtTotal.Texts.Equals("0"))
@@ -336,6 +424,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT THANH TOÁN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPay_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn thanh toán?", "Confirm", MessageBoxButtons.YesNo);
@@ -369,11 +462,6 @@ namespace RestaurantManagementApp.GUI
             {
                 return;
             }
-        }
-
-        private void Order_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            UpdateTableStatus_Employee();
         }
     }
 }

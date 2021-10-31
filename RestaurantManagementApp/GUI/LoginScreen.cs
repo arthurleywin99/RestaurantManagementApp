@@ -17,6 +17,9 @@ namespace RestaurantManagementApp.GUI
 {
     public partial class LoginScreen : Form, IRemoveFlicker
     {
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public LoginScreen()
         {
             InitializeComponent();
@@ -27,6 +30,9 @@ namespace RestaurantManagementApp.GUI
             RemoveFlicker();
         }
 
+        /// <summary>
+        /// CẢI THIỆN TÌNH TRẠNG NHẤP NHÁY
+        /// </summary>
         public void RemoveFlicker()
         {
             DoubleBuffered = true;
@@ -45,20 +51,27 @@ namespace RestaurantManagementApp.GUI
             Utility.EnableDoubleBuff(Panel2);
         }
 
-        #region Bộ ba nút điều khiển form
+        #region 3 NÚT CONTROL
+        /// <summary>
+        /// NÚT THU NHỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimized_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        /// <summary>
+        /// NÚT THOÁT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        #endregion
-
         /// <summary>
-        /// Kéo thả ControlBar
+        /// KÉO THẢ FORM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -70,9 +83,10 @@ namespace RestaurantManagementApp.GUI
                 Utility.SendMessage(Handle, 0x112, 0xf012, 0);
             }
         }
+        #endregion
 
         /// <summary>
-        /// Button Đăng Nhập
+        /// NÚT ĐĂNG NHẬP
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

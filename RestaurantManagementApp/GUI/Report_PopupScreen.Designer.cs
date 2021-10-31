@@ -31,16 +31,20 @@ namespace RestaurantManagementApp.GUI
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.InvoiceReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ControlBar = new System.Windows.Forms.TableLayoutPanel();
             this.btnExit = new System.Windows.Forms.PictureBox();
             this.btnMinimized = new System.Windows.Forms.PictureBox();
             this.invoiceReportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.InvoiceReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.InvoiceReportBindingSource)).BeginInit();
             this.ControlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InvoiceReportBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // InvoiceReportBindingSource
+            // 
+            this.InvoiceReportBindingSource.DataSource = typeof(RestaurantManagementApp.Model.InvoiceReport);
             // 
             // ControlBar
             // 
@@ -63,7 +67,7 @@ namespace RestaurantManagementApp.GUI
             this.ControlBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ControlBar.Size = new System.Drawing.Size(800, 36);
             this.ControlBar.TabIndex = 10;
-            this.ControlBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ControlBar_MouseDown_1);
+            this.ControlBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ControlBar_MouseDown);
             // 
             // btnExit
             // 
@@ -106,10 +110,6 @@ namespace RestaurantManagementApp.GUI
             this.invoiceReportViewer.Size = new System.Drawing.Size(800, 414);
             this.invoiceReportViewer.TabIndex = 11;
             // 
-            // InvoiceReportBindingSource
-            // 
-            this.InvoiceReportBindingSource.DataSource = typeof(RestaurantManagementApp.Model.InvoiceReport);
-            // 
             // Report_PopupScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,10 +122,10 @@ namespace RestaurantManagementApp.GUI
             this.Name = "Report_PopupScreen";
             this.Text = "Report_PopupScreen";
             this.Load += new System.EventHandler(this.Report_PopupScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.InvoiceReportBindingSource)).EndInit();
             this.ControlBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InvoiceReportBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -18,6 +18,9 @@ namespace RestaurantManagementApp.GUI
     {
         private readonly Context context;
 
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public Report_PopupScreen()
         {
             InitializeComponent();
@@ -26,6 +29,11 @@ namespace RestaurantManagementApp.GUI
             context = new Context();
         }
 
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Report_PopupScreen_Load(object sender, EventArgs e)
         {
             this.invoiceReportViewer.RefreshReport();
@@ -52,16 +60,30 @@ namespace RestaurantManagementApp.GUI
             invoiceReportViewer.RefreshReport();
         }
 
+        #region 2 NÚT CONTROL
+        /// <summary>
+        /// NÚT THU NHỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimized_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        /// <summary>
+        /// NÚT ĐÓNG
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
-
+        /// <summary>
+        /// KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ControlBar_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -70,14 +92,6 @@ namespace RestaurantManagementApp.GUI
                 Utility.SendMessage(Handle, 0x112, 0xf012, 0);
             }
         }
-
-        private void ControlBar_MouseDown_1(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Utility.ReleaseCapture();
-                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
-            }
-        }
+        #endregion
     }
 }

@@ -24,6 +24,10 @@ namespace RestaurantManagementApp.GUI
         private bool isNewImage = false;
         private User _User;
 
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
+        /// <param name="user"></param>
         public ChangeInfo_PopupScreen(User user)
         {
             InitializeComponent();
@@ -32,11 +36,30 @@ namespace RestaurantManagementApp.GUI
             _User = user;
         }
 
+        #region SỰ KIỆN LOAD VÀ CLOSE FORM
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeInfo_PopupScreen_Load(object sender, EventArgs e)
         {
             BindingUserInfo();
         }
+        /// <summary>
+        /// SỰ KIỆN ĐÓNG FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeInfo_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            UpdateUserInfo();
+        }
+        #endregion
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU VÀO CÁC CONTROL
+        /// </summary>
         private void BindingUserInfo()
         {
             picAvatar.Image = _User.Images == null ? null : Utility.LoadBitmapUnlocked(_User.Images);
@@ -54,12 +77,12 @@ namespace RestaurantManagementApp.GUI
             txtAddress.Texts = _User.Address;
             txtIDCard.Texts = _User.IDCard;
         }
-
-        private void ChangeInfo_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            UpdateUserInfo();
-        }
-
+        
+        /// <summary>
+        /// CHỌN ẢNH TỪ THƯ VIỆN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChooseImage_Child_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "JPG files|*.jpg|JPEG files|*.jpeg", Multiselect = false })
@@ -73,17 +96,30 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
-        #region 2 nút Control
+        #region 2 NÚT CONTROL
+        /// <summary>
+        /// NÚT ĐÓNG FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
-
+        /// <summary>
+        /// NÚT THU NHỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimized_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        /// <summary>
+        /// KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ControlBar_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -94,6 +130,11 @@ namespace RestaurantManagementApp.GUI
         }
         #endregion
 
+        /// <summary>
+        /// NÚT CẬP NHẬT THÔNG TIN NHÂN VIÊN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             #region Ràng Buộc Họ Tên
@@ -150,6 +191,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// LẤY DỮ LIỆU NHÂN VIÊN TỪ FORM
+        /// </summary>
         private User GetUserFromForm => new User()
         {
             FullName = txtFullName.Texts,
@@ -162,11 +206,21 @@ namespace RestaurantManagementApp.GUI
             Images = picAvatar.Image == null ? null : Utility.IMAGE_USER_PATH + txtUsername.Texts + Utility.IMAGE_EXTENSION
         };
 
+        /// <summary>
+        /// NÚT HỦY BỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// NÚT ĐÓNG/MỞ XEM MẬT KHẨU
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoEye_Popup_Click(object sender, EventArgs e)
         {
             if (icoEye_Popup.IconChar == FontAwesome.Sharp.IconChar.Eye)

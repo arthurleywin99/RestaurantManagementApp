@@ -44,18 +44,20 @@ namespace RestaurantManagementApp.GUI
             this.btnAdd_Popup = new RestaurantManagementApp.Custom._Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ControlBar = new System.Windows.Forms.Panel();
             this.tbPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnExit_Popup = new System.Windows.Forms.PictureBox();
+            this.btn_Minimized_Popup = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar_Popup)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.ControlBar.SuspendLayout();
             this.tbPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit_Popup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Minimized_Popup)).BeginInit();
             this.SuspendLayout();
             // 
             // picAvatar_Popup
@@ -319,14 +321,15 @@ namespace RestaurantManagementApp.GUI
             this.panel2.Size = new System.Drawing.Size(900, 368);
             this.panel2.TabIndex = 4;
             // 
-            // panel1
+            // ControlBar
             // 
-            this.panel1.Controls.Add(this.tbPanel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 32);
-            this.panel1.TabIndex = 3;
+            this.ControlBar.Controls.Add(this.tbPanel3);
+            this.ControlBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ControlBar.Location = new System.Drawing.Point(0, 0);
+            this.ControlBar.Name = "ControlBar";
+            this.ControlBar.Size = new System.Drawing.Size(900, 32);
+            this.ControlBar.TabIndex = 3;
+            this.ControlBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ControlBar_MouseDown);
             // 
             // tbPanel3
             // 
@@ -337,6 +340,7 @@ namespace RestaurantManagementApp.GUI
             this.tbPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 3F));
             this.tbPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tbPanel3.Controls.Add(this.btnExit_Popup, 3, 0);
+            this.tbPanel3.Controls.Add(this.btn_Minimized_Popup, 1, 0);
             this.tbPanel3.Location = new System.Drawing.Point(823, 2);
             this.tbPanel3.Name = "tbPanel3";
             this.tbPanel3.RowCount = 1;
@@ -359,6 +363,21 @@ namespace RestaurantManagementApp.GUI
             this.btnExit_Popup.TabStop = false;
             this.btnExit_Popup.Click += new System.EventHandler(this.btnExit_Popup_Click);
             // 
+            // btn_Minimized_Popup
+            // 
+            this.btn_Minimized_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Minimized_Popup.Image = global::RestaurantManagementApp.Properties.Resources.MinimizeButton;
+            this.btn_Minimized_Popup.Location = new System.Drawing.Point(6, 0);
+            this.btn_Minimized_Popup.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Minimized_Popup.Name = "btn_Minimized_Popup";
+            this.btn_Minimized_Popup.Size = new System.Drawing.Size(30, 30);
+            this.btn_Minimized_Popup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Minimized_Popup.TabIndex = 1;
+            this.btn_Minimized_Popup.TabStop = false;
+            this.btn_Minimized_Popup.Click += new System.EventHandler(this.btn_Minimized_Popup_Click);
+            // 
             // AddAliment_PopupScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,7 +385,7 @@ namespace RestaurantManagementApp.GUI
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(900, 400);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ControlBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddAliment_PopupScreen";
             this.Text = "AddMenu_PopupScreen";
@@ -379,9 +398,10 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.ControlBar.ResumeLayout(false);
             this.tbPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnExit_Popup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Minimized_Popup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -399,12 +419,13 @@ namespace RestaurantManagementApp.GUI
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ControlBar;
         private System.Windows.Forms.TableLayoutPanel tbPanel3;
         private System.Windows.Forms.PictureBox btnExit_Popup;
         private Custom._Combobox cboType_Popup;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Custom._Button btnCancel_Popup;
         private Custom._Button btnAdd_Popup;
+        private System.Windows.Forms.PictureBox btn_Minimized_Popup;
     }
 }

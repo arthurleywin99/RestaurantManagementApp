@@ -20,6 +20,9 @@ namespace RestaurantManagementApp.GUI
     {
         private string PATH;
 
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public AddUser_PopupScreen()
         {
             InitializeComponent();
@@ -29,6 +32,9 @@ namespace RestaurantManagementApp.GUI
             FillRoleCombobox();
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU LOẠI TÀI KHOẢN VÀO COMBOBOX
+        /// </summary>
         private void FillRoleCombobox()
         {
             List<Role> roles = RoleBusinessTier.GetRoles();
@@ -42,11 +48,43 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        #region 2 NÚT TRÊN CONTROLBAR
+        /// <summary>
+        /// PHÍM THOÁT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
+        /// <summary>
+        /// PHÍM THU NHỎ CỬA SỔ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMinimized_Popup_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        /// <summary>
+        /// SỰ KIỆN KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Utility.ReleaseCapture();
+                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
+            }
+        }
+        #endregion
 
+        /// <summary>
+        /// LẤY DỮ LIỆU NGƯỜI DÙNG TỪ FORM
+        /// </summary>
         private User GetUserFromForm => new User()
         {
             FullName = txtFullName_Popup.Texts,
@@ -61,6 +99,11 @@ namespace RestaurantManagementApp.GUI
             IsActivated = true
         };
 
+        /// <summary>
+        /// THÊM NGƯỜI DÙNG MỚI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             #region Ràng Buộc Tên Tài Khoản
@@ -157,6 +200,11 @@ namespace RestaurantManagementApp.GUI
             
         }
 
+        /// <summary>
+        /// BẬT/TẮT XEM MẬT KHẨU
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoEye_Click(object sender, EventArgs e)
         {
             if (icoEye_Popup.IconChar == FontAwesome.Sharp.IconChar.Eye)
@@ -171,6 +219,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT CHỌN ẢNH TỪ THƯ VIỆN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChooseImage_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "JPG files|*.jpg|JPEG files|*.jpeg|PNG files|*.png|All files|*.*", Multiselect = false })
@@ -178,11 +231,14 @@ namespace RestaurantManagementApp.GUI
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     PATH = openFile.FileName;
-                    picAvatar_Popup.Image = Image.FromFile(openFile.FileName);
+                    picAvatar_Popup.Image = Utility.LoadBitmapUnlocked(openFile.FileName);
                 }
             }
         }
 
+        /// <summary>
+        /// ĐẶT CÁC CONTROL VỀ TRẠNG THÁI BAN ĐẦU
+        /// </summary>
         private void ResetControl()
         {
             txtUsername_Popup.Texts = "";

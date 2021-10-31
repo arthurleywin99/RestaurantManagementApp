@@ -14,11 +14,19 @@ namespace RestaurantManagementApp.GUI
 {
     public partial class Dashboard_ChildScreen : Form
     {
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public Dashboard_ChildScreen()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Dashboard_ChildScreen_Load(object sender, EventArgs e)
         {
             FillComboBoxOption();
@@ -27,6 +35,9 @@ namespace RestaurantManagementApp.GUI
             Top5Drinks();
         }
 
+        /// <summary>
+        /// THÊM DỮ LIỆU CÁC ĐIỀU KIỆN LỌC VÀO COMBOBOX
+        /// </summary>
         private void FillComboBoxOption()
         {
             cboOption.Items.Add("Hôm nay");
@@ -35,6 +46,11 @@ namespace RestaurantManagementApp.GUI
             cboOption.Items.Add("Từ trước đến nay");
         }
 
+        /// <summary>
+        /// SỰ KIỆN THAY ĐỔI CHỌN TRÊN COMBOBOX
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboOption_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             switch(cboOption.SelectedIndex)
@@ -67,6 +83,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐIỀU KIỆN LỌC "HÔM NAY"
+        /// </summary>
         private void Today()
         {
             lblInvoiceCount.Text = InvoiceBusinessTier.TodayInvoiceCount().ToString();
@@ -74,6 +93,9 @@ namespace RestaurantManagementApp.GUI
             lblTotal.Text = InvoiceBusinessTier.TodayTotalPrice().ToString();
         }
 
+        /// <summary>
+        /// ĐIỀU KIỆN LỌC "THÁNG NÀY"
+        /// </summary>
         private void ThisMonth()
         {
             lblInvoiceCount.Text = InvoiceBusinessTier.ThisMonthInvoiceCount().ToString();
@@ -81,6 +103,9 @@ namespace RestaurantManagementApp.GUI
             lblTotal.Text = InvoiceBusinessTier.ThisMonthTotalPrice().ToString();
         }
 
+        /// <summary>
+        /// ĐIỀU KIỆN LỌC "NĂM NAY"
+        /// </summary>
         private void ThisYear()
         {
             lblInvoiceCount.Text = InvoiceBusinessTier.ThisYearInvoiceCount().ToString();
@@ -88,6 +113,9 @@ namespace RestaurantManagementApp.GUI
             lblTotal.Text = InvoiceBusinessTier.ThisYearTotalPrice().ToString();
         }
 
+        /// <summary>
+        /// ĐIỀU KIỆN LỌC "TỪ TRƯỚC ĐẾN NAY"
+        /// </summary>
         private void AllTimes()
         {
             lblInvoiceCount.Text = InvoiceBusinessTier.AllTimeInvoiceCount().ToString();
@@ -95,6 +123,9 @@ namespace RestaurantManagementApp.GUI
             lblTotal.Text = InvoiceBusinessTier.AllTimeTotalPrice().ToString();
         }
 
+        /// <summary>
+        /// THÊM DỮ LIỆU CHO CHART THỐNG KÊ HÓA ĐƠN TRONG THÁNG
+        /// </summary>
         private void InvoiceMonthChart()
         {
             int _year = DateTime.Now.Year;
@@ -118,6 +149,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// THÊM DỮ LIỆU CHO DOUGHNUT CHART "TOP 5 ĐỒ UỐNG BÁN CHẠY NHẤT"
+        /// </summary>
         private void Top5Drinks()
         {
             topDrinkChart.Titles.Add("Top 5 đồ uống bán chạy nhất");
@@ -129,6 +163,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// THÊM DỮ LIỆU CHO DOUGHNUT CHART "TOP 5 ĐỒ ĂN BÁN CHẠY NHẤT"
+        /// </summary>
         private void Top5Foods()
         {
             topFoodChart.Titles.Add("Top 5 đồ ăn bán chạy nhất");

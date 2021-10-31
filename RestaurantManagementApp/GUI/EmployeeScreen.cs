@@ -20,6 +20,10 @@ namespace RestaurantManagementApp.GUI
         private string _Username;
         public delegate void SendData(string username);
         public SendData sender;
+
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public EmployeeScreen()
         {
             InitializeComponent();
@@ -28,12 +32,83 @@ namespace RestaurantManagementApp.GUI
             Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmployeeScreen_Load(object sender, EventArgs e)
         {
             GetUserInfo();
             GetTableStatus();
         }
 
+        /// <summary>
+        /// LẤY DỮ LIỆU USERNAME TỪ FORM LOGIN
+        /// </summary>
+        /// <param name="username"></param>
+        private void GetData(string username)
+        {
+            _Username = username;
+        }
+
+        #region 3 NÚT CONTROL
+        /// <summary>
+        /// NÚT THU NHỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMinimized_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        /// <summary>
+        /// NÚT PHÓNG TO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMaximized_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+                Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 0, 0));
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+                Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            }
+        }
+        /// <summary>
+        /// NÚT THOÁT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        /// <summary>
+        /// NÚT KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Utility.ReleaseCapture();
+                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// CONTROL ĐẾM GIỜ ĐỂ LOAD THÔNG BÁO (NẾU CÓ)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerEmployee_Tick(object sender, EventArgs e)
         {
             var notification = NotificationBusinessTier.FetchNotification(Utility.EMPLOYEE_SCREEEN);
@@ -54,6 +129,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// CẬP NHẬT LẠI THÔNG TIN NHÂN VIÊN
+        /// </summary>
         private void GetUserInfo()
         {
             User user = UserBusinessTier.GetUserByUsername(_Username);
@@ -64,11 +142,9 @@ namespace RestaurantManagementApp.GUI
             picAvatar.Image = user.Images == null ? null : Utility.LoadBitmapUnlocked(user.Images);
         }
 
-        private void GetData(string username)
-        {
-            _Username = username;
-        }
-
+        /// <summary>
+        /// LẤY TRẠNG THÁI BÀN
+        /// </summary>
         private void GetTableStatus()
         {
             pnlTable.Controls.Clear();
@@ -120,47 +196,22 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
-        #region 3 nút Control
-        private void btnMinimized_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnMaximized_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                WindowState = FormWindowState.Maximized;
-                Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 0, 0));
-            }
-            else
-            {
-                WindowState = FormWindowState.Normal;
-                Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            }
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Utility.ReleaseCapture();
-                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
-            }
-        }
-        #endregion
-
+        /// <summary>
+        /// NÚT ĐĂNG XUẤT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Hide();
             new LoginScreen().ShowDialog();
         }
 
+        /// <summary>
+        /// NÚT BẬT FORM ĐỔI THÔNG TIN NHÂN VIÊN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChangeInfo_Click(object sender, EventArgs e)
         {
             ChangeInfo_PopupScreen changeInfo_PopupScreen = new ChangeInfo_PopupScreen(UserBusinessTier.GetUserByUsername(_Username));

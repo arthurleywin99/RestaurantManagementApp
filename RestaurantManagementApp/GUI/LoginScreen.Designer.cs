@@ -321,7 +321,7 @@ namespace RestaurantManagementApp.GUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogin.BackColor = System.Drawing.Color.Brown;
             this.btnLogin.BackgroundColor = System.Drawing.Color.Brown;
-            this.btnLogin.BorderColor = System.Drawing.Color.White;
+            this.btnLogin.BorderColor = System.Drawing.Color.Transparent;
             this.btnLogin.BorderRadius = 10;
             this.btnLogin.BorderSize = 3;
             this.btnLogin.FlatAppearance.BorderSize = 0;

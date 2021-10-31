@@ -23,6 +23,9 @@ namespace RestaurantManagementApp.GUI
         private Panel leftBorder;
         private Form childForm;
 
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public AdminScreen()
         {
             InitializeComponent();
@@ -36,6 +39,10 @@ namespace RestaurantManagementApp.GUI
             pnlMenu.Controls.Add(leftBorder);
         }
 
+        /// <summary>
+        /// LẤY DỮ LIỆU USERNAME TỪ FORM LOGIN BẰNG DELEGATE
+        /// </summary>
+        /// <param name="username"></param>
         private void GetData(string username)
         {
             lbUsername.Tag = username;
@@ -45,6 +52,9 @@ namespace RestaurantManagementApp.GUI
                             : Resources.User;
         }
 
+        /// <summary>
+        /// CẢI THIỆN TÌNH TRẠNG NHẤP NHÁY
+        /// </summary>
         public void RemoveFlicker()
         {
             DoubleBuffered = true;
@@ -59,11 +69,21 @@ namespace RestaurantManagementApp.GUI
             Utility.EnableDoubleBuff(panel4);
         }
 
+        #region 3 NÚT CONTROL
+        /// <summary>
+        /// NÚT THOÁT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        /// <summary>
+        /// NÚT PHÓNG TO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMaximized_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
@@ -77,12 +97,20 @@ namespace RestaurantManagementApp.GUI
                 Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             }
         }
-
+        /// <summary>
+        /// NÚT THU NHỎ CỬA SỔ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMinimized_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        /// <summary>
+        /// SỰ KIỆN KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ControlBar_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -91,15 +119,24 @@ namespace RestaurantManagementApp.GUI
                 Utility.SendMessage(Handle, 0x112, 0xf012, 0);
             }
         }
+        #endregion
 
+        /// <summary>
+        /// NÚT MỞ RỘNG/THU NHỎ THANH BÊN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNavigation_Click(object sender, EventArgs e)
         {
             CollapseMenu();
         }
 
+        /// <summary>
+        /// MỞ RỘNG/THU NHỎ THANH BÊN
+        /// </summary>
         private void CollapseMenu()
         {
-            if (this.pnlMenu.Width > 200)
+            if (pnlMenu.Width > 200)
             {
                 btnNavigation.IconChar = FontAwesome.Sharp.IconChar.Bars;
                 pnlMenu.Width = 100;
@@ -133,6 +170,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT ĐĂNG XUẤT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoLogout_Click(object sender, EventArgs e)
         {
             Hide();
@@ -140,6 +182,11 @@ namespace RestaurantManagementApp.GUI
             Close();
         }
 
+        /// <summary>
+        /// KÍCH HOẠT MÀU CỦA NÚT TRÊN NAVIGATION KHI NGƯỜI DÙNG CLICK MỞ FORM CON
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="color"></param>
         private void ActivateButton(object sender, Color color)
         {
             if (sender != null)
@@ -160,6 +207,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// VÔ HIỆU HÓA MÀU NÚT TRÊN NAVIGATION
+        /// </summary>
         private void DisableButton()
         {
             if (currentBtn != null)
@@ -173,6 +223,10 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// MỞ FORM CON TRÊN PANEL
+        /// </summary>
+        /// <param name="form"></param>
         private void OpenChildForm(Form form)
         {
             if (childForm != null)
@@ -189,6 +243,11 @@ namespace RestaurantManagementApp.GUI
             form.Show();
         }
 
+        /// <summary>
+        /// NÚT MỞ FORM QUẢN LÝ NHÂN VIÊN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoEmployee_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Utility.RGBColors.Color1);
@@ -196,6 +255,11 @@ namespace RestaurantManagementApp.GUI
             OpenChildForm(new User_ChildScreen());
         }
 
+        /// <summary>
+        /// NÚT MỞ FORM QUẢN LÝ THỰC ĐƠN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoMenu_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Utility.RGBColors.Color2);
@@ -203,6 +267,11 @@ namespace RestaurantManagementApp.GUI
             OpenChildForm(new Aliment_ChildScreen());
         }
 
+        /// <summary>
+        /// NÚT MỞ FORM THỐNG KÊ DOANH SỐ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Utility.RGBColors.Color3);
@@ -210,6 +279,11 @@ namespace RestaurantManagementApp.GUI
             OpenChildForm(new Dashboard_ChildScreen());
         }
 
+        /// <summary>
+        /// NÚT MỞ FORM XEM DANH SÁCH HÓA ĐƠN VÀ CHI TIẾT CỦA NÓ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoStatistical_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Utility.RGBColors.Color4);
@@ -217,12 +291,23 @@ namespace RestaurantManagementApp.GUI
             OpenChildForm(new InvoiceStatistical_ChildScreen());
         }
 
+        /// <summary>
+        /// MỞ TRANG CHỦ ĐỂ XEM NGÀY GIỜ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void picLogoHome_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "SECRET COFFEE STORE";
             OpenChildForm(new Home_ChildScreen());
         }
 
+        /// <summary>
+        /// OVERRIDE CÁC PHÍM TẮT
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.F1)

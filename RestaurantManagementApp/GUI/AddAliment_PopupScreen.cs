@@ -20,6 +20,10 @@ namespace RestaurantManagementApp.GUI
     {
         private string PATH;
         public event UpdateAliment UpdateAliment;
+
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public AddAliment_PopupScreen()
         {
             InitializeComponent();
@@ -28,11 +32,64 @@ namespace RestaurantManagementApp.GUI
             Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
+        #region 2 NÚT TRÊN CONTROLBAR
+        /// <summary>
+        /// NÚT THU NHỎ CỬA SỔ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Minimized_Popup_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        /// <summary>
+        /// NÚT THOÁT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit_Popup_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        /// <summary>
+        /// SỰ KIỆN KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Utility.ReleaseCapture();
+                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
+            }
+        }
+        #endregion
+
+        #region SỰ KIỆN KHI LOAD VÀ CLOSE FORM
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddMenu_PopupScreen_Load(object sender, EventArgs e)
         {
             FillAlimentTypeCombobox();
         }
+        /// <summary>
+        /// SỰ KIỆN ĐÓNG FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddAliment_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            UpdateAliment();
+        }
+        #endregion
 
+        /// <summary>
+        /// ĐỔ DANH SÁCH LOẠI MÓN ĂN VÀO COMBOBOX
+        /// </summary>
         private void FillAlimentTypeCombobox()
         {
             List<AlimentType> alimentTypes = AlimentTypeBusinessTier.GetAlimentTypes();
@@ -46,11 +103,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
-        private void btnExit_Popup_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
+        /// <summary>
+        /// LẤY DỮ LIỆU MÓN ĂN TỪ FORM
+        /// </summary>
         private Aliment GetAlimentFromForm => new Aliment()
         {
             AlimentName = txtName_Popup.Texts,
@@ -60,6 +115,11 @@ namespace RestaurantManagementApp.GUI
             StillForSale = true
         };
 
+        /// <summary>
+        /// NÚT THÊM MÓN ĂN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Popup_Click(object sender, EventArgs e)
         {
             #region Ràng Buộc Tên Món
@@ -106,23 +166,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
-        private void btnCancel_Popup_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void ResetControl()
-        {
-            txtName_Popup.Texts = "";
-            cboType_Popup.SelectedIndex = 0;
-            txtPrice_Popup.Texts = "";
-        }
-
-        private void AddAliment_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            UpdateAliment();
-        }
-
+        /// <summary>
+        /// NÚT CHỌN ẢNH TỪ THƯ VIỆN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChooseImage_Popup_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "JPG files|*.jpg|JPEG files|*.jpeg", Multiselect = false })
@@ -130,9 +178,29 @@ namespace RestaurantManagementApp.GUI
                 if (openFile.ShowDialog() == DialogResult.OK)
                 {
                     PATH = openFile.FileName;
-                    picAvatar_Popup.Image = Image.FromFile(openFile.FileName);
+                    picAvatar_Popup.Image = Utility.LoadBitmapUnlocked(openFile.FileName);
                 }
             }
+        }
+
+        /// <summary>
+        /// NÚT HỦY BỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancel_Popup_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        /// <summary>
+        /// ĐẶT TRẠNG THÁI CỦA CÁC CONTROL VỀ BAN ĐẦU
+        /// </summary>
+        private void ResetControl()
+        {
+            txtName_Popup.Texts = "";
+            cboType_Popup.SelectedIndex = 0;
+            txtPrice_Popup.Texts = "";
         }
     }
 }

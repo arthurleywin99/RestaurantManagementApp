@@ -22,6 +22,9 @@ namespace RestaurantManagementApp.GUI
         public delegate void SendData(string username);
         public SendData sender;
         
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public ChefScreen()
         {
             InitializeComponent();
@@ -30,17 +33,91 @@ namespace RestaurantManagementApp.GUI
             Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
+        /// <summary>
+        /// LẤY DỮ LIỆU USERNAME TỪ FORM LOGIN
+        /// </summary>
+        /// <param name="username"></param>
         private void GetData(string username)
         {
             _Username = username;
         }
 
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChefScreen_Load(object sender, EventArgs e)
         {
             GetUserInfo();
             GetTableStatus();
         }
 
+        #region 3 NÚT CONTROL
+        /// <summary>
+        /// NÚT PHÓNG TO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMaximized_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+                Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 0, 0));
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+                Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            }
+        }
+        /// <summary>
+        /// NÚT ĐÓNG
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        /// <summary>
+        /// NÚT THU NHỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMinimized_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        /// <summary>
+        /// KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Utility.ReleaseCapture();
+                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// DELEGATE EVENT CẬP NHẬT LẠI TRẠNG THÁI BÀN
+        /// </summary>
+        private void PopupScreen_updateTableStatus()
+        {
+            GetTableStatus();
+        }
+
+        /// <summary>
+        /// CONTROL ĐẾM GIỜ ĐỂ LOAD THÔNG BÁO TỪ EMPLOYEE (NẾU CÓ)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerChef_Tick(object sender, EventArgs e)
         {
             var notification = NotificationBusinessTier.FetchNotification(Utility.CHEF_SCREEEN);
@@ -61,6 +138,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// LẤY TRẠNG THÁI BÀN TỪ DATABASE
+        /// </summary>
         private void GetTableStatus()
         {
             pnlTable.Controls.Clear();
@@ -103,6 +183,9 @@ namespace RestaurantManagementApp.GUI
             };
         }
 
+        /// <summary>
+        /// CẬP NHẬT LẠI THÔNG TIN NHÂN VIÊN
+        /// </summary>
         private void GetUserInfo()
         {
             User user = UserBusinessTier.GetUserByUsername(_Username);
@@ -113,46 +196,11 @@ namespace RestaurantManagementApp.GUI
             picAvatar.Image = user.Images == null ? null : Utility.LoadBitmapUnlocked(user.Images);
         }
 
-        #region 3 nút Control Bar
-        private void btnMaximized_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                WindowState = FormWindowState.Maximized;
-                Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 0, 0));
-            }
-            else
-            {
-                WindowState = FormWindowState.Normal;
-                Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            }
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMinimized_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void PopupScreen_updateTableStatus()
-        {
-            GetTableStatus();
-        }
-
-        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Utility.ReleaseCapture();
-                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
-            }
-        }
-        #endregion
-
+        /// <summary>
+        /// NÚT MỞ FORM THAY ĐỔI THÔNG TIN NHÂN VIÊN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChangeInfo_Click(object sender, EventArgs e)
         {
             ChangeInfo_PopupScreen changeInfo_PopupScreen = new ChangeInfo_PopupScreen(UserBusinessTier.GetUserByUsername(_Username));
@@ -163,12 +211,11 @@ namespace RestaurantManagementApp.GUI
             changeInfo_PopupScreen.ShowDialog();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new LoginScreen().ShowDialog();
-        }
-
+        /// <summary>
+        /// NÚT ĐĂNG XUẤT
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoLogout_Click(object sender, EventArgs e)
         {
             Hide();

@@ -18,11 +18,14 @@ namespace RestaurantManagementApp.GUI
     public partial class ChefInfomation_PopupScreen : Form
     {
         public event UpdateTableStatus updateTableStatus;
-
         public delegate void SendData(Invoice invoice);
         public SendData sender;
         private Invoice _Invoice;
         private DataTable data;
+
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public ChefInfomation_PopupScreen()
         {
             InitializeComponent();
@@ -31,11 +34,21 @@ namespace RestaurantManagementApp.GUI
             Region = Region.FromHrgn(Utility.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
+        /// <summary>
+        /// LẤY DỮ LIỆU TỪ FORM CHEF
+        /// </summary>
+        /// <param name="invoice"></param>
         private void GetData(Invoice invoice)
         {
             _Invoice = invoice;
         }
 
+        #region SỰ KIỆN LOAD VÀ CLOSE FORM
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChefInfomation_PopupScreen_Load(object sender, EventArgs e)
         {
             lblTitle.Text = TableBusinessTier.GetTableNameByTableID(Convert.ToInt32(_Invoice.TableID));
@@ -53,7 +66,54 @@ namespace RestaurantManagementApp.GUI
             }
             dgvInvoice.DataSource = data;
         }
+        /// <summary>
+        /// SỰ KIỆN ĐÓNG FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChefInfomation_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            updateTableStatus();
+        }
+        #endregion
 
+        #region 3 NÚT CONTROL
+        /// <summary>
+        /// NÚT ĐÓNG FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        /// <summary>
+        /// NÚT THU NHỎ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMinimized_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        /// <summary>
+        /// KÉO THẢ FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Utility.ReleaseCapture();
+                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// KHỞI TẠO DATATABLE
+        /// </summary>
         private void InitDataTable()
         {
             data = new DataTable();
@@ -64,25 +124,11 @@ namespace RestaurantManagementApp.GUI
             data.Columns.Add("Kích cỡ", typeof(string));
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnMinimized_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void ControlBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Utility.ReleaseCapture();
-                Utility.SendMessage(Handle, 0x112, 0xf012, 0);
-            }
-        }
-
+        /// <summary>
+        /// NÚT HOÀN THÀNH MÓN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDone_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Xác nhận đã hoàn thành?", "Confirm", MessageBoxButtons.YesNo);
@@ -114,11 +160,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
-        private void ChefInfomation_PopupScreen_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            updateTableStatus();
-        }
-
+        /// <summary>
+        /// NÚT HẾT MÓN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOutOfStock_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Xác nhận hết món?", "Confirm", MessageBoxButtons.YesNo);

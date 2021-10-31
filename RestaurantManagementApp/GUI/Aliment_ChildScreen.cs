@@ -21,22 +21,38 @@ namespace RestaurantManagementApp.GUI
         private string PATH;
         private bool isNewImage = false;
 
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public Aliment_ChildScreen()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Aliment_ChildScreen_Load(object sender, EventArgs e)
         {
             FillTypeToComboBox();
             FillAlimentToComboBox();
         }
 
+        /// <summary>
+        /// KÍCH HOẠT SỰ KIỆN KHI THAY ĐỔI DỮ LIỆU TRÊN COMBOBOX
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cboAliment_Child_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             BindingAliment(AlimentBusinessTier.GetAlimentByName(cboAliment_Child.SelectedItem.ToString()));
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU DANH SÁCH LOẠI MÓN ĂN VÀO COMBOBOX
+        /// </summary>
         private void FillTypeToComboBox()
         {
             List<AlimentType> types = AlimentTypeBusinessTier.GetAlimentTypes();
@@ -46,6 +62,10 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU MÓN ĂN VÀO CÁC CONTROL TỪ ĐỐI TƯỢNG "ALIMENT"
+        /// </summary>
+        /// <param name="aliment"></param>
         private void BindingAliment(Aliment aliment)
         {
             txtName_Child.Texts = aliment.AlimentName;
@@ -54,6 +74,9 @@ namespace RestaurantManagementApp.GUI
             picAvatar_Child.Image = aliment.Image != null ? Utility.LoadBitmapUnlocked(aliment.Image) : null;
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU DANH SÁCH CÁC MÓN ĂN VÀO COMBOBOX
+        /// </summary>
         private void FillAlimentToComboBox()
         {
             cboAliment_Child.Items.Clear();
@@ -75,6 +98,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐẶT CÁC CONTROL TRỞ VỀ TRẠNG THÁI BAN ĐẦU
+        /// </summary>
         private void ResetControl()
         {
             cboAliment_Child.Texts = "";
@@ -82,6 +108,9 @@ namespace RestaurantManagementApp.GUI
             txtPrice_Child.Texts = "";
         }
 
+        /// <summary>
+        /// LẤY ĐỐI TƯỢNG MÓN ĂN GỘP TỪ CÁC CONTROL
+        /// </summary>
         private Aliment GetDataFromForm => new Aliment()
         {
             AlimentName = txtName_Child.Texts,
@@ -90,6 +119,11 @@ namespace RestaurantManagementApp.GUI
             Image = picAvatar_Child.Image != null ? Utility.IMAGE_ALIMENT_PATH + txtName_Child.Texts + Utility.IMAGE_EXTENSION : null
         };
 
+        /// <summary>
+        /// NÚT CHỌN ẢNH TỪ THƯ VIỆN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChooseImage_Child_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "JPG files|*.jpg|JPEG files|*.jpeg", Multiselect = false })
@@ -103,6 +137,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT CẬP NHẬT THÔNG TIN MÓN ĂN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Child_Click(object sender, EventArgs e)
         {
             #region Ràng Buộc Tên Món
@@ -142,6 +181,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT NGỪNG BÁN MÓN ĂN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Child_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn ngừng bán món này không?", "Deleting Confirm", MessageBoxButtons.YesNo);
@@ -164,6 +208,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT THÊM MÓN ĂN MỚI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void icoAdd_Child_Click(object sender, EventArgs e)
         {
             AddAliment_PopupScreen add = new AddAliment_PopupScreen();

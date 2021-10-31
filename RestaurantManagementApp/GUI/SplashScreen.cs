@@ -13,6 +13,9 @@ namespace RestaurantManagementApp.GUI
 {
     public partial class SplashScreen : Form, IRemoveFlicker
     {
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public SplashScreen()
         {
             InitializeComponent();
@@ -23,6 +26,9 @@ namespace RestaurantManagementApp.GUI
             RemoveFlicker();
         }
 
+        /// <summary>
+        /// CẢI THIỆN TÌNH TRẠNG NHẤP NHÁY
+        /// </summary>
         public void RemoveFlicker()
         {
             Utility.EnableDoubleBuff(pnlTotal);
@@ -32,12 +38,22 @@ namespace RestaurantManagementApp.GUI
             Utility.EnableDoubleBuff(pnlLoad);
         }
 
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SplashScreen_Load(object sender, EventArgs e)
         {
             lblCopyright.Text = "CREATED BY GIANG BÙI - NHẬT HÀO";
             lblVersion.Text = Utility.VERSION;
         }
 
+        /// <summary>
+        /// CONTROL ĐẾM GIỜ ĐỂ LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerSplashScreen_Tick(object sender, EventArgs e)
         {
             pnlLoad.Width += 20;

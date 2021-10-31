@@ -17,11 +17,19 @@ namespace RestaurantManagementApp.GUI
         private DataTable DataInvoice, DataInvoiceDetails;
         private int index;
 
+        /// <summary>
+        /// CONSTRUCTOR
+        /// </summary>
         public InvoiceStatistical_ChildScreen()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// SỰ KIỆN LOAD FORM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void InvoiceStatistical_ChildScreen_Load(object sender, EventArgs e)
         {
             FillEmployeeToComboBox();
@@ -30,6 +38,9 @@ namespace RestaurantManagementApp.GUI
             InitDataTableInvoiceDetails();
         }
 
+        /// <summary>
+        /// KHỞI TẠO DATATABLE HÓA ĐƠN
+        /// </summary>
         private void InitDataTableInvoice()
         {
             DataInvoice = new DataTable();
@@ -43,6 +54,9 @@ namespace RestaurantManagementApp.GUI
             dgvInvoice.DataSource = DataInvoice;
         }
 
+        /// <summary>
+        /// KHỞI TẠO DATATABLE CHI TIẾT HÓA ĐƠN
+        /// </summary>
         private void InitDataTableInvoiceDetails()
         {
             DataInvoiceDetails = new DataTable();
@@ -54,6 +68,9 @@ namespace RestaurantManagementApp.GUI
             DataInvoiceDetails.Columns.Add("Ghi Chú", typeof(string));
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU DANH SÁCH CÁC NHÂN VIÊN VÀO COMBOBOX
+        /// </summary>
         private void FillEmployeeToComboBox()
         {
             cboEmployee.Items.Add("");
@@ -64,6 +81,9 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU DANH SÁCH CÁC BÀN VÀO COMBOBOX
+        /// </summary>
         private void FillTableToComboBox()
         {
             cboTable.Items.Add("");
@@ -74,6 +94,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// NÚT TÌM HÓA ĐƠN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             #region Ràng Buộc Khoảng Thời Gian Tìm Kiếm
@@ -92,6 +117,11 @@ namespace RestaurantManagementApp.GUI
             FillDataInvoiceToDataTable(DataInvoice, invoices);
         }
 
+        /// <summary>
+        /// ĐỔ DỮ LIỆU HÓA ĐƠN VÀO DATATABLE HÓA ĐƠN
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="invoices"></param>
         private void FillDataInvoiceToDataTable(DataTable data, List<Invoice> invoices)
         {
             data.Rows.Clear();
@@ -111,6 +141,11 @@ namespace RestaurantManagementApp.GUI
             }
         }
 
+        /// <summary>
+        /// ĐẶT TRẠNG THÁI CÁC CONTROL VỀ BAN ĐẦU
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReset_Click(object sender, EventArgs e)
         {
             cboEmployee.SelectedIndex = 0;
@@ -119,11 +154,21 @@ namespace RestaurantManagementApp.GUI
             dtpTo.Value = DateTime.Now.Date;
         }
 
+        /// <summary>
+        /// HIỆN FORM REPORT ĐỂ IN HÓA ĐƠN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPrint_Click(object sender, EventArgs e)
         {
             new Report_PopupScreen().ShowDialog();
         }
 
+        /// <summary>
+        /// SỰ KIỆN NHẤN VÀO Ô TRONG DATAGRIDVIEW HÓA ĐƠN
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvInvoice_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvInvoiceDetails.DataSource = null;
