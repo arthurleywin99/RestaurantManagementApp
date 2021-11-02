@@ -124,7 +124,7 @@ namespace RestaurantManagementApp.GUI
             if (notification != null)
             {
                 timerChef.Stop();
-                DialogResult result = MessageBox.Show(notification.Content, "Thông báo", MessageBoxButtons.OK);
+                DialogResult result = MessageBox.Show(notification.Content, "Thông báo từ nhân viên phục vụ", MessageBoxButtons.OK);
                 if (result == DialogResult.OK)
                 {
                     GetTableStatus();

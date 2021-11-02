@@ -40,12 +40,15 @@ namespace RestaurantManagementApp.GUI
             this.pnl = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlAlimentDetails = new System.Windows.Forms.FlowLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pnlAliment = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.cboAlimentType = new RestaurantManagementApp.Custom._Combobox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,19 +56,14 @@ namespace RestaurantManagementApp.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnPay = new RestaurantManagementApp.Custom._Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtTotal = new RestaurantManagementApp.Custom._TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPay = new RestaurantManagementApp.Custom._TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtExcessCash = new RestaurantManagementApp.Custom._TextBox();
-            this.btnUpdateInvoice = new RestaurantManagementApp.Custom._Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtEmployeeName = new RestaurantManagementApp.Custom._TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtCoupon = new RestaurantManagementApp.Custom._TextBox();
             this.btnSendChef = new RestaurantManagementApp.Custom._Button();
+            this.txtEmployeeName = new RestaurantManagementApp.Custom._TextBox();
+            this.btnUpdateInvoice = new RestaurantManagementApp.Custom._Button();
+            this.txtExcessCash = new RestaurantManagementApp.Custom._TextBox();
+            this.txtPay = new RestaurantManagementApp.Custom._TextBox();
+            this.txtTotal = new RestaurantManagementApp.Custom._TextBox();
+            this.btnPay = new RestaurantManagementApp.Custom._Button();
+            this.cboAlimentType = new RestaurantManagementApp.Custom._Combobox();
             this.ControlBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
@@ -209,8 +207,6 @@ namespace RestaurantManagementApp.GUI
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.Control;
             this.panel10.Controls.Add(this.btnSendChef);
-            this.panel10.Controls.Add(this.txtCoupon);
-            this.panel10.Controls.Add(this.label11);
             this.panel10.Controls.Add(this.txtEmployeeName);
             this.panel10.Controls.Add(this.label10);
             this.panel10.Controls.Add(this.btnUpdateInvoice);
@@ -225,6 +221,46 @@ namespace RestaurantManagementApp.GUI
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(798, 285);
             this.panel10.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(9, 55);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 22);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Nhân Viên";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(391, 102);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 22);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Tiền Thừa";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(389, 55);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(98, 22);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Khách Trả";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(389, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(153, 22);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Tổng Thành Tiền";
             // 
             // pnlAliment
             // 
@@ -273,28 +309,6 @@ namespace RestaurantManagementApp.GUI
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(790, 41);
             this.panel8.TabIndex = 1;
-            // 
-            // cboAlimentType
-            // 
-            this.cboAlimentType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.cboAlimentType.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cboAlimentType.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.cboAlimentType.BorderSize = 1;
-            this.cboAlimentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cboAlimentType.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboAlimentType.ForeColor = System.Drawing.Color.DimGray;
-            this.cboAlimentType.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cboAlimentType.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cboAlimentType.ListTextColor = System.Drawing.Color.Black;
-            this.cboAlimentType.Location = new System.Drawing.Point(55, 5);
-            this.cboAlimentType.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cboAlimentType.Name = "cboAlimentType";
-            this.cboAlimentType.Padding = new System.Windows.Forms.Padding(1);
-            this.cboAlimentType.Size = new System.Drawing.Size(246, 30);
-            this.cboAlimentType.TabIndex = 0;
-            this.cboAlimentType.Texts = "";
-            this.cboAlimentType.OnSelectedIndexChanged += new System.EventHandler(this.cboAlimentType_OnSelectedIndexChanged);
             // 
             // label1
             // 
@@ -372,103 +386,68 @@ namespace RestaurantManagementApp.GUI
             this.label2.TabIndex = 0;
             this.label2.Text = "TÊN MÓN/GHI CHÚ";
             // 
-            // btnPay
+            // btnSendChef
             // 
-            this.btnPay.BackColor = System.Drawing.Color.DarkRed;
-            this.btnPay.BackgroundColor = System.Drawing.Color.DarkRed;
-            this.btnPay.BorderColor = System.Drawing.Color.LimeGreen;
-            this.btnPay.BorderRadius = 15;
-            this.btnPay.BorderSize = 0;
-            this.btnPay.FlatAppearance.BorderSize = 0;
-            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPay.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(516, 139);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(271, 98);
-            this.btnPay.TabIndex = 0;
-            this.btnPay.Text = "THANH TOÁN [F4]";
-            this.btnPay.TextColor = System.Drawing.Color.White;
-            this.btnPay.UseVisualStyleBackColor = false;
-            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            this.btnSendChef.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.btnSendChef.BackgroundColor = System.Drawing.Color.MediumVioletRed;
+            this.btnSendChef.BorderColor = System.Drawing.Color.LimeGreen;
+            this.btnSendChef.BorderRadius = 15;
+            this.btnSendChef.BorderSize = 0;
+            this.btnSendChef.FlatAppearance.BorderSize = 0;
+            this.btnSendChef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendChef.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendChef.ForeColor = System.Drawing.Color.White;
+            this.btnSendChef.Location = new System.Drawing.Point(196, 190);
+            this.btnSendChef.Name = "btnSendChef";
+            this.btnSendChef.Size = new System.Drawing.Size(314, 47);
+            this.btnSendChef.TabIndex = 14;
+            this.btnSendChef.Text = "Báo Chế Biến";
+            this.btnSendChef.TextColor = System.Drawing.Color.White;
+            this.btnSendChef.UseVisualStyleBackColor = false;
+            this.btnSendChef.Click += new System.EventHandler(this.btnSendChef_Click);
             // 
-            // label7
+            // txtEmployeeName
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(389, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 22);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Tổng Thành Tiền";
+            this.txtEmployeeName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtEmployeeName.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtEmployeeName.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtEmployeeName.BorderRadius = 0;
+            this.txtEmployeeName.BorderSize = 2;
+            this.txtEmployeeName.Enabled = false;
+            this.txtEmployeeName.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmployeeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtEmployeeName.Location = new System.Drawing.Point(145, 49);
+            this.txtEmployeeName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmployeeName.Multiline = false;
+            this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtEmployeeName.PasswordChar = false;
+            this.txtEmployeeName.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtEmployeeName.PlaceholderText = "";
+            this.txtEmployeeName.Size = new System.Drawing.Size(191, 36);
+            this.txtEmployeeName.TabIndex = 11;
+            this.txtEmployeeName.Texts = "";
+            this.txtEmployeeName.UnderlinedStyle = false;
             // 
-            // txtTotal
+            // btnUpdateInvoice
             // 
-            this.txtTotal.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtTotal.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtTotal.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtTotal.BorderRadius = 0;
-            this.txtTotal.BorderSize = 2;
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.ForeColor = System.Drawing.Color.Blue;
-            this.txtTotal.Location = new System.Drawing.Point(549, 4);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTotal.Multiline = false;
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtTotal.PasswordChar = false;
-            this.txtTotal.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtTotal.PlaceholderText = "";
-            this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTotal.Size = new System.Drawing.Size(238, 37);
-            this.txtTotal.TabIndex = 4;
-            this.txtTotal.Texts = "";
-            this.txtTotal.UnderlinedStyle = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(389, 55);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 22);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Khách Trả";
-            // 
-            // txtPay
-            // 
-            this.txtPay.BackColor = System.Drawing.SystemColors.Info;
-            this.txtPay.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtPay.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtPay.BorderRadius = 0;
-            this.txtPay.BorderSize = 2;
-            this.txtPay.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPay.ForeColor = System.Drawing.Color.Red;
-            this.txtPay.Location = new System.Drawing.Point(549, 48);
-            this.txtPay.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPay.Multiline = false;
-            this.txtPay.Name = "txtPay";
-            this.txtPay.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtPay.PasswordChar = false;
-            this.txtPay.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtPay.PlaceholderText = "";
-            this.txtPay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPay.Size = new System.Drawing.Size(238, 37);
-            this.txtPay.TabIndex = 6;
-            this.txtPay.Texts = "0";
-            this.txtPay.UnderlinedStyle = false;
-            this.txtPay._TextChanged += new System.EventHandler(this.txtPay__TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(391, 102);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 22);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Tiền Thừa";
+            this.btnUpdateInvoice.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnUpdateInvoice.BackgroundColor = System.Drawing.Color.DarkBlue;
+            this.btnUpdateInvoice.BorderColor = System.Drawing.Color.LimeGreen;
+            this.btnUpdateInvoice.BorderRadius = 15;
+            this.btnUpdateInvoice.BorderSize = 0;
+            this.btnUpdateInvoice.FlatAppearance.BorderSize = 0;
+            this.btnUpdateInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateInvoice.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateInvoice.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateInvoice.Location = new System.Drawing.Point(196, 137);
+            this.btnUpdateInvoice.Name = "btnUpdateInvoice";
+            this.btnUpdateInvoice.Size = new System.Drawing.Size(314, 47);
+            this.btnUpdateInvoice.TabIndex = 9;
+            this.btnUpdateInvoice.Text = "Cập Nhật Hóa Đơn";
+            this.btnUpdateInvoice.TextColor = System.Drawing.Color.White;
+            this.btnUpdateInvoice.UseVisualStyleBackColor = false;
+            this.btnUpdateInvoice.Click += new System.EventHandler(this.btnUpdateInvoice_Click);
             // 
             // txtExcessCash
             // 
@@ -494,111 +473,95 @@ namespace RestaurantManagementApp.GUI
             this.txtExcessCash.Texts = "0";
             this.txtExcessCash.UnderlinedStyle = false;
             // 
-            // btnUpdateInvoice
+            // txtPay
             // 
-            this.btnUpdateInvoice.BackColor = System.Drawing.Color.DarkBlue;
-            this.btnUpdateInvoice.BackgroundColor = System.Drawing.Color.DarkBlue;
-            this.btnUpdateInvoice.BorderColor = System.Drawing.Color.LimeGreen;
-            this.btnUpdateInvoice.BorderRadius = 15;
-            this.btnUpdateInvoice.BorderSize = 0;
-            this.btnUpdateInvoice.FlatAppearance.BorderSize = 0;
-            this.btnUpdateInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateInvoice.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateInvoice.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateInvoice.Location = new System.Drawing.Point(248, 139);
-            this.btnUpdateInvoice.Name = "btnUpdateInvoice";
-            this.btnUpdateInvoice.Size = new System.Drawing.Size(262, 47);
-            this.btnUpdateInvoice.TabIndex = 9;
-            this.btnUpdateInvoice.Text = "Cập Nhật Hóa Đơn";
-            this.btnUpdateInvoice.TextColor = System.Drawing.Color.White;
-            this.btnUpdateInvoice.UseVisualStyleBackColor = false;
-            this.btnUpdateInvoice.Click += new System.EventHandler(this.btnUpdateInvoice_Click);
+            this.txtPay.BackColor = System.Drawing.SystemColors.Info;
+            this.txtPay.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtPay.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtPay.BorderRadius = 0;
+            this.txtPay.BorderSize = 2;
+            this.txtPay.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPay.ForeColor = System.Drawing.Color.Red;
+            this.txtPay.Location = new System.Drawing.Point(549, 48);
+            this.txtPay.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPay.Multiline = false;
+            this.txtPay.Name = "txtPay";
+            this.txtPay.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPay.PasswordChar = false;
+            this.txtPay.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPay.PlaceholderText = "";
+            this.txtPay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPay.Size = new System.Drawing.Size(238, 37);
+            this.txtPay.TabIndex = 6;
+            this.txtPay.Texts = "0";
+            this.txtPay.UnderlinedStyle = false;
+            this.txtPay._TextChanged += new System.EventHandler(this.txtPay__TextChanged);
             // 
-            // label10
+            // txtTotal
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 12);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 22);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Nhân Viên";
+            this.txtTotal.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtTotal.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtTotal.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtTotal.BorderRadius = 0;
+            this.txtTotal.BorderSize = 2;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.Color.Blue;
+            this.txtTotal.Location = new System.Drawing.Point(549, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotal.Multiline = false;
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtTotal.PasswordChar = false;
+            this.txtTotal.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtTotal.PlaceholderText = "";
+            this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotal.Size = new System.Drawing.Size(238, 37);
+            this.txtTotal.TabIndex = 4;
+            this.txtTotal.Texts = "";
+            this.txtTotal.UnderlinedStyle = false;
             // 
-            // txtEmployeeName
+            // btnPay
             // 
-            this.txtEmployeeName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtEmployeeName.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtEmployeeName.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtEmployeeName.BorderRadius = 0;
-            this.txtEmployeeName.BorderSize = 2;
-            this.txtEmployeeName.Enabled = false;
-            this.txtEmployeeName.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmployeeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtEmployeeName.Location = new System.Drawing.Point(132, 4);
-            this.txtEmployeeName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmployeeName.Multiline = false;
-            this.txtEmployeeName.Name = "txtEmployeeName";
-            this.txtEmployeeName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtEmployeeName.PasswordChar = false;
-            this.txtEmployeeName.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtEmployeeName.PlaceholderText = "";
-            this.txtEmployeeName.Size = new System.Drawing.Size(191, 36);
-            this.txtEmployeeName.TabIndex = 11;
-            this.txtEmployeeName.Texts = "";
-            this.txtEmployeeName.UnderlinedStyle = false;
+            this.btnPay.BackColor = System.Drawing.Color.DarkRed;
+            this.btnPay.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.btnPay.BorderColor = System.Drawing.Color.LimeGreen;
+            this.btnPay.BorderRadius = 15;
+            this.btnPay.BorderSize = 0;
+            this.btnPay.FlatAppearance.BorderSize = 0;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.ForeColor = System.Drawing.Color.White;
+            this.btnPay.Location = new System.Drawing.Point(516, 139);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(271, 98);
+            this.btnPay.TabIndex = 0;
+            this.btnPay.Text = "THANH TOÁN [F4]";
+            this.btnPay.TextColor = System.Drawing.Color.White;
+            this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
-            // label11
+            // cboAlimentType
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(9, 55);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(110, 22);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Khuyến Mãi";
-            // 
-            // txtCoupon
-            // 
-            this.txtCoupon.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCoupon.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtCoupon.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtCoupon.BorderRadius = 0;
-            this.txtCoupon.BorderSize = 2;
-            this.txtCoupon.Enabled = false;
-            this.txtCoupon.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCoupon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCoupon.Location = new System.Drawing.Point(132, 48);
-            this.txtCoupon.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCoupon.Multiline = false;
-            this.txtCoupon.Name = "txtCoupon";
-            this.txtCoupon.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtCoupon.PasswordChar = false;
-            this.txtCoupon.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCoupon.PlaceholderText = "";
-            this.txtCoupon.Size = new System.Drawing.Size(191, 36);
-            this.txtCoupon.TabIndex = 13;
-            this.txtCoupon.Texts = "";
-            this.txtCoupon.UnderlinedStyle = false;
-            // 
-            // btnSendChef
-            // 
-            this.btnSendChef.BackColor = System.Drawing.Color.MediumVioletRed;
-            this.btnSendChef.BackgroundColor = System.Drawing.Color.MediumVioletRed;
-            this.btnSendChef.BorderColor = System.Drawing.Color.LimeGreen;
-            this.btnSendChef.BorderRadius = 15;
-            this.btnSendChef.BorderSize = 0;
-            this.btnSendChef.FlatAppearance.BorderSize = 0;
-            this.btnSendChef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSendChef.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendChef.ForeColor = System.Drawing.Color.White;
-            this.btnSendChef.Location = new System.Drawing.Point(248, 190);
-            this.btnSendChef.Name = "btnSendChef";
-            this.btnSendChef.Size = new System.Drawing.Size(262, 47);
-            this.btnSendChef.TabIndex = 14;
-            this.btnSendChef.Text = "Báo Chế Biến";
-            this.btnSendChef.TextColor = System.Drawing.Color.White;
-            this.btnSendChef.UseVisualStyleBackColor = false;
-            this.btnSendChef.Click += new System.EventHandler(this.btnSendChef_Click);
+            this.cboAlimentType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.cboAlimentType.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboAlimentType.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cboAlimentType.BorderSize = 1;
+            this.cboAlimentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cboAlimentType.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboAlimentType.ForeColor = System.Drawing.Color.DimGray;
+            this.cboAlimentType.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cboAlimentType.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cboAlimentType.ListTextColor = System.Drawing.Color.Black;
+            this.cboAlimentType.Location = new System.Drawing.Point(55, 5);
+            this.cboAlimentType.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cboAlimentType.Name = "cboAlimentType";
+            this.cboAlimentType.Padding = new System.Windows.Forms.Padding(1);
+            this.cboAlimentType.Size = new System.Drawing.Size(246, 30);
+            this.cboAlimentType.TabIndex = 0;
+            this.cboAlimentType.Texts = "";
+            this.cboAlimentType.OnSelectedIndexChanged += new System.EventHandler(this.cboAlimentType_OnSelectedIndexChanged);
             // 
             // Order_PopupScreen
             // 
@@ -666,8 +629,6 @@ namespace RestaurantManagementApp.GUI
         private System.Windows.Forms.Label label9;
         private Custom._TextBox txtPay;
         private System.Windows.Forms.Label label8;
-        private Custom._TextBox txtCoupon;
-        private System.Windows.Forms.Label label11;
         private Custom._TextBox txtEmployeeName;
         private System.Windows.Forms.Label label10;
         private Custom._Button btnSendChef;

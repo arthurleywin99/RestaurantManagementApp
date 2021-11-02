@@ -22,8 +22,6 @@ namespace RestaurantManagementApp.Model
         [StringLength(255)]
         public string TypeName { get; set; }
 
-        public string Describe { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Aliment> Aliments { get; set; }
     }
