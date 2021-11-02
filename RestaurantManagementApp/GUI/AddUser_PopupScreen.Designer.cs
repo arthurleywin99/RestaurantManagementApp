@@ -31,6 +31,7 @@ namespace RestaurantManagementApp.GUI
         {
             this.tbPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnExit_Popup = new System.Windows.Forms.PictureBox();
+            this.btnMinimized_Popup = new System.Windows.Forms.PictureBox();
             this.ControlBar = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -60,9 +61,9 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnChooseImage_Popup = new FontAwesome.Sharp.IconButton();
             this.picAvatar_Popup = new System.Windows.Forms.PictureBox();
-            this.btnMinimized_Popup = new System.Windows.Forms.PictureBox();
             this.tbPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit_Popup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimized_Popup)).BeginInit();
             this.ControlBar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,7 +72,6 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar_Popup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimized_Popup)).BeginInit();
             this.SuspendLayout();
             // 
             // tbPanel3
@@ -105,6 +105,21 @@ namespace RestaurantManagementApp.GUI
             this.btnExit_Popup.TabIndex = 0;
             this.btnExit_Popup.TabStop = false;
             this.btnExit_Popup.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnMinimized_Popup
+            // 
+            this.btnMinimized_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimized_Popup.Image = global::RestaurantManagementApp.Properties.Resources.MinimizeButton;
+            this.btnMinimized_Popup.Location = new System.Drawing.Point(6, 0);
+            this.btnMinimized_Popup.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinimized_Popup.Name = "btnMinimized_Popup";
+            this.btnMinimized_Popup.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimized_Popup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimized_Popup.TabIndex = 1;
+            this.btnMinimized_Popup.TabStop = false;
+            this.btnMinimized_Popup.Click += new System.EventHandler(this.btnMinimized_Popup_Click);
             // 
             // ControlBar
             // 
@@ -300,7 +315,7 @@ namespace RestaurantManagementApp.GUI
             this.txtUsername_Popup.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtUsername_Popup.PasswordChar = false;
             this.txtUsername_Popup.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtUsername_Popup.PlaceholderText = "Tên tài khoản từ 5 - 24 ký tự";
+            this.txtUsername_Popup.PlaceholderText = "";
             this.txtUsername_Popup.Size = new System.Drawing.Size(328, 36);
             this.txtUsername_Popup.TabIndex = 8;
             this.txtUsername_Popup.Texts = "";
@@ -323,7 +338,7 @@ namespace RestaurantManagementApp.GUI
             this.txtPassword_Popup.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtPassword_Popup.PasswordChar = true;
             this.txtPassword_Popup.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtPassword_Popup.PlaceholderText = "Mật khẩu từ 6 - 24 ký tự";
+            this.txtPassword_Popup.PlaceholderText = "";
             this.txtPassword_Popup.Size = new System.Drawing.Size(328, 36);
             this.txtPassword_Popup.TabIndex = 9;
             this.txtPassword_Popup.Texts = "";
@@ -392,7 +407,7 @@ namespace RestaurantManagementApp.GUI
             this.txtCardID_Popup.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtCardID_Popup.PasswordChar = false;
             this.txtCardID_Popup.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCardID_Popup.PlaceholderText = "CMND 9 hoặc 12 ký tự";
+            this.txtCardID_Popup.PlaceholderText = "";
             this.txtCardID_Popup.Size = new System.Drawing.Size(328, 36);
             this.txtCardID_Popup.TabIndex = 12;
             this.txtCardID_Popup.Texts = "";
@@ -618,21 +633,6 @@ namespace RestaurantManagementApp.GUI
             this.picAvatar_Popup.TabIndex = 0;
             this.picAvatar_Popup.TabStop = false;
             // 
-            // btnMinimized_Popup
-            // 
-            this.btnMinimized_Popup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimized_Popup.Image = global::RestaurantManagementApp.Properties.Resources.MinimizeButton;
-            this.btnMinimized_Popup.Location = new System.Drawing.Point(6, 0);
-            this.btnMinimized_Popup.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinimized_Popup.Name = "btnMinimized_Popup";
-            this.btnMinimized_Popup.Size = new System.Drawing.Size(30, 30);
-            this.btnMinimized_Popup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimized_Popup.TabIndex = 1;
-            this.btnMinimized_Popup.TabStop = false;
-            this.btnMinimized_Popup.Click += new System.EventHandler(this.btnMinimized_Popup_Click);
-            // 
             // AddUser_PopupScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,6 +646,7 @@ namespace RestaurantManagementApp.GUI
             this.Text = "AddUser_PopupScreen";
             this.tbPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnExit_Popup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimized_Popup)).EndInit();
             this.ControlBar.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -656,7 +657,6 @@ namespace RestaurantManagementApp.GUI
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar_Popup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimized_Popup)).EndInit();
             this.ResumeLayout(false);
 
         }

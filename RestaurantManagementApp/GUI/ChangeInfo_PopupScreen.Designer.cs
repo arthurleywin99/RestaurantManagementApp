@@ -239,7 +239,7 @@ namespace RestaurantManagementApp.GUI
             this.txtIDCard.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtIDCard.PasswordChar = false;
             this.txtIDCard.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtIDCard.PlaceholderText = "CMND 9 hoặc 12 ký tự";
+            this.txtIDCard.PlaceholderText = "";
             this.txtIDCard.Size = new System.Drawing.Size(285, 36);
             this.txtIDCard.TabIndex = 12;
             this.txtIDCard.Texts = "";

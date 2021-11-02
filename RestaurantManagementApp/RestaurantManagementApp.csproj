@@ -222,12 +222,6 @@
     <Compile Include="GUI\Order_PopupScreen.Designer.cs">
       <DependentUpon>Order_PopupScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Payment_PopupScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Payment_PopupScreen.Designer.cs">
-      <DependentUpon>Payment_PopupScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Report_PopupScreen.cs">
       <SubType>Form</SubType>
     </Compile>

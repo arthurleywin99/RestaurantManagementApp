@@ -62,6 +62,7 @@ namespace RestaurantManagementApp.GUI
                 row["Tên món"] = AlimentBusinessTier.GetAlimentNameByID(invoiceDetails[i].AlimentID);
                 row["Số lượng"] = invoiceDetails[i].Amount;
                 row["Kích cỡ"] = AlimentSizeBusinessTier.GetAlimentSizeByID(invoiceDetails[i].SizeID);
+                row["Ghi chú"] = invoiceDetails[i].Note;
                 data.Rows.Add(row);
             }
             dgvInvoice.DataSource = data;
@@ -122,6 +123,7 @@ namespace RestaurantManagementApp.GUI
             data.Columns.Add("Tên món", typeof(string));
             data.Columns.Add("Số lượng", typeof(int));
             data.Columns.Add("Kích cỡ", typeof(string));
+            data.Columns.Add("Ghi chú", typeof(string));
         }
 
         /// <summary>
